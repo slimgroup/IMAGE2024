@@ -1,0 +1,107 @@
+---
+title: "Digital Twin"
+author:
+  - name: 
+    orcid: 
+    email: 
+    url:
+    affiliations:
+      - ref: gatech
+  - name: 
+    orcid: 
+    email: 
+    url:
+    affiliations:
+      - ref: gatech
+  - name: 
+    orcid: 
+    email: 
+    url: 
+    affiliations:
+      - ref: gatech
+  - name: 
+    orcid: 
+    email: 
+    url: 
+    affiliations:
+      - ref: gatech
+affiliations:
+  - id: gatech
+    name: Georgia Institute of Technology
+    url: https://slim.gatech.edu/
+description: | 
+  Digital Twin with pressure control.
+bibliography: abstract.bib
+abstract: |
+  Digital twin with pressure control, reproducible at [OneShotImaging.jl](https://github.com/mloubout/OneShotImaging)
+---
+
+::: hidden
+$$
+    \newcommand{\pluseq}{\mathrel{+}=}
+$$
+:::
+
+## Objectives and scope
+Write objective and scope
+
+## Method
+Write methods here
+
+## Results
+Write results here
+
+::: {#fig-sup }
+![](figures/figname1.png)
+
+Caption 1
+:::
+
+::: {#fig-unsup }
+![](figures/figname2.png)
+
+Caption 2
+:::
+
+
+
+## Significance
+Write significance.
+Additional material is available at https://slimgroup.github.io/IMAGE2024/.
+
+
+# Supplementary material
+
+## Introduction
+
+
+## Methodology
+
+
+### Summary networks
+
+
+### Supervised
+
+
+### Unsupervised
+
+
+## Synthetic case studies
+
+
+## Discussion and conclusions
+
+
+### References
+
+::: {#refs}
+:::
+
+## Acknowledgement {.appendix}
+
+This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.
+
+
+## Software availability {.appendix}
+

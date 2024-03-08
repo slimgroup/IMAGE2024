@@ -1,0 +1,38 @@
+project:
+  type: website
+
+website:
+  title: "Image2024"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+    right:
+      - icon: github
+        href: https://github.com/slimgroup
+  sidebar:
+      style: "docked"
+      search: true
+      contents:
+      - section: "Abstracts"
+        contents:
+        - file: OneShot/abstract.qmd
+          text: "One Shot Imaging"
+        - file: DigitalTwin/abstract.qmd
+          text: "Sequential Bayesian Inference with control"
+  page-footer:
+    center:
+      - file: license.qmd
+        text: "2024 Copyright (c) SLIM @ Georgia Institute of Technology"
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    link-external-newwindow: True
+
+execute:
+  freeze: auto

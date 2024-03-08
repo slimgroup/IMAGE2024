@@ -1,0 +1,275 @@
+[
+  {
+    "objectID": "NonLinear-JRM/abstract.html",
+    "href": "NonLinear-JRM/abstract.html",
+    "title": "Time-lapse seismic monitoring of geological carbon storage with the nonlinear joint recovery model",
+    "section": "",
+    "text": "During time-lapse seismic monitoring, weak 4D signal below the level of inversion or migration artifacts poses challenges. To address these, low-cost randomized non-replicated acquisitions and linear joint recovery model (JRM) have been introduced to take advantage of the shared information between different vintages in the time-lapse seismic data and subsurface structure undergoing localized changes. Since the relationship between seismic data and subsurface properties is seldomly linear, we propose a more versatile nonlinear JRM to invert for the squared slowness of the vintages."
+  },
+  {
+    "objectID": "NonLinear-JRM/abstract.html#methods-procedures-process",
+    "href": "NonLinear-JRM/abstract.html#methods-procedures-process",
+    "title": "Time-lapse seismic monitoring of geological carbon storage with the nonlinear joint recovery model",
+    "section": "Methods, Procedures, Process",
+    "text": "Methods, Procedures, Process\nDuring linear JRM, for two seismic vintages, three unknown parameters are inverted, namely the common component, \\(m_0\\), and innovation components, \\(\\delta m_1\\) and \\(\\delta m_2\\), with respect to this common component and there is a linear relationship between these components and seismic data. We proposed here an alternative nonlinear JRM (nJRM) that take advantage of the full nonlinear relation between these components and time-lapse data through the wave equation. We then minimize a joint misfit that takes full advantage of the shared information in the background model as shown in Figure 1. Additionally, careful derivation of the gradient shows that only one gradient computation per vintage is necessary making the computational cost equivalent to independent recovery. To demonstrate the advantage of the proposed nonlinear joint inversion, we consider an experimental setup involving CO2 monitoring and consider the seismic time-lapse in the subsurface incurred by a CO2 reservoir and use a realistic synthetic model representing North Sea (Figure 1(a)). We invert two vintages with the proposed nJRM to obtain baseline and monitor images and their difference gives the time-lapse change due to CO2 plume. Similar to the conventional linear method, nJRM should trivially extend to more than two vintages as well. Finally, we show the robustness of our method against non replicated acquisition compared to traditional independent recovery known to rely heavily on replication."
+  },
+  {
+    "objectID": "NonLinear-JRM/abstract.html#results-observations-conclusions",
+    "href": "NonLinear-JRM/abstract.html#results-observations-conclusions",
+    "title": "Time-lapse seismic monitoring of geological carbon storage with the nonlinear joint recovery model",
+    "section": "Results, Observations, Conclusions",
+    "text": "Results, Observations, Conclusions\nWe show in Figures 1 (b) and (e), the independent and in Figures 1 (c) and (f), the nJRM recovery obtained with the proposed method. We observe that both the baseline and monitor are well recovered individually. In Figures 2 (a), (b) and (c) we show the ground truth time-lapse, independent recovery time-lapse and nJRM time-lapse difference respectively for a non-replicated acquisition, mimicking sparse OBNs, highlighted with red/green dots on the model. In these figures, time-lapse differences inverted with nonlinear JRM are more accurate and contain less artifacts and noise thanks to exploiting common information between surveys (the background model) and small localized time-lapse differences. Moreover, independent recovery suffers consequently from non-replication with clear artifacts in the shallow area (Figure 2(b)) while nonlinear JRM stays relatively focused on the time-lapse difference with dimmer and less structured artifacts. These results are consistent with the linear JRM literature, strengthens the argument for a low-cost randomized non-replicated acquisition in the time-lapse seismic survey for GCS rather than expensive replicated surveys. Finally, we measure the degree of repeatability of the recovery of the vintages and their time-lapse difference with the traditional normalized root mean square (NRMS). In this study, the NRMS value for the independent and nJRM recoveries are 1.05% and 0.46%, respectively showing a clear advantage for joint recovery."
+  },
+  {
+    "objectID": "NonLinear-JRM/abstract.html#significancenovelty",
+    "href": "NonLinear-JRM/abstract.html#significancenovelty",
+    "title": "Time-lapse seismic monitoring of geological carbon storage with the nonlinear joint recovery model",
+    "section": "Significance/Novelty",
+    "text": "Significance/Novelty\nTo our knowledge, this is the first introduction of a non-linear extension to the traditionally linear JRM applied to time-lapse inversion. Through a realistic 2D synthetic study of GCS, we showed that the proposed new technique, which is trivially extendible to more than two vintages, confirms that non-replication can be beneficial to time-lapse imaging of the subsurface making seismic monitoring of GCS less costly for long term sustainability of the technology. Additional material is available at https://slimgroup.github.io/IMAGE2023/.\n\n\n\n\n\n\n\nFigure 1: Independent and nJRM recovery of baseline and monitor vintages\n\n\n\n\n\n\n\n\n\nFigure 2: Independent and nJRM recovery of time-lapse differences"
+  },
+  {
+    "objectID": "DetectabilityWithVision/abstract.html",
+    "href": "DetectabilityWithVision/abstract.html",
+    "title": "Enhancing CO2 Leakage Detectability via Dataset Augmentation",
+    "section": "",
+    "text": "Previous work showed that neural classifiers can be trained to detect CO2 leakage from time-lapse seismic images. While this result is crucial to the global deployment of geological carbon storage (GCS), its success depends on relatively dense non-replicated time-lapse data acquisition. In this study, we show that by augmenting the training set with various coarse receiver samplings and corresponding seismic images, we can improve the leakage detection capabilities and accuracy while increasing the robustness with respect to low-cost coarse receiver samplings, e.g. ocean bottom nodes (OBNs)."
+  },
+  {
+    "objectID": "DetectabilityWithVision/abstract.html#methods-procedures-process",
+    "href": "DetectabilityWithVision/abstract.html#methods-procedures-process",
+    "title": "Enhancing CO2 Leakage Detectability via Dataset Augmentation",
+    "section": "Methods, Procedures, Process",
+    "text": "Methods, Procedures, Process\n\nTo create a suitable training set, we derive permeability models from 2D proxy velocity models with a geology representative of potential GCS sites in the South of the North Sea. These models are derived from 3D imaged seismic and well-log data with realistic heterogeneity. Given these permeability models, we create a training set of seismically imaged CO2 plumes that behave regularly (without leakage) and irregularly (with leakage). After generating baseline and monitor surveys, time-lapse seismic images of the plume are created with reverse time migration (RTM). The CO2 plumes themselves are modeled with two-phase flow equations.\nTo create high-fidelity images, we deploy 162 receivers (25m apart) and 32 jittered sources (~125m apart). Given these images, we train our neural classifier based on a Vision Transformer network. As shown in Figure 1a, the classifier meets our ultimate purpose of distinguishing between regular and irregular plumes.\nWhile the results are encouraging, the training and test images use high-fidelity imaging obtained with densely sampled OBNs. Unfortunately, in practice, we can not rely on dense receiver sampling due to the associated high costs and classifier performance deteriorates on images obtained from coarse receiver samplings. To overcome these issues, we augment the training dataset with time-lapse images computed from multiple acquisition geometries with coarse receiver samplings (between 25m and 200m spacing), shown in Figure 2b.\n\n\n\n\n\n\n\nFigure 1: Training procedure and results of RTM on different receiver configurations. In (a), multiple different time-lapse difference images of CO2 plumes are created with RTM (1000 regular and 1000 irregular plumes). The resulting images are used to train the classifier in binary classification setting. In (b), we can see three different receiver geometries and the resulting RTM time-lapse difference images."
+  },
+  {
+    "objectID": "DetectabilityWithVision/abstract.html#results-observations-conclusions",
+    "href": "DetectabilityWithVision/abstract.html#results-observations-conclusions",
+    "title": "Enhancing CO2 Leakage Detectability via Dataset Augmentation",
+    "section": "Results, Observations, Conclusions",
+    "text": "Results, Observations, Conclusions\n\n\n\nFigure 2 shows that the network trained initially on 162 receiver configuration achieves high testing accuracy for acquisition geometries with more receivers. However, its performance degrades when the number of receivers decreases, rendering the classifier untrustworthy for less than 100 receivers. To compensate for this performance loss, we augment the training dataset with time-lapse difference images obtained from migrating the coarse datasets with between 20 and 160 random receivers.\nWe observe in Figure 2 that the network trained with the augmented dataset, containing those time-lapse images, provides higher accuracy for all receiver geometries and better robustness to coarse acquisition. Moreover, the confusion matrix metrics such as true negative have substantially increased, where positives and negatives are irregular and regular plume images, respectively, showing the improved trustworthiness of the new network to coarse and dense receiver configurations.\nThese results demonstrate that dataset augmentation enhances the generalization of our classifier and contributes to its leakage detection accuracy and trustworthiness. In terms of practical usage, this work suggests that a dataset based on a particular seismic time-lapse acquisition geometry can be readily made adaptable to different geometries by augmenting the dataset with time-lapse seismic images obtained from complementary random acquisition geometries. More information is in slimgroup.github.io/IMAGE2023.\n\n\n\n\n\n\n\nFigure 2: Classification Results. Right: The graph shows the accuracy performance of two models. In testing stage of the experiment, we used 100 unseen RTM examples for each different receiver configurations. Left: Confusion matrix results are shown. The new trained classifier achieves higher true negative values with minimal decrease in true positive."
+  },
+  {
+    "objectID": "DetectabilityWithVision/abstract.html#significancenovelty",
+    "href": "DetectabilityWithVision/abstract.html#significancenovelty",
+    "title": "Enhancing CO2 Leakage Detectability via Dataset Augmentation",
+    "section": "Significance/Novelty",
+    "text": "Significance/Novelty\n\nTo our knowledge, this is the first study that generalizes and increases robustness of neural classifiers for CO2 leakage detection to receiver geometries of varying sampling density. We proposed an augmentation of the dataset with migrations from coarse geometries that improves the network’s generalization to changes in the receiver sampling. The results show that our study has the potential to lower dataset collection cost while training classifiers capable of automatic leakage detection from time-lapse seismic images computed from non-replicated surveys with low-cost receiver sampling."
+  },
+  {
+    "objectID": "yin2023IMAGEend2end/abstract.html",
+    "href": "yin2023IMAGEend2end/abstract.html",
+    "title": "Coupled physics inversion for geological carbon storage monitoring",
+    "section": "",
+    "text": "Understanding CO2 plume behavior is key to the success of geological carbon storage projects. While two-phase flow equations provide a good model to make predictions on future CO2 plume behavior, these equations rely on having access to the true permeability model. Unfortunately, accurate information on the permeability is unavailable, which greatly jeopardizes our ability to predict CO2 plume behavior. To overcome this problem, we estimate the permeability from time-lapse seismic data via a coupled inversion methodology that improve as more monitoring data becomes available over time."
+  },
+  {
+    "objectID": "yin2023IMAGEend2end/abstract.html#methods-procedures-process-1500-characters",
+    "href": "yin2023IMAGEend2end/abstract.html#methods-procedures-process-1500-characters",
+    "title": "Coupled physics inversion for geological carbon storage monitoring",
+    "section": "Methods, Procedures, Process (1500 characters)",
+    "text": "Methods, Procedures, Process (1500 characters)\nTo estimate the spatial permeability distribution, we adopt a coupled physics inversion framework that involves three kinds of physics, namely two-phase fluid-flow, rock, and wave physics. The fluid-flow equations model the time evolution of the CO2 concentration and pressure given the permeability distribution. The rock physics modeling converts the time-varying CO2 concentration into the acoustic wavespeed. Finally, seismic modeling generates time-lapse seismic data for each vintage based on the wavespeed of the rocks. A schematic of this multiphysics forward model is shown in Figure 1.\nGiven observed time-lapse seismic data, we then directly invert for the permeability through the fully nested physics modeling operators. The inverted permeability can be used to generate time-varying CO2 concentration snapshots that match observed time-lapse seismic data. Aside from obtaining estimates for the CO2 plume’s past and current behavior, constrained by the two-phase flow equations, the proposed inversion methodology is also capable of producing reliable CO2 forecasts from the inverted permeability. These forecasts can be produced for different injection scenarios allowing for in-situ interventions designed to optimize productivity and minimize risks."
+  },
+  {
+    "objectID": "yin2023IMAGEend2end/abstract.html#results-observations-conclusions-1500-characters",
+    "href": "yin2023IMAGEend2end/abstract.html#results-observations-conclusions-1500-characters",
+    "title": "Coupled physics inversion for geological carbon storage monitoring",
+    "section": "Results, Observations, Conclusions (1500 characters)",
+    "text": "Results, Observations, Conclusions (1500 characters)\nWe conduct a realistic numerical study based on the North Sea Compass model whose geology is very similar to sites currently being considered as a potential site for geological carbon storage. We convert the wavespeed in the model to log-permeability values to make up alternating high- and low-permeability layers in the reservoir with a seal on top. We inject CO2 in a highly permeable layer for 25 years. During and after injection, the CO2 tends to move into high permeability layers and move up due to buoyancy effects. To monitor the CO2 plume seismically, we shoot 5 surveys of crosswell data every 5th year, using a Ricker wavelet with a central frequency of 20 Hz.\nWe start the inversion with homogenous permeability values in the reservoir. After 10 data passes of gradient descent, the CO2 plume recovery from the inverted permeability is shown in Figure 2(a). The extent of the plume looks drastically different from the initial prediction based on the homogeneous permeability, but reasonably similar to the ground truth CO2 plumes. As expected, we only obtain information on the permeability from regions within the CO2 plume during the first 25 years of injection, shown in Figure 2(b). While the inverted permeability captures only part of the true permeability model, it improves drastically on plume forecasts for the next 25 years compared to those obtained from the starting model for the permeability. More information is in slimgroup.github.io/IMAGE2023."
+  },
+  {
+    "objectID": "yin2023IMAGEend2end/abstract.html#significancenovelty-600-characters",
+    "href": "yin2023IMAGEend2end/abstract.html#significancenovelty-600-characters",
+    "title": "Coupled physics inversion for geological carbon storage monitoring",
+    "section": "Significance/Novelty (600 characters)",
+    "text": "Significance/Novelty (600 characters)\nTo our knowledge, this is the first numerical study that applies a multiphysics inversion framework to a realistic geological carbon storage site. The fluid-flow simulations and sensitivity calculations are conducted using state-of-the-art solvers in JutulDarcy.jl, which accounts for compressibility and residual trapping effects (purple colors). Also, the simulations are based on a proxy permeability model derived from real imaged seismic and well data. Experiment shows that the proposed methodology can be applied to geological carbon storage projects to estimate and forecast CO2 plume evolution.\n\n\n\n\n\n\n\nFigure 1: Multiphysics forward modeling operators.\n\n\n\n\n\n\n\n\n\nFigure 2: End-to-end inversion results. (a) shows the CO2 plume snapshots at every 10th year for the initial prediction, ground truth ones, and the prediction from inverted permeability model. (b) shows the initial, inverted and ground truth permeability model."
+  },
+  {
+    "objectID": "BayesianKrig/abstract.html",
+    "href": "BayesianKrig/abstract.html",
+    "title": "Generative Seismic Kriging with Normalizing Flows",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "BayesianKrig/abstract.html#objectives-and-scope",
+    "href": "BayesianKrig/abstract.html#objectives-and-scope",
+    "title": "Generative Seismic Kriging with Normalizing Flows",
+    "section": "OBJECTIVES AND SCOPE",
+    "text": "OBJECTIVES AND SCOPE\n\nThe objective is to demonstrate the applicability of Normalizing Flows (NFs) to subsurface kriging from wells. We will show that after supervised training, we can generate multiple realistic samples of plausible earth models that match the observed wells. We observe that these samples produce uncertainty statistics that are correlated with the complex parts of the model. The applicability of this method is for areas nearby the original survey used for training. Finally, we compare the speed and quality of our solutions with those obtained using a traditional variogram approach."
+  },
+  {
+    "objectID": "BayesianKrig/abstract.html#methods-procedures-process",
+    "href": "BayesianKrig/abstract.html#methods-procedures-process",
+    "title": "Generative Seismic Kriging with Normalizing Flows",
+    "section": "METHODS, PROCEDURES, PROCESS",
+    "text": "METHODS, PROCEDURES, PROCESS\n\nKriging is highly ill-posed (there is no unique solution), therefore, ideal methods should be able to produce many models that match the observed well log data. Generative networks can be used to sample models that are conditioned on observations. A particular class of generative networks are normalizing flows. These are particularly attractive because they are fast to sample from and have low training memory requirements from their invertibility. We implemented our architecture in Julia with InvertibleNetworks.jl.\nOur method is supervised and needs training examples of observed wells “y” with its corresponding full earth models “x”. We use the 3D Compass model with a 90%/5%/5% train/validate/test split of 2D slices. For each training slice (nz=256, nx=512, d=10m) of the Compass volume, we randomly generate well observations by selecting 5 horizontal locations at least 200 meters from each other. This process creates the training pairs (x_i,y_i) for the normalizing flow. We made 10k pairs and trained as visualized in Figure 1. \nAfter training, we input an unseen well log y (5 wells) and produce posterior samples p(x|y) (earth models). To create a single point estimate, we average all posterior samples to get the posterior mean.\nOur baseline, is an exponential variogram from the package PyKrige. The variogram parameters are automatically selected by the well log data. We manually set the anisotropy angle to 0 to match the overall horizontally layered structures of Compass.\n\n\n\n\n\n\n\nFigure 1: Schematic of full training process and test time evaluation of our method."
+  },
+  {
+    "objectID": "BayesianKrig/abstract.html#results-observations-conclusions",
+    "href": "BayesianKrig/abstract.html#results-observations-conclusions",
+    "title": "Generative Seismic Kriging with Normalizing Flows",
+    "section": "RESULTS, OBSERVATIONS, CONCLUSIONS",
+    "text": "RESULTS, OBSERVATIONS, CONCLUSIONS\n\nIn Figure 2, we show posterior samples generated with our method (10ms/sample on our GPU). To validate the quality of the earth models produced, we compare the posterior mean with the ground truth from a leave-out test set. We compare various metrics (SSIM, PSNR, RSME and time-to-compute) and verify that our method produces better reconstructions while being faster than a variogram approach.\nWe study the uncertainty of our approach by calculating the variance between the posterior samples and compare with the calculated variance of the variogram. We see in Figure 2 that our method produces uncertainty results that are more interpretable and correlate with specific structures in the subsurface.\nThe table in Figure 2 shows the quantitative performance of our method. Our method produces a high quality point estimates with an average RMSE of 0.038 compared to the variogram with an average RMSE of 0.043. The posterior mean gives a smooth model with less error on average, however we recommend practitioners use posterior samples as they maintain realistic earth characteristics.\nThis method has learned long range structures in the training survey area and can extrapolate them further. Generalization to other survey areas is out of the scope of this project but future work will explore it. We conclude that our method is a promising option for creating realistic earth models that match observed data wells and that it offers quantitative advantages over traditional approaches.\n\n\n\n\n\n\n\nFigure 2: Results from our method compared with exponential variogram. Our method produces realistic samples of earth models that when averaged produce high quality point estimates."
+  },
+  {
+    "objectID": "BayesianKrig/abstract.html#significancenovelty",
+    "href": "BayesianKrig/abstract.html#significancenovelty",
+    "title": "Generative Seismic Kriging with Normalizing Flows",
+    "section": "SIGNIFICANCE/NOVELTY",
+    "text": "SIGNIFICANCE/NOVELTY\n\nWe introduce the use of normalizing flows for kriging. While previous implementations of normalizing flows have struggled on high dimensional models, we demonstrated our implementation allows for learning on large realistic models. This method is set to scale to 3D models in future work to further enable the application of these methods to real-world seismic problems. In contrast with traditional variograms, our method produces realistic models, that is particularly important for downstream tasks in reservoir engineering and other applications where multiple plausible models are needed."
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "These abstracts are released under the Creative Commons License type CC BY. 2023 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+  },
+  {
+    "objectID": "OneShot/abstract.html",
+    "href": "OneShot/abstract.html",
+    "title": "Learned one-shot imaging",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "OneShot/abstract.html#objectives-and-scope",
+    "href": "OneShot/abstract.html#objectives-and-scope",
+    "title": "Learned one-shot imaging",
+    "section": "Objectives and scope",
+    "text": "Objectives and scope\nSeismic imaging’s main limiting factor is the scale of the involved dataset and the number of independent wave-equation solves required to migrate thousands of shots. To tackle this dimensionality curse, we introduce a learned framework that extends the conventional computationally reductive linear source superposition (e.g., via random simultaneous-source encoding) to a nonlinear learned source superposition and its corresponding learned supershot. With this method, we can image the subsurface at the cost of a one-shot migration by learning the most informative superposition of shots."
+  },
+  {
+    "objectID": "OneShot/abstract.html#method",
+    "href": "OneShot/abstract.html#method",
+    "title": "Learned one-shot imaging",
+    "section": "Method",
+    "text": "Method\nSimultaneous-source imaging takes advantage of the linearity of the wave equation by combining encoded (e.g., via random weights or time shifts) shot records together, reducing the number of wave-equation solves and therefore the cost of imaging. Because of the linearity, the same linear transformation can be applied to the sources to maintain source-shot consistency. To further reduce imaging costs, we propose using nonlinear encodings, and to compensate for the inability to apply the corresponding transform to the source, we simultaneously learn the nonlinear source and nonlinear data encodings with two deep networks. The first network takes shot records as input and outputs a learned supershot. The second network produces the associated nonlinearly encoded simultaneous source given this supershot. Lastly, we migrate the supershot using the nonlinear simultaneous source to obtain the one-shot seismic image. To jointly train these networks, we propose supervised and unsupervised formulations. In the supervised method, networks aim to minimize the difference between the predicted image and the ground-truth seismic image. Our unsupervised approach eliminates the need for true models, making the technique applicable in practice, by minimizing the difference between the observed data and the migrated-demigrated supershots. Additionally, since the training only relies on supershot migration, the total cost of training is lesser than the conventional migration of all single shots."
+  },
+  {
+    "objectID": "OneShot/abstract.html#results",
+    "href": "OneShot/abstract.html#results",
+    "title": "Learned one-shot imaging",
+    "section": "Results",
+    "text": "Results\nWe apply the proposed one-shot imaging approach to a previously unseen shot data and slice. The cost of one-shot imaging is approximately the same as a single shot migration as network evaluation costs are negligible. Results for the learned supervised and unsupervised one-shot imaging are presented in Figures 1 and 2, respectively. For reference, the original shot data are included on the left, followed by the learned supershot data and learned source. Corresponding images are plotted on the right. Figure 1 shows that the learned one-shot reverse-time migration (RTM) result constitutes a major improvement compared to the image obtained with conventional random source encoding (juxtapose images in the first column on the left). The one-shot imaging result is also better than conventional sequential source RTM since it is closer to the true reflectivity plotted at the top of the right column. This improvement in the image’s frequency content can be explained by the fact that in the supervised learning formulation the networks are jointly trained to produce broadband seismic images. Similarly, we find that similar observations are true for the unsupervised case, except that the improvement in image quality is slightly less pronounced. Besides being computationally inexpensive and providing high-fidelity images since the source encoding is learned from data, our method requires no knowledge of the source signatures and learns to extract information from the data on the image.\n\n\n\nFigure 1: Learned supershot and simultenous sources on a testing slice. We show a shot record and the migrated image with a random supershot and with sequential shots for reference.\n\n\n\n\n\nFigure 2: Unsupervised Learned supershot and simultenous sources on a testing slice. We show a shot record and the migrated image with a random supershot and with sequential shots for reference."
+  },
+  {
+    "objectID": "OneShot/abstract.html#significance",
+    "href": "OneShot/abstract.html#significance",
+    "title": "Learned one-shot imaging",
+    "section": "Significance",
+    "text": "Significance\nWe introduced the first instance of learned nonlinear simultaneous-source encoding, enabling one-shot seismic imaging. After incurring initial training costs, the method is capable of producing high-fidelity images at the cost of migrating a single shot record, which entails a drastic reduction in migration costs. We introduced supervised and unsupervised training formulations, the latter of which only relies on a dataset of shot records from several seismic surveys, making it applicable in realistic settings. Additional material is available at https://slimgroup.github.io/IMAGE2023/."
+  },
+  {
+    "objectID": "OneShot/abstract.html#introduction",
+    "href": "OneShot/abstract.html#introduction",
+    "title": "Learned one-shot imaging",
+    "section": "Introduction",
+    "text": "Introduction\n(Deans 2002) -Summary statistics reduce the size of incoming datasets while maintainting the same posterior distribution p(x|y) = p(x|summary) (Radev et al. 2020) -Summary networks learn to reduce the size of incoming datasets and maximize informativeness of the summarized data due to joint learning of summary network and posterior learning network. -hand waves an argument that jointly trained networks will maximize the mutual information between h(y) and x (Müller et al. 2021) -Goes in to further detail and rigoursly proves that jointly trained networks will maximize the mutual information between h(y) and x (Bloem-Reddy and Teh 2020) suggests to use learned layers that are invariant under a certain transformation. This transformation is described by the probabilistic assumption on your data."
+  },
+  {
+    "objectID": "OneShot/abstract.html#methodology",
+    "href": "OneShot/abstract.html#methodology",
+    "title": "Learned one-shot imaging",
+    "section": "Methodology",
+    "text": "Methodology\nHere we present our formulation for a learned simultaneous source-data pair for seismic imaging. We propose two training formulations, one that relies on knowledge of the true perturbation (supervised), and the other that solely relies on the observed data (unsupervised). Fundamentally, we are introducing a formulation that learns a single supershot and corresponding source that maximally informs seismic imaging. Next section describes the design of the deep networks that enable this goal.\n\nSummary networks\nTo handle the high-dimensionality of seismic data and, we use summary networks (Radev et al. 2020) that are designed to exploit the intrinsic low-dimensional structure [ref needed to curvelet etc] of seismic data. These deep networks compress the observed seismic data \\(\\mathbf{d}\\) while maximally preserving the information useful for inferring the unknown seismic image \\(\\delta \\mathbf{m}\\). A major aspect of the architectural design of a summary networks are exploiting the invariances in data, e.g., invariance to permutation (Bloem-Reddy and Teh 2020). This is achieved by choosing neural architectures with functional forms that explicitly respect the intrinsic invariances in data. For example in the case of seismic imaging, the order of shot records has no effect on the final seismic image. To make this invariance explicit in the design of our network, we sum the shot records and feed it to a deep convolutional neural network.\n\n\nSupervised\nThe simplest formulation aims to learn the supershot and simultaneous source that best inform the model perturbation, given the surface recorded data. Mathematically, it means that we are trying to fit the true model perturbation with two networks that learn a single supershot and simultaneous source for the Jacobian from the individual field recorded shot records. Mathematically, the learning can be written as: \\[\n\\min_{\\boldsymbol{\\theta}, \\boldsymbol{\\phi}} \\ \\mathbb{E}_{(\\mathbf{d}, \\delta \\mathbf{m}) \\sim p(\\mathbf{d}, \\delta \\mathbf{m})} \\left[ \\frac{1}{2} \\Big\\| \\mathbf{J}\\big(\\mathcal{H}_{\\phi} \\circ \\mathcal{G}_{\\theta} \\left(\\mathbf{d}\\right)\\big)^\\top \\mathcal{G}_{\\theta}(\\mathbf{d}) - \\delta \\mathbf{m} \\Big\\|_2^2 \\right],\n\\tag{1}\\]\nwhere \\(\\mathcal{G}_{\\theta}\\) is the summary network that maps shot records to a learned, nonlinearly mixed supershot at the receiver locations, \\(\\mathcal{H}_{\\phi}\\) is the neural network responsible for estimating the associated nonlinearly encoded simultaneous source, and \\(\\circ\\) is the composition operator. The objective function matches the predicted seismic image, obtained by migrating the supershot \\(\\mathcal{G}_{\\theta}(\\mathbf{d})\\) via the adjoint Born imaging operator, \\(\\mathbf{J}\\), to the ground truth seismic image \\(\\delta \\mathbf{m}\\). We note that to evaluate the gradient of the objective function with jointly respect to \\(\\boldsymbol{\\theta}\\) and \\(\\boldsymbol{\\phi}\\), the gradient of the Jacobian with respect to its input (nonlinearly encoded source) is required. This derivative is, however, trivial to obtain with JUDI.jl thanks to its high-level linear algebra abstraction and integration with automatic differentiation framework in Julia.\n\n\nUnsupervised\nTo extend our approach to more realistic settings, we propose an unsupervised learning one-shot imaging approach that only requires a dataset of seismic shot records from several surveys. We formulate the problem as a minimization of the following objective function:\n\\[\n\\min_{\\boldsymbol{\\theta}, \\boldsymbol{\\phi}} \\ \\mathbb{E}_{\\mathbf{d} \\sim p(\\mathbf{d})} \\left[ \\frac{1}{2} \\Big\\|  \\tilde{\\mathbf{J}} \\mathbf{J}\\big(\\mathcal{H}_{\\phi} \\circ \\mathcal{G}_{\\theta}(\\mathbf{d})\\big)^\\top \\mathcal{G}_{\\theta}(\\mathbf{d}) - \\tilde{\\mathbf{d}} \\Big\\|_2^2  \\right ],\n\\tag{2}\\]\nwhere \\(\\tilde{\\mathbf{d}} = \\sum_{i=1}^{n_{\\text{src}}} w_i \\mathbf{d}_{i}\\) is a random super shot with \\(w_i := \\mathcal{N}(0, 1)\\) and \\(\\tilde{\\mathbf{J}}\\) is the corresponding simultaneous source born modeling operator. While this formulation ivolves an additional demigration (and therfore and additional migration to compute hte gradient), we do not require any knowledge of the true model perturbation but only the data. We could therefore in theory use this formulation for a wide range of datasets at once to generalize to any survey."
+  },
+  {
+    "objectID": "OneShot/abstract.html#synthetic-case-studies",
+    "href": "OneShot/abstract.html#synthetic-case-studies",
+    "title": "Learned one-shot imaging",
+    "section": "Synthetic case studies",
+    "text": "Synthetic case studies\nWe illustrate our method on a realstic 2D imaging problem. We created a dataset of 2000 2D slices by extracting slices out of the 3D overthrust model. We then split this dataset into 1600 slices for trainng and 400 slices for testing. For each 2D slice, we generate 21 shot records. One of the main advantage of our one-shot imaging method is that we only require a single migration-demigration per iteration. Therefore, we can perform 21 epochs before arriving to a computationnal cost equivalent to the plain standard RTM imaging of each slice. Since we only perform 15 epochs, our method is overall cheapper than computing the RTM on every single shot if we include the cost of training.\nWe trained the networks, both in the supervised and unsupervised case, for 15 epochs with a learning rate of \\(.0004\\) using the Adam optimizer."
+  },
+  {
+    "objectID": "OneShot/abstract.html#discussion-and-conclusions",
+    "href": "OneShot/abstract.html#discussion-and-conclusions",
+    "title": "Learned one-shot imaging",
+    "section": "Discussion and conclusions",
+    "text": "Discussion and conclusions\nWe introduced data-domain learning method that provides high accuracy imagies of the subsurface through one-shot imaging. We trained a network that learns the simultenous source and supershot that most inform the subsurface from the field recorded data. We showed that we obtain high accuracy images of the subsurface that contain broader frequency range than standard imaging and does not require prior knowledge of the source. Additionnally, the overall computationnal cost of training does not exceed the traditionnal cost of imaging.\n\nReferences\n\n\nBloem-Reddy, Benjamin, and Yee Whye Teh. 2020. “Probabilistic Symmetries and Invariant Neural Networks.” J. Mach. Learn. Res. 21: 90–91.\n\n\nDeans, Matthew C. 2002. “Maximally Informative Statistics for Localization and Mapping.” In Proceedings 2002 IEEE International Conference on Robotics and Automation (Cat. No. 02CH37292), 2:1824–29. IEEE.\n\n\nMüller, Jens, Robert Schmier, Lynton Ardizzone, Carsten Rother, and Ullrich Köthe. 2021. “Learning Robust Models Using the Principle of Independent Causal Mechanisms.” In DAGM German Conference on Pattern Recognition, 79–110. Springer.\n\n\nRadev, Stefan T, Ulf K Mertens, Andreas Voss, Lynton Ardizzone, and Ullrich Köthe. 2020. “BayesFlow: Learning Complex Stochastic Models with Invertible Neural Networks.” IEEE Transactions on Neural Networks and Learning Systems."
+  },
+  {
+    "objectID": "OneShot/abstract.html#acknowledgement",
+    "href": "OneShot/abstract.html#acknowledgement",
+    "title": "Learned one-shot imaging",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "OneShot/abstract.html#software-availability",
+    "href": "OneShot/abstract.html#software-availability",
+    "title": "Learned one-shot imaging",
+    "section": "Software availability",
+    "text": "Software availability\n\nResults presented here can be reproduced with the software and examples in OneShotImaging.jl distributed under MIT license."
+  },
+  {
+    "objectID": "BayesianFWI/abstract.html",
+    "href": "BayesianFWI/abstract.html",
+    "title": "Amortized Bayesian Full Waveform Inversion and Experimental Design with Normalizing Flows",
+    "section": "",
+    "text": "Probabilistic approaches to Full-Waveform Inversion (FWI), such as Bayesian ones, traditionally require expensive computations involving many wave-equation solves. To reduce the computational burden at test time, we propose to amortize the computational cost with offline training. After training, we aim to efficiently generate probabilistic FWI solutions with uncertainty. This aim is achieved by exploiting the ability of networks (i.e Normalizing Flows) to learn distributions, such as the Bayesian posterior. The posterior uncertainty is used during training to optimize the receiver sampling.\n\n\n\n\nNormalizing flows (NFs) are generative networks that can learn to sample from conditional distributions, here our desired Bayesian posterior p(x|y) where x are earth models and y is seismic data. To train NFs, we require training pairs of those earth models and seismic data. We use pairs from the open source dataset OPENFWI. The earth models are .7km by .7km and the seismic data is simulated with 5 sources with 15Hz frequency and 20dB noise. We use the CurveFault_B dataset from OPENFWI that contains 55k pairs and split the pairs for training, validation, and testing 90%/5%/5% respectively.\nTo learn to sample from the conditional distribution, the network learns to transform the earth models to Gaussian normal noise while conditioned on the acoustic data. By construction the network is invertible, thus after training we sample Gaussian normal noise and apply the inverse network to generate samples from the posterior, again conditioned by the seismic data. The training and testing processes are illustrated schematically in Figure 1.\nThe NF training objective has been shown to be equivalent to maximizing the information gain, as defined by Bayesian optimal experimental design (EOD), of the conditioned data. Thus, we propose to jointly optimize for a receiver sampling mask M and the network parameters during NF training to simultaneously learn the Bayesian posterior and the optimal minimal receiver geometry.\n\n\n\n\n\n\n\nFigure 1: Schematic of full training process and test time evaluation of our method.\n\n\n\n\n\n\nAfter training, our method generates posterior samples at the cost of one network inverse pass (10ms on our GPU). Seen in Figure 2, the posterior samples are realistic earth models that could plausibly correspond to the seismic data. The variations between the posterior samples are due to the FWI problem being ill-posed and because of noise in the indirect observations at the surface (20dB noise). To study these variations, we take the sample variance as our uncertainty quantification (UQ). We observe that the UQ is concentrated on steep and deeper structures. Both these types of structures are difficult to invert for with FWI showing that our UQ correlates with the expected error making our UQ realistic and interpretable.\nTo make a single high-quality solution, we take the mean of the posterior samples. This posterior mean \\(\\mathbf{x}_{PM}\\) shows high-quality metrics that surpass OPENFWI benchmarks while producing Bayesian UQ not available with the OPENFWI benchmarks.\nThe optimal receiver sampling obtained by our method (black circles in “test” portion of Figure 1) are the traces that the network has learned to select to best inform the inverse problem.\nOur method is amortized since the aforementioned computational debt of probabilistic FWI is paid by modeling the training pairs (x,y) and the cost of training the network. After these costs are incurred offline, our method can efficiently sample from the Bayesian posterior for many unseen seismic datasets without wave-equation solves.\n\n\n\n\n\n\n\nFigure 2: Results from our method. Our method produces realistic samples of earth models that when averaged produce high quality point estimates. The variance in posterior samples correlates with structures that are difficult to invert for in FWI.\n\n\n\n\n\n\nTo our knowledge, this is the first demonstration of normalizing flows applied to amortized FWI with Bayesian uncertainty quantification. We also showed a practical application of the uncertainty towards optimal experimental design of acquisition geometry. While the open source dataset used has small models, NFs are memory efficient due to their intrinsic invertibility and are set to scale to realistic sized problems and field datasets."
+  },
+  {
+    "objectID": "zhang2023IMAGEsg/abstract.html",
+    "href": "zhang2023IMAGEsg/abstract.html",
+    "title": "3D seismic survey design by maximizing the spectral gap",
+    "section": "",
+    "text": "The massive cost of 3D acquisition calls for methods to reduce the number of receivers by designing optimal receiver sampling masks. Recent studies on 2D seismic showed that maximizing the spectral gap of the subsampling mask leads to better wavefield reconstruction results. We enrich the current study by proposing a simulation-free method to generate optimal 3D acquisition by maximizing the spectral gap of the subsampling mask via a simulated annealing algorithm. Numerical experiments confirm improvement of the proposed method over receiver sampling locations obtained by jittered sampling."
+  },
+  {
+    "objectID": "zhang2023IMAGEsg/abstract.html#methods-procedures-process-1500-characters",
+    "href": "zhang2023IMAGEsg/abstract.html#methods-procedures-process-1500-characters",
+    "title": "3D seismic survey design by maximizing the spectral gap",
+    "section": "Methods, Procedures, Process (1500 characters)",
+    "text": "Methods, Procedures, Process (1500 characters)\nThe spectral gap ratio is the ratio of the first and second singular values of a binary subsampling mask (binary matrix). It is a cheap-to-compute measure to predict wavefield reconstruction quality from acquisition geometry only. Motivated by recent success on 2D survey design methods driven by spectral gap ratio minimization, we consider 3D survey design where receivers are missing and sources are fully sampled. Because 3D wavefield reconstruction based on low-rank matrix completion relies on the non-canonical Source-X/Receiver-X (columns) Source-Y/Receiver-Y (rows) organization of the data into a matrix, we aim to minimize the spectral gap ratio of the subsampling mask in that domain. Fortunately, when sources are fully sampled, each single-receiver block of the global sampling matrix is either fully sampled or empty depending on whether that specific receiver is sampled. Consequently, the block structure of the global matrix leads to the exact same singular values as a single-source receiver sampling mask. We can therefore optimize a single-source mask to obtain the global optimized mask. The main computational cost is computing the first two singular values of the receiver sampling mask, which is negligible compared to approaches that require wave simulations. The resulting optimal mask with the lowest spectral gap ratio indicates the receiver sampling locations that favor 3D wavefield reconstruction via matrix completion in the non-cononical organization domain."
+  },
+  {
+    "objectID": "zhang2023IMAGEsg/abstract.html#results-observations-conclusions-1500-characters",
+    "href": "zhang2023IMAGEsg/abstract.html#results-observations-conclusions-1500-characters",
+    "title": "3D seismic survey design by maximizing the spectral gap",
+    "section": "Results, Observations, Conclusions (1500 characters)",
+    "text": "Results, Observations, Conclusions (1500 characters)\nTo illustrate the efficacy of our method via a numerical experiment on a simulated 3D marine dataset over the compass model. The data volume consists of 501 time samples, 1681 sources and 10k receivers. The distance between the adjacent sources and receivers are 150m and 25m in each direction, respectively, with a time sampling interval of 0.01s. By removing 90% of receivers using jittered subsampling, we obtain a binary matrix with the spectral gap ratio 0.507 in the non-canonical domain. After applying simulated annealing algorithm, the spectral gap ratio of mask effectively decreases to 0.328. To validate the efficacy of our acquisition design method, we perform data reconstruction on a frequency slice at 16.8Hz via weighted matrix completion for the two subsampled datasets with jittered subsampling mask and the proposed mask, with results shown in Figure 2. The reconstruction signal-to-noise ratio from the observed data at proposed receiver locations is 12.27 dB, which is about 1.4 dB higher than the reconstruction signal-to-noise ratio 10.88 dB achieved from data observed at jittered sampled receiver locations. This confirms that the proposed optimized receiver sampling locations result in a superior seismic survey that leads to better wavefield reconstruction performance. More information is in slimgroup.github.io/IMAGE2023."
+  },
+  {
+    "objectID": "zhang2023IMAGEsg/abstract.html#significancenovelty-600-characters",
+    "href": "zhang2023IMAGEsg/abstract.html#significancenovelty-600-characters",
+    "title": "3D seismic survey design by maximizing the spectral gap",
+    "section": "Significance/Novelty (600 characters)",
+    "text": "Significance/Novelty (600 characters)\nThis is the first numerical case study that applies spectral gap ratio minimization techniques to seismic acquisition design that favors 3D wavefield reconstruction. Rather than requiring costly wave simulations, the proposed method only relies on a single binary matrix optimization which is computationally inexpensive. Experiments demonstrate that the proposed method generates an improved 3D seismic survey better suitable for 3D wavefield reconstruction.\n\n\n\n\n\n\n\nFigure 1: Spectral gap ratio of the data matrix in the non-canonical Source-X/Receiver-X (columns) Source-Y/Receiver-Y (rows) domain is the same as the spectral gap ratio of the single-source receiver sampling matrix.\n\n\n\n\n\n\n\n\n\nFigure 2: Comparison of data reconstruction performance for receiver locations sampled by the jittered method and the proposed method. There is about 1.4 dB SNR improvement."
+  },
+  {
+    "objectID": "SequentialBayes/abstract.html",
+    "href": "SequentialBayes/abstract.html",
+    "title": "Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "SequentialBayes/abstract.html#objectives-and-scope",
+    "href": "SequentialBayes/abstract.html#objectives-and-scope",
+    "title": "Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference",
+    "section": "OBJECTIVES AND SCOPE",
+    "text": "OBJECTIVES AND SCOPE\n\nTo monitor and predict CO2 plume dynamics during geological carbon storage, reservoir engineers usually perform two-phase flow simulations. While these simulations may provide useful insights, their usefulness is limited due to numerous complicating factors including uncertainty in the dynamics of the plume itself. To study this phenomenon, we consider stochasticity in the dynamic caused by unknown random changes in the injection rate. By conditioning the CO2 plume predictions on seismic observations, we correct the CO2 plume predictions and quantify uncertainty with machine learning."
+  },
+  {
+    "objectID": "SequentialBayes/abstract.html#methods-procedures-process",
+    "href": "SequentialBayes/abstract.html#methods-procedures-process",
+    "title": "Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference",
+    "section": "METHODS, PROCEDURES, PROCESS",
+    "text": "METHODS, PROCEDURES, PROCESS\n\nWe propose a method where at each timestep conditional neural networks are trained to generate samples of the CO2 saturation conditioned on current time-lapse seismic data. The method proceeds by generating training pairs consisting of the current CO2 saturation, which is simulated with a random injection rate from the previous timestep, and the associated reverse-time migration seismic image computed from simulated surface data. Given these training pairs, an amortized conditional normalizing flow (NF) is trained to approximate the posterior distribution for the saturation given seismic images. After training, the network is capable of drawing samples from the posterior distribution of the saturation given observed time-lapse seismic data at the current timestep. In turn, these samples for the CO2 saturation serve as input to two-phase flow simulations to predict the CO2 plume at the next timestep and the process repeats itself, recursively.\nCompared to more traditional data assimilation techniques, our approach has the distinct advantage that it does not make simplifying assumptions on the statistics and linearity of the CO2 plume dynamics and its coupling to time-lapse seismic data. The proposed method is also likelihood free. It only needs to be able to run simulations of the plume dynamics that may contain hidden stochastic terms. In our case, this stochastic term is the randomly varying injection rate.\n\n\n\n\n\n\n\n\nFigure 1: Schematic of training process for a single timestep."
+  },
+  {
+    "objectID": "SequentialBayes/abstract.html#results-observations-conclusions",
+    "href": "SequentialBayes/abstract.html#results-observations-conclusions",
+    "title": "Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference",
+    "section": "RESULTS, OBSERVATIONS, CONCLUSIONS",
+    "text": "RESULTS, OBSERVATIONS, CONCLUSIONS\n\nWe make CO2 plume predictions using both conditioned by seismic and unconditioned simulations. The conditional mean of the posterior samples is used for the seismic-conditioned predictions, while the unconditioned predictions are given by the ensemble mean over the different simulations at each timestep. Figure 2 shows that seismic-conditioned predictions are more accurate in predicting the ground truth and have a smaller conditional sample variance than the unconditioned ensemble mean predictions.\nBy examining the difference between the ground truth and predictions, we characterize the uncertainties. For the seismic-conditioned predictions, the uncertainties are located near the injection well. In addition, the plume’s boundary is well-predicted by the seismic-conditioned method while the unconditioned simulations have, as expected, an increasing uncertainty at the boundary over time and tend to consistently over-estimate the plume extent.\nOverall, we conclude that the unconditioned simulation poorly predicts the CO2 plume. Our seismic-conditioned framework assimilates information and learns over time, which improves the CO2 forecasting and characterizes uncertainties.\n\n\n\n\n\n\n\nFigure 2: Results from our method compared with unconditional ensemble variogram."
+  },
+  {
+    "objectID": "SequentialBayes/abstract.html#significancenovelty",
+    "href": "SequentialBayes/abstract.html#significancenovelty",
+    "title": "Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference",
+    "section": "SIGNIFICANCE/NOVELTY",
+    "text": "SIGNIFICANCE/NOVELTY\n\nTo our understanding, this framework is the first geological carbon storage monitoring model that continuously assimilates information with seismic observations, updates the CO2 plume predictions, and characterizes uncertainties on the plume itself. Because our predictions are conditioned by the physics, we expect this method to extend to larger and more realistic model sources of uncertainty (permeability, topology, etc)."
+  }
+]
