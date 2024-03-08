@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Image2024",
+    "section": "",
+    "text": "This is a Quarto website.\nAll submissions to the Image23 conference with additional figures, references, …\nList of abstrac:"
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "These abstracts are released under the Creative Commons License type CC BY. 2024 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+  },
+  {
+    "objectID": "OneShot/abstract.html",
+    "href": "OneShot/abstract.html",
+    "title": "Learned one-shot imaging",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "OneShot/abstract.html#objectives-and-scope",
+    "href": "OneShot/abstract.html#objectives-and-scope",
+    "title": "Learned one-shot imaging",
+    "section": "Objectives and scope",
+    "text": "Objectives and scope\nSeismic imaging’s main limiting factor is the scale of the involved dataset and the number of independent wave-equation solves required to migrate thousands of shots. To tackle this dimensionality curse, we introduce a learned framework that extends the conventional computationally reductive linear source superposition (e.g., via random simultaneous-source encoding) to a nonlinear learned source superposition and its corresponding learned supershot. With this method, we can image the subsurface at the cost of a one-shot migration by learning the most informative superposition of shots."
+  },
+  {
+    "objectID": "OneShot/abstract.html#method",
+    "href": "OneShot/abstract.html#method",
+    "title": "Learned one-shot imaging",
+    "section": "Method",
+    "text": "Method\nSimultaneous-source imaging takes advantage of the linearity of the wave equation by combining encoded (e.g., via random weights or time shifts) shot records together, reducing the number of wave-equation solves and therefore the cost of imaging. Because of the linearity, the same linear transformation can be applied to the sources to maintain source-shot consistency. To further reduce imaging costs, we propose using nonlinear encodings, and to compensate for the inability to apply the corresponding transform to the source, we simultaneously learn the nonlinear source and nonlinear data encodings with two deep networks. The first network takes shot records as input and outputs a learned supershot. The second network produces the associated nonlinearly encoded simultaneous source given this supershot. Lastly, we migrate the supershot using the nonlinear simultaneous source to obtain the one-shot seismic image. To jointly train these networks, we propose supervised and unsupervised formulations. In the supervised method, networks aim to minimize the difference between the predicted image and the ground-truth seismic image. Our unsupervised approach eliminates the need for true models, making the technique applicable in practice, by minimizing the difference between the observed data and the migrated-demigrated supershots. Additionally, since the training only relies on supershot migration, the total cost of training is lesser than the conventional migration of all single shots."
+  },
+  {
+    "objectID": "OneShot/abstract.html#results",
+    "href": "OneShot/abstract.html#results",
+    "title": "Learned one-shot imaging",
+    "section": "Results",
+    "text": "Results\nWe apply the proposed one-shot imaging approach to a previously unseen shot data and slice. The cost of one-shot imaging is approximately the same as a single shot migration as network evaluation costs are negligible. Results for the learned supervised and unsupervised one-shot imaging are presented in Figures 1 and 2, respectively. For reference, the original shot data are included on the left, followed by the learned supershot data and learned source. Corresponding images are plotted on the right. Figure 1 shows that the learned one-shot reverse-time migration (RTM) result constitutes a major improvement compared to the image obtained with conventional random source encoding (juxtapose images in the first column on the left). The one-shot imaging result is also better than conventional sequential source RTM since it is closer to the true reflectivity plotted at the top of the right column. This improvement in the image’s frequency content can be explained by the fact that in the supervised learning formulation the networks are jointly trained to produce broadband seismic images. Similarly, we find that similar observations are true for the unsupervised case, except that the improvement in image quality is slightly less pronounced. Besides being computationally inexpensive and providing high-fidelity images since the source encoding is learned from data, our method requires no knowledge of the source signatures and learns to extract information from the data on the image.\n\n\n\nFigure 1: Learned supershot and simultenous sources on a testing slice. We show a shot record and the migrated image with a random supershot and with sequential shots for reference.\n\n\n\n\n\nFigure 2: Unsupervised Learned supershot and simultenous sources on a testing slice. We show a shot record and the migrated image with a random supershot and with sequential shots for reference."
+  },
+  {
+    "objectID": "OneShot/abstract.html#significance",
+    "href": "OneShot/abstract.html#significance",
+    "title": "Learned one-shot imaging",
+    "section": "Significance",
+    "text": "Significance\nWe introduced the first instance of learned nonlinear simultaneous-source encoding, enabling one-shot seismic imaging. After incurring initial training costs, the method is capable of producing high-fidelity images at the cost of migrating a single shot record, which entails a drastic reduction in migration costs. We introduced supervised and unsupervised training formulations, the latter of which only relies on a dataset of shot records from several seismic surveys, making it applicable in realistic settings. Additional material is available at https://slimgroup.github.io/IMAGE2023/."
+  },
+  {
+    "objectID": "OneShot/abstract.html#introduction",
+    "href": "OneShot/abstract.html#introduction",
+    "title": "Learned one-shot imaging",
+    "section": "Introduction",
+    "text": "Introduction\n(Deans 2002) -Summary statistics reduce the size of incoming datasets while maintainting the same posterior distribution p(x|y) = p(x|summary) (Radev et al. 2020) -Summary networks learn to reduce the size of incoming datasets and maximize informativeness of the summarized data due to joint learning of summary network and posterior learning network. -hand waves an argument that jointly trained networks will maximize the mutual information between h(y) and x (Müller et al. 2021) -Goes in to further detail and rigoursly proves that jointly trained networks will maximize the mutual information between h(y) and x (Bloem-Reddy and Teh 2020) suggests to use learned layers that are invariant under a certain transformation. This transformation is described by the probabilistic assumption on your data."
+  },
+  {
+    "objectID": "OneShot/abstract.html#methodology",
+    "href": "OneShot/abstract.html#methodology",
+    "title": "Learned one-shot imaging",
+    "section": "Methodology",
+    "text": "Methodology\nHere we present our formulation for a learned simultaneous source-data pair for seismic imaging. We propose two training formulations, one that relies on knowledge of the true perturbation (supervised), and the other that solely relies on the observed data (unsupervised). Fundamentally, we are introducing a formulation that learns a single supershot and corresponding source that maximally informs seismic imaging. Next section describes the design of the deep networks that enable this goal.\n\nSummary networks\nTo handle the high-dimensionality of seismic data and, we use summary networks (Radev et al. 2020) that are designed to exploit the intrinsic low-dimensional structure [ref needed to curvelet etc] of seismic data. These deep networks compress the observed seismic data \\(\\mathbf{d}\\) while maximally preserving the information useful for inferring the unknown seismic image \\(\\delta \\mathbf{m}\\). A major aspect of the architectural design of a summary networks are exploiting the invariances in data, e.g., invariance to permutation (Bloem-Reddy and Teh 2020). This is achieved by choosing neural architectures with functional forms that explicitly respect the intrinsic invariances in data. For example in the case of seismic imaging, the order of shot records has no effect on the final seismic image. To make this invariance explicit in the design of our network, we sum the shot records and feed it to a deep convolutional neural network.\n\n\nSupervised\nThe simplest formulation aims to learn the supershot and simultaneous source that best inform the model perturbation, given the surface recorded data. Mathematically, it means that we are trying to fit the true model perturbation with two networks that learn a single supershot and simultaneous source for the Jacobian from the individual field recorded shot records. Mathematically, the learning can be written as: \\[\n\\min_{\\boldsymbol{\\theta}, \\boldsymbol{\\phi}} \\ \\mathbb{E}_{(\\mathbf{d}, \\delta \\mathbf{m}) \\sim p(\\mathbf{d}, \\delta \\mathbf{m})} \\left[ \\frac{1}{2} \\Big\\| \\mathbf{J}\\big(\\mathcal{H}_{\\phi} \\circ \\mathcal{G}_{\\theta} \\left(\\mathbf{d}\\right)\\big)^\\top \\mathcal{G}_{\\theta}(\\mathbf{d}) - \\delta \\mathbf{m} \\Big\\|_2^2 \\right],\n\\tag{1}\\]\nwhere \\(\\mathcal{G}_{\\theta}\\) is the summary network that maps shot records to a learned, nonlinearly mixed supershot at the receiver locations, \\(\\mathcal{H}_{\\phi}\\) is the neural network responsible for estimating the associated nonlinearly encoded simultaneous source, and \\(\\circ\\) is the composition operator. The objective function matches the predicted seismic image, obtained by migrating the supershot \\(\\mathcal{G}_{\\theta}(\\mathbf{d})\\) via the adjoint Born imaging operator, \\(\\mathbf{J}\\), to the ground truth seismic image \\(\\delta \\mathbf{m}\\). We note that to evaluate the gradient of the objective function with jointly respect to \\(\\boldsymbol{\\theta}\\) and \\(\\boldsymbol{\\phi}\\), the gradient of the Jacobian with respect to its input (nonlinearly encoded source) is required. This derivative is, however, trivial to obtain with JUDI.jl thanks to its high-level linear algebra abstraction and integration with automatic differentiation framework in Julia.\n\n\nUnsupervised\nTo extend our approach to more realistic settings, we propose an unsupervised learning one-shot imaging approach that only requires a dataset of seismic shot records from several surveys. We formulate the problem as a minimization of the following objective function:\n\\[\n\\min_{\\boldsymbol{\\theta}, \\boldsymbol{\\phi}} \\ \\mathbb{E}_{\\mathbf{d} \\sim p(\\mathbf{d})} \\left[ \\frac{1}{2} \\Big\\|  \\tilde{\\mathbf{J}} \\mathbf{J}\\big(\\mathcal{H}_{\\phi} \\circ \\mathcal{G}_{\\theta}(\\mathbf{d})\\big)^\\top \\mathcal{G}_{\\theta}(\\mathbf{d}) - \\tilde{\\mathbf{d}} \\Big\\|_2^2  \\right ],\n\\tag{2}\\]\nwhere \\(\\tilde{\\mathbf{d}} = \\sum_{i=1}^{n_{\\text{src}}} w_i \\mathbf{d}_{i}\\) is a random super shot with \\(w_i := \\mathcal{N}(0, 1)\\) and \\(\\tilde{\\mathbf{J}}\\) is the corresponding simultaneous source born modeling operator. While this formulation ivolves an additional demigration (and therfore and additional migration to compute hte gradient), we do not require any knowledge of the true model perturbation but only the data. We could therefore in theory use this formulation for a wide range of datasets at once to generalize to any survey."
+  },
+  {
+    "objectID": "OneShot/abstract.html#synthetic-case-studies",
+    "href": "OneShot/abstract.html#synthetic-case-studies",
+    "title": "Learned one-shot imaging",
+    "section": "Synthetic case studies",
+    "text": "Synthetic case studies\nWe illustrate our method on a realstic 2D imaging problem. We created a dataset of 2000 2D slices by extracting slices out of the 3D overthrust model. We then split this dataset into 1600 slices for trainng and 400 slices for testing. For each 2D slice, we generate 21 shot records. One of the main advantage of our one-shot imaging method is that we only require a single migration-demigration per iteration. Therefore, we can perform 21 epochs before arriving to a computationnal cost equivalent to the plain standard RTM imaging of each slice. Since we only perform 15 epochs, our method is overall cheapper than computing the RTM on every single shot if we include the cost of training.\nWe trained the networks, both in the supervised and unsupervised case, for 15 epochs with a learning rate of \\(.0004\\) using the Adam optimizer."
+  },
+  {
+    "objectID": "OneShot/abstract.html#discussion-and-conclusions",
+    "href": "OneShot/abstract.html#discussion-and-conclusions",
+    "title": "Learned one-shot imaging",
+    "section": "Discussion and conclusions",
+    "text": "Discussion and conclusions\nWe introduced data-domain learning method that provides high accuracy imagies of the subsurface through one-shot imaging. We trained a network that learns the simultenous source and supershot that most inform the subsurface from the field recorded data. We showed that we obtain high accuracy images of the subsurface that contain broader frequency range than standard imaging and does not require prior knowledge of the source. Additionnally, the overall computationnal cost of training does not exceed the traditionnal cost of imaging.\n\nReferences\n\n\nBloem-Reddy, Benjamin, and Yee Whye Teh. 2020. “Probabilistic Symmetries and Invariant Neural Networks.” J. Mach. Learn. Res. 21: 90–91.\n\n\nDeans, Matthew C. 2002. “Maximally Informative Statistics for Localization and Mapping.” In Proceedings 2002 IEEE International Conference on Robotics and Automation (Cat. No. 02CH37292), 2:1824–29. IEEE.\n\n\nMüller, Jens, Robert Schmier, Lynton Ardizzone, Carsten Rother, and Ullrich Köthe. 2021. “Learning Robust Models Using the Principle of Independent Causal Mechanisms.” In DAGM German Conference on Pattern Recognition, 79–110. Springer.\n\n\nRadev, Stefan T, Ulf K Mertens, Andreas Voss, Lynton Ardizzone, and Ullrich Köthe. 2020. “BayesFlow: Learning Complex Stochastic Models with Invertible Neural Networks.” IEEE Transactions on Neural Networks and Learning Systems."
+  },
+  {
+    "objectID": "OneShot/abstract.html#acknowledgement",
+    "href": "OneShot/abstract.html#acknowledgement",
+    "title": "Learned one-shot imaging",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "OneShot/abstract.html#software-availability",
+    "href": "OneShot/abstract.html#software-availability",
+    "title": "Learned one-shot imaging",
+    "section": "Software availability",
+    "text": "Software availability\n\nResults presented here can be reproduced with the software and examples in OneShotImaging.jl distributed under MIT license."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html",
+    "href": "DigitalTwin/abstract.html",
+    "title": "Digital Twin",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#objectives-and-scope",
+    "href": "DigitalTwin/abstract.html#objectives-and-scope",
+    "title": "Digital Twin",
+    "section": "Objectives and scope",
+    "text": "Objectives and scope\nWrite objective and scope"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#method",
+    "href": "DigitalTwin/abstract.html#method",
+    "title": "Digital Twin",
+    "section": "Method",
+    "text": "Method\nWrite methods here"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#results",
+    "href": "DigitalTwin/abstract.html#results",
+    "title": "Digital Twin",
+    "section": "Results",
+    "text": "Results\nWrite results here\n\n\n\nFigure 1: Caption 1\n\n\n\n\n\nFigure 2: Caption 2"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#significance",
+    "href": "DigitalTwin/abstract.html#significance",
+    "title": "Digital Twin",
+    "section": "Significance",
+    "text": "Significance\nWrite significance. Additional material is available at https://slimgroup.github.io/IMAGE2024/."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#introduction",
+    "href": "DigitalTwin/abstract.html#introduction",
+    "title": "Digital Twin",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#methodology",
+    "href": "DigitalTwin/abstract.html#methodology",
+    "title": "Digital Twin",
+    "section": "Methodology",
+    "text": "Methodology\n\nSummary networks\n\n\nSupervised\n\n\nUnsupervised"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#synthetic-case-studies",
+    "href": "DigitalTwin/abstract.html#synthetic-case-studies",
+    "title": "Digital Twin",
+    "section": "Synthetic case studies",
+    "text": "Synthetic case studies"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#discussion-and-conclusions",
+    "href": "DigitalTwin/abstract.html#discussion-and-conclusions",
+    "title": "Digital Twin",
+    "section": "Discussion and conclusions",
+    "text": "Discussion and conclusions\n\nReferences"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#acknowledgement",
+    "href": "DigitalTwin/abstract.html#acknowledgement",
+    "title": "Digital Twin",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#software-availability",
+    "href": "DigitalTwin/abstract.html#software-availability",
+    "title": "Digital Twin",
+    "section": "Software availability",
+    "text": "Software availability"
+  }
+]

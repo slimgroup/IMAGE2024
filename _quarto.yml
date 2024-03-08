@@ -19,7 +19,7 @@ website:
         - file: OneShot/abstract.qmd
           text: "One Shot Imaging"
         - file: DigitalTwin/abstract.qmd
-          text: "Sequential Bayesian Inference with control"
+          text: "Digital with with control"
   page-footer:
     center:
       - file: license.qmd
