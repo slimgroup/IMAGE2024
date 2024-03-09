@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DigitalTwin/abstract.html" class="sidebar-item-text sidebar-link">Digital with with control</a>
+  <a href="./DigitalTwin/abstract.html" class="sidebar-item-text sidebar-link">Digital twin with control</a>
   </div>
 </li>
       </ul>
@@ -170,6 +170,9 @@ ul.task-list li input[type="checkbox"] {
 <p>This is a Quarto website.</p>
 <p>All submissions to the Image23 conference with additional figures, references, …</p>
 <p>List of abstrac:</p>
+<ul>
+<li><a href="./OneShot/abstract.html">Learned one-shot imaging</a> Learned non-linear simultenous source and corresponding supershot for seismic imaging.</li>
+</ul>
 
 
 
@@ -421,7 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp(/https:\/\/slimgroup\.github\.io\/IMAGE2024\//);
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
