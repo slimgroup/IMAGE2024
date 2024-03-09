@@ -78,15 +78,6 @@ Additional material is available at https://slimgroup.github.io/IMAGE2024/.
 ## Methodology
 
 
-### Summary networks
-
-
-### Supervised
-
-
-### Unsupervised
-
-
 ## Synthetic case studies
 
 
