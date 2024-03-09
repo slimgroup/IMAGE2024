@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Image2024",
     "section": "",
-    "text": "This is a Quarto website.\nAll submissions to the Image23 conference with additional figures, references, …\nList of abstrac:\n\nLearned one-shot imaging Learned non-linear simultenous source and corresponding supershot for seismic imaging."
+    "text": "This is a Quarto website.\nAll submissions to the Image23 conference with additional figures, references, …\nList of abstrac:\n\nDigital twin with control An uncertainty-aware digital twin for geological carbon storage"
   },
   {
     "objectID": "license.html",
@@ -137,7 +137,7 @@
     "href": "DigitalTwin/abstract.html#methodology",
     "title": "Digital Twin",
     "section": "Methodology",
-    "text": "Methodology\n\nSummary networks\n\n\nSupervised\n\n\nUnsupervised"
+    "text": "Methodology"
   },
   {
     "objectID": "DigitalTwin/abstract.html#synthetic-case-studies",
