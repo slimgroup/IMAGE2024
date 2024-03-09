@@ -33,7 +33,7 @@ description: |
   Digital Twin with pressure control.
 bibliography: abstract.bib
 abstract: |
-  Digital twin with pressure control, reproducible at [OneShotImaging.jl](https://github.com/mloubout/OneShotImaging)
+  Digital twin with pressure control, reproducible at []()
 ---
 
 ::: hidden

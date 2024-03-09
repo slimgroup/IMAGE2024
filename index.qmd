@@ -7,3 +7,5 @@ This is a Quarto website.
 All submissions to the Image23 conference with additional figures, references, ...
 
 List of abstrac:
+
+- [Learned one-shot imaging](OneShot/abstract.qmd) Learned non-linear simultenous source and corresponding supershot for seismic imaging.
