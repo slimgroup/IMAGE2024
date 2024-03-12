@@ -9,3 +9,5 @@ All submissions to the Image23 conference with additional figures, references, .
 List of abstrac:
 
 - [Digital twin with control](DigitalTwin/abstract.qmd) An uncertainty-aware digital twin for geological carbon storage
+
+- [WISER](WISER/abstract.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements

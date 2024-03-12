@@ -16,10 +16,10 @@ website:
       contents:
       - section: "Abstracts"
         contents:
-        - file: OneShot/abstract.qmd
-          text: "One Shot Imaging"
         - file: DigitalTwin/abstract.qmd
           text: "Digital twin with control"
+        - file: WISER/abstract.qmd
+          text: "Full-waveform variational inference"
   page-footer:
     center:
       - file: license.qmd
