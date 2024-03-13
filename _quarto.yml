@@ -20,6 +20,8 @@ website:
           text: "One Shot Imaging"
         - file: DigitalTwin/abstract.qmd
           text: "Digital twin with control"
+        - file: OptimalDesign/abstract.qmd
+          text: "Optimal Design for Common Image Gathers"
   page-footer:
     center:
       - file: license.qmd

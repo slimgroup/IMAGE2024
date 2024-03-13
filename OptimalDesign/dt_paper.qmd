@@ -1,0 +1,116 @@
+---
+title: "Optimal Design for Common Image Gathers"
+author:
+  - name: Richard Rex
+    orcid: 
+    email: 
+    url:
+    affiliations:
+      - ref: gatech
+  - name: Yadhu Kartha
+    orcid: 
+    email: 
+    url:
+    affiliations:
+      - ref: gatech
+  # - name: Ziyi Yin
+  #   orcid: 
+  #   email: 
+  #   url:
+  #   affiliations:
+  #     - ref: gatech
+  # - name: Felix Herrmann
+  #   orcid: 
+  #   email: 
+  #   url:
+  #   affiliations:
+  #     - ref: gatech
+affiliations:
+  - id: gatech
+    name: Georgia Institute of Technology
+    url: https://slim.gatech.edu/
+description: | 
+  Optimal Design for CIGs with Fourier Neural Operators.
+bibliography: paper.bib
+abstract: |
+  Optimal Design for CIGs with Fourier Neural Operators, will be reproducible at [FNO-CIG](https://github.com/slimgroup/FNO-CIG)
+---
+
+::: hidden
+$$
+    \newcommand{\pluseq}{\mathrel{+}=}
+$$
+:::
+
+## Objectives and scope
+The primary objective of this study is to approximate the velocity model in seismic imaging such that the Common Image Gathers (CIGs) exhibit specific characteristics, such as focusing energy in the center. This approach aims to enhance the clarity and quality of velocity models, which is critical for accurate seismic imaging. The scope involves using a surrogate machine learning model to train and refine velocity models based on their associated CIGs.
+
+## Method
+The method involves three key steps:
+
+1. **Initial Data Preparation**: Starting with a single velocity model $x_0$ and its corresponding CIG ($CIG_0$), we generate training samples by slightly altering the velocity model ($x + \epsilon$) and simulating CIGs from these modified models.
+2. **Surrogate Model Training**: A surrogate machine learning model $G$ is trained to understand the relationship between the velocity models and their corresponding CIGs st. $G(x_0, x_i, CIG_0) = CIG_i$
+3. **Optimization**: We then solve for a velocity model where a predefined function $f$ ensures a lower value for the desired properties of CIGs, such as energy focusing. $min_{x} f(G_{\theta}(x, x_0, CIG_0))$
+
+Additionally, we would also like to learn a posterior distribution that will help us generate "sharper" velocity models.
+
+We plan on doing this by using a Conditional Normalizing Flow where the condition to the network would be the CIG from our trained FNO and it would be trained to generate sharper velocity models. We would like to jointly optimize for the $x$ which would serve as our "experiment" and the CNF in the following way:
+
+$\hat{\theta}, \hat{x} = {\mathrm{argmax}} \frac{1}{N} \sum_{i=1}^{N} \left( -\frac{1}{2} \left\| f_{\theta}(x^{(i)}; G(x, x_i, CIG_i))) \right\|_2^2 + \log \left| \det J_{f_{\theta}} \right| \right)$
+
+This could be used as a part of Digital Twin, where we could use this framework to select good posterior samples. 
+
+<!-- ## Results
+Our results demonstrate the effectiveness of the FNO in rapidly predicting CIGs for new velocity models, highlighting the potential for its application in real-time seismic data analysis. The method shows promise in focusing on desirable properties in CIGs, like energy distribution across different offsets. -->
+<!-- 
+::: {#fig-sup }
+![](figures/figname1.png)
+
+Caption 1
+:::
+
+::: {#fig-unsup }
+![](figures/figname2.png)
+
+Caption 2
+:::
+
+
+
+## Significance
+The study significantly contributes to seismic imaging, offering a fast solution for choosing optimal velocity models. This approach facilitates selecting the best posterior samples from WISE(R) and computing imaged reflectivity instantly at the zero offset.
+
+Additional material is available at https://slimgroup.github.io/IMAGE2024/.
+ -->
+
+<!-- # Supplementary material
+
+## Introduction
+This section provides an overview of Fourier Neural Operators and their application in seismic imaging, particularly in velocity continuation and CIG mapping.
+
+
+## Methodology
+Details of the 3D FNO training process, data preparation, and model specifications are discussed here, along with computational considerations for scaling to 4D models.
+
+
+## Synthetic case studies
+We present several synthetic case studies to validate our approach, comparing the FNO-generated CIGs with those from traditional methods.
+
+
+## Discussion and conclusions
+The implications of the findings for seismic imaging and potential areas for future research are discussed. -->
+
+
+<!-- ### References
+
+::: {#refs}
+:::
+
+## Acknowledgement {.appendix}
+
+This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.
+
+
+## Software availability {.appendix}
+
+This work is made reproducible at [FNO-CIG](https://github.com/slimgroup/FNO-CIG) -->
