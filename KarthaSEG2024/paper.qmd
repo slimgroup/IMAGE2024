@@ -16,7 +16,7 @@ affiliations:
     url: https://slim.gatech.edu/
 description: | 
   Domain transfer using Condtional normalizing flows on Shot records.
-bibliography: abstract.bib
+bibliography: paper.bib
 abstract: |
   code reproducible at [here](https://github.com/YadhuKartha686/Domain_transfer/blob/main/scripts/DTwithCNF.jl)
 ---
