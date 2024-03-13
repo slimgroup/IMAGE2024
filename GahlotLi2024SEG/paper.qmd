@@ -1,0 +1,42 @@
+---
+title: "A Digital Twin for Geological Carbon Storage with Controlled Injectivity and Well Placements"
+author:
+  - name:
+      Abhinav Prakash Gahlot^1\*^, Haoyul Li,^1\*^, Rafael Orozco^1^, Ziyi Yin^1^, Felix J. Herrmann^1^ \
+      
+      ^1^ Georgia Institute of Technology, ^\*^ first two authors contributed equally
+bibliography: paper.bib
+---
+
+## Introduction
+
+Digital twin refers to a dynamic virtual replica of subsurface systems, integrating real-time data and employing advanced AI methodologies such as simulation and machine learning. It can address the challenges of monitoring CO~2~ storage projects, such as subsurface complexities, heterogeneities, injection control, well placements, etc. It can provide a platform to integrate the fields of geophysics and reservoir engineering. Recent breakthroughs in generative AI enable digital twins to handle uncertainty through simulation-based inference, allowing for principled statistical analysis of field geophysical data [@gahlot2023NIPSWSifp]. In this study, we employ a recursive approach utilizing digital twin trained on simulations reflecting the current reservoir state, e.g. CO~2~ saturation, and field data such as time-lapse well and seismic data. A trained digital twin then infers the system state given a new field data. Hence, it ensures continual adaptation and accuracy improvement in subsurface monitoring throughout the CO~2~ storage projects. Also, a pivotal consideration in the digital twin is determining the optimal CO~2~ injection strategy. While higher injection rates may offer the advantages of reduced project duration and lower infrastructure costs, they also carry the risk of inducing rock fractures and potentially severe seismic activities. Hence, implementing a controlled injection rate for subsurface CO~2~ reservoirs is both advantageous and necessary.
+
+## Methodology
+
+To infer the current reservoir state conditioned on time-lapse wells/seismic data from the field, we train the digital twin on simulated samples of the CO~2~ saturation and time-lapse data. These samples are generated recursively by forward simulating the samples generated from the previously trained digital twin, which is conditioned on the previous knowledge of the reservoir, e.g. time-lapse field observations. This process is repeated over multiple time-steps, over which we get the field observations, to update the system states. For the simulations, we use open-source Julia package [JUDI.jl](https://github.com/slimgroup/JUDI.jl) and [JutulDarcy.jl](https://github.com/sintefmath/JutulDarcy.jl). To control the CO~2~ injectivity in these simulations, we solve an optimization problem aimed at maximizing the total volume of CO~2~ injected over a specified period, while concurrently avoiding the exceedance of depth-varying fracture pressure limits throughout the reservoir. We also optimize the monitoring well placements at each time-step to better inform the CO~2~ saturation prediction.
+
+## Results
+
+After training the digital twin at successive time steps and conditioning on the multi-modal field observations, it generates posterior samples of the CO~2~ saturation at each time step. Figure 1 shows (a) the ground truth CO~2~ saturation, and the conditional mean of the posterior samples conditioned on (b) well data - saturation and pressure, (c) seismic image and (d) both well and seismic data. We see that the results obtained from the combination look much closer to the ground truth and are prone to fewer errors. We also have preliminary results showing that optimal well placements improves the CO~2~ saturation prediction. Figure 2 presents a comparative analysis of pressure outputs from the digital twin simulation subtracted from the initial reservoir pressure: one scenario operates without an injectivity control mechanism, and the other employs our proposed injection methodology. In the absence of controlled injectivity, rock fracturing occurs, denoted by the red-highlighted areas in (a). Whereas, our injectivity control strategy effectively maintains reservoir pressure within safe operational limits in (b).
+
+## Conclusion and discussions
+
+The application of a digital twin model for underground CO~2~ storage with injection control and well placements represents a novel contribution to the field. By incorporating a dynamic control approach, our study not  only maximizes the total amount of CO2 securely injected but also introduces a smoothly updated workflow for injection rate control that mirrors the adaptive management strategies employed in real CCS projects. This dual focus on maximizing injection volumes while preventing geomechanical disturbances underscores the potential of digital twin technology to enhance the safety, efficiency, and environmental compatibility of CCS initiatives.
+
+::: {#fig-flow}
+![](./figs/Figure1.png){width="90%"}
+
+Ground truth saturation (a), digital twin outputs conditioned on (b) well, (c) seismic image, and (d) wells and seismic
+:::
+
+::: {#fig-fracture}
+![](./figs/Figure2.png){width="90%"}
+
+Comparative analysis of differential pressure outputs from the digital twin
+:::
+
+## References
+
+::: {#refs}
+:::
