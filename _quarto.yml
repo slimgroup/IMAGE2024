@@ -20,7 +20,7 @@ website:
           text: "One Shot Imaging"
         - file: DigitalTwin/abstract.qmd
           text: "Digital twin with control"
-        - file: DomainTransfer/abstract.qmd
+        - file: KarthaSEG2024/paper.qmd
           text: "Domain Transfer on Shot records"  
   page-footer:
     center:
