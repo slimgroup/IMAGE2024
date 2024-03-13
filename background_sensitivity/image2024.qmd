@@ -1,11 +1,7 @@
 ---
-title: "Image 2024"
+title: "Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation"
 author:
-  - name: Yunlin Zeng
-    email: yunlinzeng@gatech.edu
-    affiliations:
-      - name: Georgia Institute of Technology
-        url: https://slim.gatech.edu/
+  - name: Yunlin Zeng^1^, Rafael Orozco,^1^, Ziyi Yin^1^, Felix Herrmann ^1^ 
 format: 
   pdf:
     number-sections: true
