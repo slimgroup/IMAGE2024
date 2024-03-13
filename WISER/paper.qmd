@@ -1,8 +1,10 @@
 ---
 title: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
-author: |
-    Ziyi Yin^1,\*^, Rafael Orozco,^1,\*^, Mathias Louboutin^2^, Felix J. Herrmann^1^ \
-    ^1^ Georgia Institute of Technology, ^2^ Devito Codes Ltd, ^\*^ first two authors contributed equally
+author:
+  - name:
+      Ziyi Yin^1,\*^, Rafael Orozco,^1,\*^, Mathias Louboutin^2^, Felix J. Herrmann^1^ \
+      
+      ^1^ Georgia Institute of Technology, ^2^ Devito Codes Ltd, ^\*^ first two authors contributed equally
 bibliography: paper.bib
 ---
 
@@ -12,7 +14,7 @@ We introduce a cost-effective Bayesian inference method for full-waveform invers
 
 ## Amortized variational inference
 
-Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on observed shot data. To this end, conditional normalizing flows (CNFs) are trained to approximate this posterior distribution. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart.
+Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simply the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistics to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs [@yin2023wise]. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart.
 
 ## Physics-based refinement
 
@@ -22,4 +24,9 @@ While the trained amortized CNF can generate posterior velocity samples instanta
 
 To understand how the uncertainty in the migration-velocity models propagates to imaged reflectors, forward uncertainty is assessed by carrying out high-frequency imaging for different posterior velocity samples, shown on the right-hand side of the flowchart. The uncertainty in the imaged reflectors is revealed in variance in both the amplitude and the positioning of the reflectors.
 
-![](./figs/workflow.png){width=99%}
+![](./figs/WISER-workflow.pdf){width=99%}
+
+## References
+
+::: {#refs}
+:::
