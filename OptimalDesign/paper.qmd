@@ -37,7 +37,7 @@ $$
 :::
 
 ## Objectives and scope
-The primary objective of this study is to approximate the velocity model in seismic imaging such that the Common Image Gathers (CIGs) exhibit specific characteristics, such as focusing energy in the center. This approach aims to enhance the clarity and quality of velocity models, which is critical for accurate seismic imaging. The scope involves using a surrogate machine learning model to train and refine velocity models based on their associated CIGs.
+The primary objective of this study is to approximate the velocity model in seismic imaging such that the Common Image Gathers (CIGs) exhibit specific characteristics, such as focusing energy in the center. This approach aims to enhance the clarity and quality of velocity models, which is critical for accurate seismic imaging. The scope involves using Fourier Neural Operators (FNOs) as a surrogate machine learning model to train and refine velocity models based on their associated CIGs.
 
 ## Method
 The method involves three key steps:
