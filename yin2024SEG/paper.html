@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ziyi Yin1,*, Rafael Orozco,1,*, Mathias Louboutin2, Felix J. Herrmann1 1 Georgia Institute of Technology, 2 Devito Codes Ltd, * first two authors contributed equally">
 
-<title>Image2024</title>
+<title>Image2024 - WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +21,50 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -80,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Image2024</span>
     </a>
   </div>
@@ -91,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -113,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Image2024</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../yin2024SEG/paper.html">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,13 +168,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./DigitalTwin/abstract.html" class="sidebar-item-text sidebar-link">
+  <a href="../DigitalTwin/abstract.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Digital twin with control</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./yin2024SEG/paper.html" class="sidebar-item-text sidebar-link">
+  <a href="../yin2024SEG/paper.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</span></a>
   </div>
 </li>
@@ -162,20 +186,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#amortized-variational-inference" id="toc-amortized-variational-inference" class="nav-link" data-scroll-target="#amortized-variational-inference">Amortized variational inference</a></li>
+  <li><a href="#physics-based-refinement" id="toc-physics-based-refinement" class="nav-link" data-scroll-target="#physics-based-refinement">Physics-based refinement</a></li>
+  <li><a href="#downstream-imaging" id="toc-downstream-imaging" class="nav-link" data-scroll-target="#downstream-imaging">Downstream imaging</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../yin2024SEG/paper.html">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Image2024</h1>
+<h1 class="title">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ziyi Yin<sup>1,*</sup>, Rafael Orozco,<sup>1,*</sup>, Mathias Louboutin<sup>2</sup>, Felix J. Herrmann<sup>1</sup><br>
+<sup>1</sup> Georgia Institute of Technology, <sup>2</sup> Devito Codes Ltd, <sup>*</sup> first two authors contributed equally </p>
+          </div>
+  </div>
     
   
     
@@ -186,15 +227,194 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>All submissions to the Image24 conference with additional figures, references, …</p>
-<p>List of abstrac:</p>
-<ul>
-<li><p><a href="./DigitalTwin/abstract.html">Digital twin with control</a> An uncertainty-aware digital twin for geological carbon storage</p></li>
-<li><p><a href="./yin2024SEG/paper.html">WISER</a>: full-Waveform variational Inference via Subsurface Extensions with Refinements</p></li>
-</ul>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and severe observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial migration-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements for an out-of-distribution scenario.</p>
+</section>
+<section id="amortized-variational-inference" class="level2">
+<h2 class="anchored" data-anchor-id="amortized-variational-inference">Amortized variational inference</h2>
+<p>Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simply the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistics to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-<strong>W</strong>aveform variational <strong>I</strong>nference via <strong>S</strong>ubsurface <strong>E</strong>xtensions <span class="citation" data-cites="yin2023wise">(<a href="#ref-yin2023wise" role="doc-biblioref">Yin et al. 2023</a>)</span>. We further propose a physics-based <strong>R</strong>efinment approach to make it WISER.</p>
+</section>
+<section id="physics-based-refinement" class="level2">
+<h2 class="anchored" data-anchor-id="physics-based-refinement">Physics-based refinement</h2>
+<p>While the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g.&nbsp;acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called <em>amortization gap</em>, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart.</p>
+</section>
+<section id="downstream-imaging" class="level2">
+<h2 class="anchored" data-anchor-id="downstream-imaging">Downstream imaging</h2>
+<p>To understand how the uncertainty in the migration-velocity models propagates to imaged reflectors, forward uncertainty is assessed by carrying out high-frequency imaging for different posterior velocity samples, shown on the right-hand side of the flowchart. The uncertainty in the imaged reflectors is revealed in variance in both the amplitude and the positioning of the reflectors.</p>
+<div id="fig-workflow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISER-workflow.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./figs/WISER-workflow.jpeg" class="img-fluid figure-img" style="width:99.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: WISER workflow.
+</figcaption>
+</figure>
+</div>
+<div id="fig-wise-vs-wiser" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wise-vs-wiser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-background" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-background-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/background-colorbar.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="fig-wise-vs-wiser"><img src="./figs/background-colorbar.png" id="fig-background" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-background-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-true" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-true-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/true-v-colorbar.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="fig-wise-vs-wiser"><img src="./figs/true-v-colorbar.png" id="fig-true" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-true-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wise-v-3d" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wise-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISE-v-3D.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISE-v-3D.png" id="fig-wise-v-3d" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wiser-v-3d" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wiser-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISER-v-3D.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISER-v-3D.png" id="fig-wiser-v-3d" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wise-uq" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wise-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISE-UQ-v.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISE-UQ-v.png" id="fig-wise-uq" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(e)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wiser-uq" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wiser-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISER-UQ-v.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISER-UQ-v.png" id="fig-wiser-uq" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(f)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wise-cm-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wise-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISE-rtm-3D.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISE-rtm-3D.png" id="fig-wise-cm-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(g)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wiser-cm-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wiser-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISER-rtm-3D.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISER-rtm-3D.png" id="fig-wiser-cm-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(h)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wise-uq-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wise-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISE-UQ-rtm.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISE-UQ-rtm.png" id="fig-wise-uq-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(i)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wiser-uq-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wiser-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/WISER-UQ-rtm.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="fig-wise-vs-wiser"><img src="./figs/WISER-UQ-rtm.png" id="fig-wiser-uq-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(j)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wise-vs-wiser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <em>(a)</em> 1D initial velocity model; <em>(b)</em> unseen ground truth velocity model; <em>(c)</em> Estimated migration-velocity models from WISE; <em>(e)</em> point-wise standard deviation of the migration-velocity models from WISE; <em>(g)</em> imaged reflectivities using migration-velocity models from WISE; <em>(i)</em> point-wise standard deviation of the imaged reflectivities from WISE; <em>(d)(f)(h)(j)</em> are the counterparts of <em>(c)(e)(g)(i)</em> but from WISER.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-yin2023wise" class="csl-entry" role="listitem">
+Yin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J Herrmann. 2023. <span>“WISE: Full-Waveform Variational Inference via Subsurface Extensions.”</span> <em>arXiv Preprint arXiv:2401.06230</em>.
+</div>
+</div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: WISER workflow.</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2&nbsp;(a): </span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;2&nbsp;(b): </span>
+<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;2&nbsp;(c): </span>
+<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;2&nbsp;(d): </span>
+<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;2&nbsp;(e): </span>
+<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;2&nbsp;(f): </span>
+<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;2&nbsp;(g): </span>
+<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;2&nbsp;(h): </span>
+<span class="glightbox-desc lightbox-desc-10">Figure&nbsp;2&nbsp;(i): </span>
+<span class="glightbox-desc lightbox-desc-11">Figure&nbsp;2&nbsp;(j): </span>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -764,7 +984,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">
+    <a class="nav-link" href="../license.html">
 <p>2024 Copyright (c) SLIM @ Georgia Institute of Technology</p>
 </a>
   </li>  
@@ -775,6 +995,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

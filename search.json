@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Image2024",
     "section": "",
-    "text": "This is a Quarto website.\nAll submissions to the Image23 conference with additional figures, references, …\nList of abstrac:\n\nDigital twin with control An uncertainty-aware digital twin for geological carbon storage"
+    "text": "This is a Quarto website.\nAll submissions to the Image24 conference with additional figures, references, …\nList of abstrac:\n\nDigital twin with control An uncertainty-aware digital twin for geological carbon storage\nWISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
   },
   {
     "objectID": "license.html",
@@ -12,6 +12,78 @@
     "title": "License",
     "section": "",
     "text": "These abstracts are released under the Creative Commons License type CC BY. 2024 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+  },
+  {
+    "objectID": "yin2024SEG/paper.html",
+    "href": "yin2024SEG/paper.html",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "",
+    "text": "We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and severe observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial migration-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements for an out-of-distribution scenario.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#abstract",
+    "href": "yin2024SEG/paper.html#abstract",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "",
+    "text": "We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and severe observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial migration-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements for an out-of-distribution scenario.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#amortized-variational-inference",
+    "href": "yin2024SEG/paper.html#amortized-variational-inference",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Amortized variational inference",
+    "text": "Amortized variational inference\nOur method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simply the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistics to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-Waveform variational Inference via Subsurface Extensions (Yin et al. 2023). We further propose a physics-based Refinment approach to make it WISER.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#physics-based-refinement",
+    "href": "yin2024SEG/paper.html#physics-based-refinement",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Physics-based refinement",
+    "text": "Physics-based refinement\nWhile the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g. acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called amortization gap, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#downstream-imaging",
+    "href": "yin2024SEG/paper.html#downstream-imaging",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Downstream imaging",
+    "text": "Downstream imaging\nTo understand how the uncertainty in the migration-velocity models propagates to imaged reflectors, forward uncertainty is assessed by carrying out high-frequency imaging for different posterior velocity samples, shown on the right-hand side of the flowchart. The uncertainty in the imaged reflectors is revealed in variance in both the amplitude and the positioning of the reflectors.\n\n\n\n\n\n\nFigure 1: WISER workflow.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(e)\n\n\n\n\n\n\n\n\n\n\n\n(f)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(g)\n\n\n\n\n\n\n\n\n\n\n\n(h)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(i)\n\n\n\n\n\n\n\n\n\n\n\n(j)\n\n\n\n\n\n\n\nFigure 2: (a) 1D initial velocity model; (b) unseen ground truth velocity model; (c) Estimated migration-velocity models from WISE; (e) point-wise standard deviation of the migration-velocity models from WISE; (g) imaged reflectivities using migration-velocity models from WISE; (i) point-wise standard deviation of the imaged reflectivities from WISE; (d)(f)(h)(j) are the counterparts of (c)(e)(g)(i) but from WISER.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#references",
+    "href": "yin2024SEG/paper.html#references",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "References",
+    "text": "References\n\n\nYin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J Herrmann. 2023. “WISE: Full-Waveform Variational Inference via Subsurface Extensions.” arXiv Preprint arXiv:2401.06230.\n\n\n\n\n\nFigure 1: WISER workflow.\nFigure 2 (a): \nFigure 2 (b): \nFigure 2 (c): \nFigure 2 (d): \nFigure 2 (e): \nFigure 2 (f): \nFigure 2 (g): \nFigure 2 (h): \nFigure 2 (i): \nFigure 2 (j):",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    ]
   },
   {
     "objectID": "DigitalTwin/abstract.html",
@@ -138,7 +210,7 @@
     "href": "DigitalTwin/abstract.html#software-availability",
     "title": "Digital Twin",
     "section": "Software availability",
-    "text": "Software availability",
+    "text": "Software availability\n\n\n\n\nFigure 1: Caption 1\nFigure 2: Caption 2",
     "crumbs": [
       "Home",
       "Abstracts",
