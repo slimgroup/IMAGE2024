@@ -18,8 +18,8 @@ website:
         contents:
         - file: DigitalTwin/abstract.qmd
           text: "Digital twin with control"
-        - file: WISER/paper.qmd
-          text: "Full-waveform variational inference"
+        - file: yin2024SEG/paper.qmd
+          text: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
   page-footer:
     center:
       - file: license.qmd

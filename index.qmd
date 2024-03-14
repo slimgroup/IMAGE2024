@@ -10,4 +10,4 @@ List of abstrac:
 
 - [Digital twin with control](DigitalTwin/abstract.qmd) An uncertainty-aware digital twin for geological carbon storage
 
-- [WISER](WISER/paper.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements
+- [WISER](yin2024SEG/paper.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements
