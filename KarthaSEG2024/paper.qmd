@@ -42,7 +42,7 @@ In the training phase, an alternating methodology is employed to diligently trai
 ::: {#fig-vdtov }
 ![](figures/trainingreg.png)
 
-Thia is a schematic diagram of the training regime. The blue arrows indicate forward pass through the conditional normalizing flow (CNF) and the green arrows indicate the inverse or generation pass. Domain 1 and Domain 2 are the condtions for the respective domains, as you can notice here, the forward pass latent space is used for domain transfer, essentially transferring the input image to the other domain
+Thia is a schematic diagram of the training regime. The blue arrows indicate forward pass through the conditional normalizing flow (G) and the green arrows indicate the inverse or generation pass. Domain 1 and Domain 2 are the condtions for the respective domains, as you can notice here, the forward pass latent space is used for domain transfer, essentially transferring the input image to the other domain
 :::
 
 
