@@ -9,4 +9,4 @@ All submissions to the Image23 conference with additional figures, references, .
 List of abstrac:
 
 - [Digital twin with control](DigitalTwin/abstract.qmd) An uncertainty-aware digital twin for geological carbon storage
-- [Optimal design with FNOs](OptimalDesign/paper.qmd) A optimization framework to obtain CIGs with desirable properties
+- [Velocity Continuation for Common Image Gathers](Rex2024SEG/paper.qmd) A framework to obtain CIGs in a fast manner

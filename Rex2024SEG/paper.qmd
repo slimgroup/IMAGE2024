@@ -1,0 +1,56 @@
+---
+title: "Velocity Continuation for Common Image Gathers with Fourier Neural Operators"
+author:
+  - name:
+      Richard Rex^1^, Ziyi Yin,^1^, Felix J. Herrmann^1^ \
+      
+      ^1^ Georgia Institute of Technology
+bibliography: paper.bib
+---
+
+::: hidden
+$$
+    \newcommand{\pluseq}{\mathrel{+}=}
+$$
+:::
+
+## Introduction
+
+Common Image Gathers (CIGs) play an indispensable role in seismic imaging as they provide a depth-resolved representation of subsurface reflections, essential for interpreting geological structures. They validate reflection consistency across different incidence angles, aiding in analyzing rock layer reflectivity and anisotropy—crucial elements for mapping subsurface formations. Additionally, CIGs are pivotal in seismic velocity analysis, enabling the refinement of velocity models to align with observed seismic data. This iterative optimization, guided by the focus of energy at various offsets in CIGs, allows geophysicists to assess and enhance the accuracy of subsurface imaging. However, the process is often hindered by the computational burden of traditional migration methods, especially when dealing with complex background models. To bypass these limitations, we introduce a surrogate learning approach that utilizes Fourier Neural Operators (FNOs) to map between velocity models and CIGs rapidly. This methodology leverages the capacity of FNOs to approximate PDE solutions efficiently, thereby expediting the imaging process [@fno]. By training an FNO specifically for a given survey, we transform the velocity continuation process into a near-instantaneous task, allowing for the quick generation of CIGs without the exhaustive computational demand of traditional methods.
+
+## Methodology
+
+Initially, we prepare our dataset starting with a base velocity model $x_0$ and its associated Common Image Gather. By smoothing $x_0$, we augment our dataset to multiple smooth models (Figure 1.b). Next, we simulate correcponding CIGs which serves as our training targets (Figure 1.c). Next, we use an FNO as a surrogate machine learning model which will be trained to map pairs of $1)$ true velocity model, $2)$ CIG of true velocity model and $3)$ a smoothed velocity model to the CIG of the smooth model (Figure 1.d). Through this process, we not only enhance the accuracy of CIG prediction but also significantly speed up computation, enabling real-time processing and analysis of seismic data.
+
+::: {#fig-unsup }
+![](figures/workflow.001.jpeg){width="90%"}
+
+Migrated CIG from a slice of a compass model and our observation (a), Smoothed velocity models obtained from background velocity model (b), Migrated CIGs from smoothed velocity models as training targets (c), Surrogate that maps our input to the target CIGs (d)
+:::
+
+
+## Results
+Our results demonstrate the effectiveness of the FNO in rapidly predicting CIGs for new velocity models, highlighting the potential for its application in real-time seismic data analysis. Write some more ...
+
+::: {#fig-sup }
+![](figures/result1.png)
+
+some results here showing true volume, predicted and difference
+:::
+
+## Conclusion
+The study significantly contributes to seismic imaging, offering a fast solution for generating CIGs. This approach could lead to future work that facilitates selecting the best posterior samples from WISE(R) and computing imaged reflectivity instantly at the zero offset. The method could also be extended to optimize our input velocity model such that we have a focus on desirable properties in CIGs, like energy distribution across different offsets. 
+
+### References
+
+::: {#refs}
+:::
+
+## Acknowledgement {.appendix}
+
+This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.
+
+
+## Software availability {.appendix}
+
+This work is made reproducible at [FNO-CIG](https://github.com/slimgroup/FNO-CIG)
