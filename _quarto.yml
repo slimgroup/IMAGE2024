@@ -20,6 +20,8 @@ website:
           text: "Digital twin with control"
         - file: yin2024SEG/paper.qmd
           text: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+        - file: erdinc2024SEG/abstract.qmd
+          text: "Building subsurface velocity priors from field observations"
   page-footer:
     center:
       - file: license.qmd

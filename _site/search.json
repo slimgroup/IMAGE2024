@@ -1,0 +1,226 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Image2024",
+    "section": "",
+    "text": "This is a Quarto website.\nAll submissions to the Image24 conference with additional figures, references, …\nList of abstrac:\n\nDigital twin with control An uncertainty-aware digital twin for geological carbon storage\nWISER: full-Waveform variational Inference via Subsurface Extensions with Refinements\nVelGen: Building subsurface velocity priors from field observations"
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html",
+    "href": "Rex2024SEG/paper.html",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#introduction",
+    "href": "Rex2024SEG/paper.html#introduction",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Introduction",
+    "text": "Introduction\nCommon Image Gathers (CIGs) play an indispensable role in seismic imaging as they provide a depth-resolved representation of subsurface reflections, essential for interpreting geological structures. They validate reflection consistency across different incidence angles, aiding in analyzing rock layer reflectivity and anisotropy—crucial elements for mapping subsurface formations. Additionally, CIGs are pivotal in seismic velocity analysis, enabling the refinement of velocity models to align with observed seismic data. This iterative optimization, guided by the focus of energy at various offsets in CIGs, allows geophysicists to assess and enhance the accuracy of subsurface imaging. However, the process is often hindered by the computational burden of traditional migration methods, especially when dealing with complex background models. To bypass these limitations, we introduce a surrogate learning approach that utilizes Fourier Neural Operators (FNOs) to learn a mapping between velocity models and CIGs. This methodology leverages the capacity of FNOs to approximate PDE solutions efficiently, thereby expediting the imaging process (Li et al. 2020). By training an FNO specifically for a given survey, we transform the velocity continuation process into a near-instantaneous task, allowing for the quick generation of CIGs without the exhaustive computational demand of traditional methods."
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#methodology",
+    "href": "Rex2024SEG/paper.html#methodology",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Methodology",
+    "text": "Methodology\nInitially, we prepare our dataset starting with a base velocity model \\(x_0\\) and its associated Common Image Gather. By smoothing \\(x_0\\), we augment our dataset to multiple smooth models (Figure 1.b). Next, we simulate correcponding CIGs which serves as our training targets (Figure 1.c). Next, we use an FNO as a surrogate machine learning model which will be trained to map pairs of \\(1)\\) true velocity model, \\(2)\\) CIG of true velocity model and \\(3)\\) a smoothed velocity model to the CIG of the smooth model (Figure 1.d). Through this process, we not only enhance the accuracy of CIG prediction but also significantly speed up computation, enabling real-time generation of CIGs and analysis of seismic data.\n\n\n\nFigure 1: Migrated CIG from a slice of a compass model and our observation (a), Smoothed velocity models obtained from background velocity model (b), Migrated CIGs from smoothed velocity models as training targets (c), Surrogate that maps our input to the target CIGs (d)"
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#results",
+    "href": "Rex2024SEG/paper.html#results",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Results",
+    "text": "Results\nOur results demonstrate the effectiveness of the FNO in rapidly predicting CIGs for new velocity models, highlighting the potential for its application in real-time seismic data analysis. Write some more …\n\n\n\nFigure 2: some results here showing true volume, predicted and difference"
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#conclusion",
+    "href": "Rex2024SEG/paper.html#conclusion",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe study significantly contributes to seismic imaging, offering a fast solution for generating CIGs. This approach could lead to future work that facilitates selecting the best posterior samples from WISE(R) and computing imaged reflectivity instantly at the zero offset. The method could also be extended to optimize our input velocity model such that we have a focus on desirable properties in CIGs, like energy distribution across different offsets.\n\nReferences\n\n\nLi, Zongyi, Nikola Kovachki, Kamyar Azizzadenesheli, Burigede Liu, Kaushik Bhattacharya, Andrew Stuart, and Anima Anandkumar. 2020. “Fourier Neural Operator for Parametric Partial Differential Equations.”"
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#acknowledgement",
+    "href": "Rex2024SEG/paper.html#acknowledgement",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#software-availability",
+    "href": "Rex2024SEG/paper.html#software-availability",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Software availability",
+    "text": "Software availability\n\nThis work is made reproducible at FNO-CIG"
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "These abstracts are released under the Creative Commons License type CC BY. 2024 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html",
+    "href": "DigitalTwin/abstract.html",
+    "title": "Digital Twin",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#objectives-and-scope",
+    "href": "DigitalTwin/abstract.html#objectives-and-scope",
+    "title": "Digital Twin",
+    "section": "Objectives and scope",
+    "text": "Objectives and scope\nWrite objective and scope"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#method",
+    "href": "DigitalTwin/abstract.html#method",
+    "title": "Digital Twin",
+    "section": "Method",
+    "text": "Method\nWrite methods here"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#results",
+    "href": "DigitalTwin/abstract.html#results",
+    "title": "Digital Twin",
+    "section": "Results",
+    "text": "Results\nWrite results here\n\n\n\nFigure 1: Caption 1\n\n\n\n\n\nFigure 2: Caption 2"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#significance",
+    "href": "DigitalTwin/abstract.html#significance",
+    "title": "Digital Twin",
+    "section": "Significance",
+    "text": "Significance\nWrite significance. Additional material is available at https://slimgroup.github.io/IMAGE2024/."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#introduction",
+    "href": "DigitalTwin/abstract.html#introduction",
+    "title": "Digital Twin",
+    "section": "Introduction",
+    "text": "Introduction"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#methodology",
+    "href": "DigitalTwin/abstract.html#methodology",
+    "title": "Digital Twin",
+    "section": "Methodology",
+    "text": "Methodology"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#synthetic-case-studies",
+    "href": "DigitalTwin/abstract.html#synthetic-case-studies",
+    "title": "Digital Twin",
+    "section": "Synthetic case studies",
+    "text": "Synthetic case studies"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#discussion-and-conclusions",
+    "href": "DigitalTwin/abstract.html#discussion-and-conclusions",
+    "title": "Digital Twin",
+    "section": "Discussion and conclusions",
+    "text": "Discussion and conclusions\n\nReferences"
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#acknowledgement",
+    "href": "DigitalTwin/abstract.html#acknowledgement",
+    "title": "Digital Twin",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "DigitalTwin/abstract.html#software-availability",
+    "href": "DigitalTwin/abstract.html#software-availability",
+    "title": "Digital Twin",
+    "section": "Software availability",
+    "text": "Software availability"
+  },
+  {
+    "objectID": "yin2024SEG/paper.html",
+    "href": "yin2024SEG/paper.html",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "",
+    "text": "We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and severe observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial migration-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements for an out-of-distribution scenario."
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#amortized-variational-inference",
+    "href": "yin2024SEG/paper.html#amortized-variational-inference",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Amortized variational inference",
+    "text": "Amortized variational inference\nOur method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simply the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistics to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-Waveform variational Inference via Subsurface Extensions (Yin et al. 2023). We further propose a physics-based Refinment approach to make it WISER."
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#physics-based-refinement",
+    "href": "yin2024SEG/paper.html#physics-based-refinement",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Physics-based refinement",
+    "text": "Physics-based refinement\nWhile the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g. acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called amortization gap, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart."
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#downstream-imaging",
+    "href": "yin2024SEG/paper.html#downstream-imaging",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "Downstream imaging",
+    "text": "Downstream imaging\nTo understand how the uncertainty in the migration-velocity models propagates to imaged reflectors, forward uncertainty is assessed by carrying out high-frequency imaging for different posterior velocity samples, shown on the right-hand side of the flowchart. The uncertainty in the imaged reflectors is revealed in variance in both the amplitude and the positioning of the reflectors.\n\n\n\nFigure 1: WISER workflow.\n\n\n\n\n\n\n\n\n\n(a)\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\n\n\n\n\n(c)\n\n\n\n\n\n\n\n(d)\n\n\n\n\n\n\n\n\n\n(e)\n\n\n\n\n\n\n\n(f)\n\n\n\n\n\n\n\n\n\n(g)\n\n\n\n\n\n\n\n(h)\n\n\n\n\n\n\n\n\n\n(i)\n\n\n\n\n\n\n\n(j)\n\n\n\n\nFigure 2: (a) 1D initial velocity model; (b) unseen ground truth velocity model; (c) Estimated migration-velocity models from WISE; (e) point-wise standard deviation of the migration-velocity models from WISE; (g) imaged reflectivities using migration-velocity models from WISE; (i) point-wise standard deviation of the imaged reflectivities from WISE; (d)(f)(h)(j) are the counterparts of (c)(e)(g)(i) but from WISER."
+  },
+  {
+    "objectID": "yin2024SEG/paper.html#references",
+    "href": "yin2024SEG/paper.html#references",
+    "title": "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements",
+    "section": "References",
+    "text": "References\n\n\nYin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J Herrmann. 2023. “WISE: Full-Waveform Variational Inference via Subsurface Extensions.” arXiv Preprint arXiv:2401.06230."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html",
+    "href": "erdinc2024SEG/abstract.html",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "",
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]"
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#abstract",
+    "href": "erdinc2024SEG/abstract.html#abstract",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Abstract",
+    "text": "Abstract\nDiffusion generative models are emerging powerful frameworks for learning high-dimensional distributions and tackling inverse problems. However, their efficacy in training predominantly hinges on the availability of complete, high-quality datasets, a condition that often proves unattainable, particularly in the domain related to subsurface velocity model generation. In this work, we propose to synthesize subsurface velocity priors from incomplete models (field observations) by integrating additional observation distortions during the training phase and formulating a supervised loss objective. Our approach facilitates the generation of realistic, full velocity samples utilizing a dataset composed merely of 40% complete velocity models. Moreover, our model demonstrates resilience against overfitting, a common pitfall in many generative models, and ensures the production of original models that are congruent with actual, clean velocity models."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#method",
+    "href": "erdinc2024SEG/abstract.html#method",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Method",
+    "text": "Method\nSeismic velocity synthesis is an ill-posed problem, and acquiring comprehensive realistic datasets is costly. Generative models, particularly diffusion models, offer a solution by training priors to synthesize plausible samples. These models approach synthesis through a denoising process, facilitating high-quality generation within high-dimensional spaces. Our work leverages diffusion models to construct priors from only partial velocity information, showcasing their efficiency in generating geophysically sound velocity samples.\nFor our training dataset, we utilize 2D proxy velocity models (with dimensions of depth and width both at 1600m) that reflect the geological characteristics south of the North Sea. These models are derived from 3D imaged seismic and well-log data, featuring realistic heterogeneity. To simulate authentic field conditions, we apply a column-wise random masking (\\(\\mathbf{A}\\)) to 60% of the velocity data within these 2D models, resulting in a dataset comprising 3,000 instances.\nIn our training process, the absence of complete velocity models precludes the use of a conventional L2 denoising loss formulation. Drawing inspiration from (G. Daras and Klivans 2023), our study adopts an alternative approach by introducing distortion into the already column-wise masked velocity models (\\(\\mathbf{\\hat{A}}\\)). This approach crafts a supervised learning objective where the denoising model is not only tasked with denoising but also with inpainting missing pixels, utilizing the distorted and masked velocity models as inputs. Figure 1 illustrates the conceptual framework of the loss objective and delineates the inputs for the denoising network, which is charged with the generation of clean velocity models. Denoising model is trained for 20000 iterations on 2 A100 GPUs for \\(\\approx\\) 4 days.\n\n\n\nFigure 1: In the formulation of our training loss, field observations along with their column-wise masks (\\(\\mathbf{A}\\)) are initially sampled. Following this, distortion masks (\\(\\mathbf{\\hat{A}}\\)) are generated, with their sampling conditioned upon the initial column-wise masks. The denoising model, informed of the distortion masks and noisy distorted field observations, reconstructs the complete, noise-free velocity model."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#results",
+    "href": "erdinc2024SEG/abstract.html#results",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Results",
+    "text": "Results\nIn Figure 2, displayed on the left, we observe four distinct synthesized velocity images produced by the trained diffusion model. The results show that the model can capture long range structures in the training survey area and extrapolate missing information in input images and produce realistic looking samples. The sampling process is fast and requires 20s per sample on a GPU. Additionally, we identified the nearest neighbor samples corresponding to synthesized velocities. We can clearly see even among the most similar samples, there are discernible differences in structure, demonstrating the model’s robustness against overfitting. The future work aims to enhance the generation of these velocity priors by pushing the boundaries further and utilizing even fewer field observations and seismic images, such as Reverse Time Migration (RTM) techniques.\n\n\n\nFigure 2: Comparison between generated samples and their corresponding nearest neighbor (NN) in the original clean dataset, which remains unseen by the denoising network. To identify the nearest neighbors among the samples, the Structural Similarity Index Measure (SSIM) is employed."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#significance",
+    "href": "erdinc2024SEG/abstract.html#significance",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Significance",
+    "text": "Significance\nWe employed diffusion models to generate realistic subsurface velocity samples. While previous efforts that relied on synthesis from fully complete velocity examples, our approach successfully generates high-quality, realistic samples from only 40% complete 2D slices. Empirical evidence demonstrates our network’s ability to circumvent the common issue of overfitting observed in many generative models. The velocity models produced by our method hold significant value for downstream tasks in reservoir engineering and various other applications that require the generation of multiple plausible velocity models.\nAdditional material is available at https://slimgroup.github.io/IMAGE2024/."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#acknowledgement",
+    "href": "erdinc2024SEG/abstract.html#acknowledgement",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center."
+  },
+  {
+    "objectID": "erdinc2024SEG/abstract.html#software-availability",
+    "href": "erdinc2024SEG/abstract.html#software-availability",
+    "title": "Building Subsurface Velocity Priors from Field Observations",
+    "section": "Software availability",
+    "text": "Software availability"
+  }
+]
