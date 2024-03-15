@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ziyi Yin1,*, Rafael Orozco,1,*, Mathias Louboutin2, Felix J. Herrmann1 1 Georgia Institute of Technology, 2 Devito Codes Ltd, * first two authors contributed equally">
+<meta name="author" content="Ziyi Yin1,*, Rafael Orozco1,*, Mathias Louboutin2, Felix J. Herrmann1 1 Georgia Institute of Technology, 2 Devito Codes Ltd, * equal contribution">
 
 <title>Image2024 - WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</title>
 <style>
@@ -213,8 +213,8 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ziyi Yin<sup>1,*</sup>, Rafael Orozco,<sup>1,*</sup>, Mathias Louboutin<sup>2</sup>, Felix J. Herrmann<sup>1</sup><br>
-<sup>1</sup> Georgia Institute of Technology, <sup>2</sup> Devito Codes Ltd, <sup>*</sup> first two authors contributed equally </p>
+             <p>Ziyi Yin<sup>1,*</sup>, Rafael Orozco<sup>1,*</sup>, Mathias Louboutin<sup>2</sup>, Felix J. Herrmann<sup>1</sup><br>
+<sup>1</sup> Georgia Institute of Technology, <sup>2</sup> Devito Codes Ltd, <sup>*</sup> equal contribution </p>
           </div>
   </div>
     
@@ -229,15 +229,15 @@ div.csl-indent {
 
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and severe observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial migration-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements for an out-of-distribution scenario.</p>
+<p>We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial FWI-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements to improve the inference accuracy.</p>
 </section>
 <section id="amortized-variational-inference" class="level2">
 <h2 class="anchored" data-anchor-id="amortized-variational-inference">Amortized variational inference</h2>
-<p>Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simply the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistics to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-<strong>W</strong>aveform variational <strong>I</strong>nference via <strong>S</strong>ubsurface <strong>E</strong>xtensions <span class="citation" data-cites="yin2023wise">(<a href="#ref-yin2023wise" role="doc-biblioref">Yin et al. 2023</a>)</span>. We further propose a physics-based <strong>R</strong>efinment approach to make it WISER.</p>
+<p>Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simplify the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistic to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-<strong>W</strong>aveform variational <strong>I</strong>nference via <strong>S</strong>ubsurface <strong>E</strong>xtensions <span class="citation" data-cites="yin2023wise">(<a href="#ref-yin2023wise" role="doc-biblioref">Yin et al. 2023</a>)</span>. We further propose a physics-based <strong>R</strong>efinement approach to make it WISER.</p>
 </section>
 <section id="physics-based-refinement" class="level2">
 <h2 class="anchored" data-anchor-id="physics-based-refinement">Physics-based refinement</h2>
-<p>While the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g.&nbsp;acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called <em>amortization gap</em>, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart.</p>
+<p>While the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g.&nbsp;acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called <em>amortization gap</em>, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart in red color.</p>
 </section>
 <section id="downstream-imaging" class="level2">
 <h2 class="anchored" data-anchor-id="downstream-imaging">Downstream imaging</h2>
@@ -387,7 +387,7 @@ Figure&nbsp;1: WISER workflow.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wise-vs-wiser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <em>(a)</em> 1D initial velocity model; <em>(b)</em> unseen ground truth velocity model; <em>(c)</em> Estimated migration-velocity models from WISE; <em>(e)</em> point-wise standard deviation of the migration-velocity models from WISE; <em>(g)</em> imaged reflectivities using migration-velocity models from WISE; <em>(i)</em> point-wise standard deviation of the imaged reflectivities from WISE; <em>(d)(f)(h)(j)</em> are the counterparts of <em>(c)(e)(g)(i)</em> but from WISER.
+Figure&nbsp;2: <em>(a)</em> 1D initial FWI-velocity model used for CIG computation; <em>(b)</em> unseen ground truth velocity model; <em>(c)</em> estimated migration-velocity models from WISE; <em>(e)</em> point-wise standard deviation of the migration-velocity models from WISE; <em>(g)</em> imaged reflectivities using migration-velocity models from WISE; <em>(i)</em> point-wise standard deviation of the imaged reflectivities from WISE; <em>(d)(f)(h)(j)</em> are the counterparts of <em>(c)(e)(g)(i)</em> but from WISER.
 </figcaption>
 </figure>
 </div>
@@ -995,7 +995,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
