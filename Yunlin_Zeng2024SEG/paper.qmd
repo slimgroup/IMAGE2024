@@ -1,7 +1,10 @@
 ---
 title: "Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation"
 author:
-  - name: Yunlin Zeng^1^, Rafael Orozco,^1^, Ziyi Yin^1^, Felix Herrmann ^1^ 
+  - name: 
+      Yunlin Zeng^1^, Rafael Orozco,^1^, Ziyi Yin^1^, Felix Herrmann ^1^ \ 
+       ^1^ Georgia Institute of Technology
+  
 bibliography: paper.bib
 ---
 
@@ -14,6 +17,10 @@ bibliography: paper.bib
 
 To evaluate our method, we divide the compass model dataset [@Jones2012] by allocating $800$ pairs for training and $150$ for testing. We train the baseline CNF on $M=800$ velocity-extended image pairs, and train enhanced CNFs on augmented training pairs ($M=1600, 2400, ...$ etc.). The trained CNFs are evaluated by structural similarity index measure (SSIM) and root mean square error (RMSE) of the posterior samples' mean against the ground truth. The results in Figure \ref{fig:workflow}(d) show that posterior samples progressively align more closely with the ground truth. We also observe the trend that the uncertainty is reduced as we increase the number of background model regenerations used during training. This implies that the uncertainty information in the baseline has not properly captured the uncertainty due to the background model while our method has learned to incorporate this uncertainty information into the final inference result.
 
+::: {#fig-framwork}
+![](./figs/framework.png){width="90%"}
 
+The complete stochastic resampling framework: (a) Perturb and smooth out velocity data to get new background model $\mathbf{x}_0$. (b) Generate $\mathbf{\bar{y}}$ based on $\mathbf{x}_0$ and seismic shot data $\mathbf{y}$. (c) Train the CNF using $\{\mathbf{x}, \mathbf{\bar{y}}\}$ pairs. (d) Comparison of conditional mean and errors against the ground truth velocity between the enhanced CNF and the baseline CNF.
+:::
 
 ## Reference
