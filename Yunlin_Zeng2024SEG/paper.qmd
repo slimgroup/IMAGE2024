@@ -14,4 +14,6 @@ bibliography: paper.bib
 
 To evaluate our method, we divide the compass model dataset [@Jones2012] by allocating $800$ pairs for training and $150$ for testing. We train the baseline CNF on $M=800$ velocity-extended image pairs, and train enhanced CNFs on augmented training pairs ($M=1600, 2400, ...$ etc.). The trained CNFs are evaluated by structural similarity index measure (SSIM) and root mean square error (RMSE) of the posterior samples' mean against the ground truth. The results in Figure \ref{fig:workflow}(d) show that posterior samples progressively align more closely with the ground truth. We also observe the trend that the uncertainty is reduced as we increase the number of background model regenerations used during training. This implies that the uncertainty information in the baseline has not properly captured the uncertainty due to the background model while our method has learned to incorporate this uncertainty information into the final inference result.
 
+
+
 ## Reference
