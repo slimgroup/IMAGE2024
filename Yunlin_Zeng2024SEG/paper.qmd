@@ -3,6 +3,7 @@ title: "Enhancing Full-Waveform Variational Inference through Stochastic Resampl
 author:
   - name: 
       Yunlin Zeng^1^, Rafael Orozco,^1^, Ziyi Yin^1^, Felix Herrmann ^1^ \ 
+      
        ^1^ Georgia Institute of Technology
   
 bibliography: paper.bib
@@ -18,14 +19,20 @@ By interpreting the initial migration-velocity model as stochastic latent variab
 
 ## Result
 
-To improve the neural posterior estimation's robustness, multiple initial migration-velocity models, $\mathbf{x}_0$, are obtained by perturbing the ground-truth velocity model, $\mathbf{x}$, followed by extensive smoothing. Since this deformation is stochastic, we can generate an "infinite" number of background models to use during training, although in practice we regenerate the background model a few times (3-5). Figure 1(a)-(c) shows the complete framework.
+To improve the neural posterior estimation's robustness, multiple initial migration-velocity models, $\mathbf{x}_0$, are obtained by perturbing the ground-truth velocity model, $\mathbf{x}$, followed by extensive smoothing. Since this deformation is stochastic, we can generate an "infinite" number of background models to use during training, although in practice we regenerate the background model a few times (3-5). Figure 1 shows the complete framework.
 
-To evaluate our method, we divide the Compass model dataset [@Jones2012] by allocating $800$ pairs for training and $150$ for testing. We train the baseline Conditional Normalizing Flow (CNF) on $M=800$ velocity-extended image pairs, and train enhanced CNFs on augmented training pairs ($M=1600, 2400, ...$ etc.). The trained CNFs are evaluated by structural similarity index measure (SSIM) and root mean square error (RMSE) of the posterior samples' mean against the ground truth. The results in Figure 1(d) show that posterior samples progressively align more closely with the ground truth. We also observe the trend that the uncertainty is reduced as we increase the number of background model regenerations used during training. This implies that the uncertainty information in the baseline has not properly captured the uncertainty due to the background model while our method has learned to incorporate this uncertainty information into the final inference result.
+To evaluate our method, we divide the Compass model dataset [@Jones2012] by allocating $800$ pairs for training and $150$ for testing. We train the baseline Conditional Normalizing Flow (CNF) on $M=800$ velocity-extended image pairs, and train enhanced CNFs on augmented training pairs ($M=1600, 2400, ...$ etc.). The trained CNFs are evaluated by structural similarity index measure (SSIM) and root mean square error (RMSE) of the posterior samples' mean against the ground truth. The results in Figure 2 show that posterior samples progressively align more closely with the ground truth. We also observe the trend that the uncertainty is reduced as we increase the number of background model regenerations used during training. This implies that the uncertainty information in the baseline has not properly captured the uncertainty due to the background model while our method has learned to incorporate this uncertainty information into the final inference result.
 
 ::: {#fig-framwork}
 ![](./figs/framework.png){width="90%"}
 
-The complete stochastic resampling framework: (a) Perturb and smooth our velocity-model data to get new background models, $\mathbf{x}_0$. (b) Generate $\mathbf{\bar{y}}$ based on $\mathbf{x}_0$ and seismic shot data $\mathbf{y}$. (c) Train the CNF using $\{\mathbf{x}, \mathbf{\bar{y}}\}$ pairs. (d) Comparison of conditional mean and errors against the ground truth velocity between the enhanced CNF and the baseline CNF.
+The complete stochastic resampling framework: (a) Perturb and smooth our velocity-model data to get new background models, $\mathbf{x}_0$. (b) Generate $\mathbf{\bar{y}}$ based on $\mathbf{x}_0$ and seismic shot data $\mathbf{y}$. (c) Train the CNF using $\{\mathbf{x}, \mathbf{\bar{y}}\}$ pairs.
+:::
+
+::: {#fig-result}
+![](./figs/result.png){width="90%"}
+
+Comparison of conditional mean and errors against the ground truth velocity between the enhanced CNF and the baseline CNF.
 :::
 
 ## Reference
