@@ -68,7 +68,7 @@ Test shot record data vs domain transferred shot record. Left columnn consists o
 ::: {#fig-test }
 ![](figures/testdatacomp.png)
 
-Test shot record of one domain vs test shot record of second domain. Left column represents test shot record of velcity only shot record and right column consists of velocity and density shot record.
+Test shot record of one domain vs test shot record of second domain. Left column represents test shot record of velcity only shot record and right column consists of velocity and density shot record.The red circle indicate large changes visible by the naked eye. We can see that the left column shot record has brighter events and stringer reflections.
 ::: 
 
 
