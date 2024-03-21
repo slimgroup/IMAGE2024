@@ -1,8 +1,8 @@
 ---
-title: "Velocity Continuation for Common Image Gathers with Fourier Neural Operators"
+title: "Accelerated Migration Velocity Analysis with Fourier Neural Operators"
 author:
   - name:
-      Richard Rex^1^, Ziyi Yin,^1^, Felix J. Herrmann^1^ \
+      Richard Rex^1^, Ziyi Yin^1^, Felix J. Herrmann^1^ \
       
       ^1^ Georgia Institute of Technology
 bibliography: paper.bib
@@ -16,7 +16,7 @@ $$
 
 ## Introduction
 
-Common Image Gathers (CIGs) play an indispensable role in seismic imaging as they provide a depth-resolved representation of subsurface reflections, essential for interpreting geological structures. They validate reflection consistency across different incidence angles, aiding in analyzing rock layer reflectivity and anisotropy—--crucial elements for mapping subsurface formations. Additionally, CIGs are pivotal in seismic velocity analysis, enabling the refinement of velocity models to align with observed seismic data. However, the process is often hindered by the computational burden of traditional migration methods, especially when dealing with complex background models. To bypass these limitations, we introduce a surrogate learning approach that utilizes Fourier Neural Operators (FNOs) to learn a mapping between velocity models and CIGs. This methodology leverages the capacity of FNOs to approximate PDE solutions efficiently, thereby expediting the imaging process [@fno]. By training an FNO specifically for a given survey, we transform the velocity continuation process into a near-instantaneous task, allowing for the quick generation of CIGs without the exhaustive computational demand of traditional methods.
+Common-image gathers (CIGs) are pivotal in migration velocity analysis (MVA). However, MVA is often hindered by the computational burden of traditional migration methods. To bypass these limitations, we introduce a neural surrogate learning approach that utilizes Fourier neural operators [FNOs, @fno] to accelerate MVA. Following the velocity continuation scheme in @siahkoohi2022velocity, we train a survey-specific FNO to map the CIGs associated with one migration velocity to another. This methodology leverages the capacity of FNOs to approximate complex PDE-based mappings and evaluate with negligible computational cost at inference, thereby expediting MVA.
 <!-- 
 If optimization ends up working by thursday :
 
@@ -28,42 +28,36 @@ Where $E_i$ represents the $\%$ of energy contained in offsets that are at most 
 
 NOTE: The fft is taken along the offset dimension -->
 
-## Methodology
+## Synthetic Case Study
 
-Initially, we prepare our dataset starting with a base velocity model $x_0$ and its associated Common Image Gather. By smoothing $x_0$, we augment our dataset to multiple smooth models (Figure 1.b). Next, we simulate correcponding CIGs that serve as our training targets (Figure 1.c). Next, we use an FNO as a surrogate machine learning model, which will be trained to map pairs of $1)$ bad velocity model, $2)$ CIG of bad velocity model and $3)$ a smoothed velocity model to the CIG of the smooth model (Figure 1.d). Through this process, we not only enhance the accuracy of CIG prediction but also significantly speed up computations, enabling real-time generation of CIGs and analysis of seismic data.
+We conduct a case study on a 2D slice of the Compass model. We generate the observed data with xxx sources and xxx ocean bottom nodes, using a Ricker wavelet with central frequency of xxx Hz. We assume absorbing boundaries in our study. We add uncorrelated band-limited noise with an SNR of xxx dB for realism. We use xxx migration velocity models and generate their CIGs to form our training dataset (Figure 1.c). Next, we train an FNO to map pairs of $1)$ an initial migration velocity model, $2)$ its associated CIGs, and $3)$ a target migration velocity model, to the CIGs associated with the target velocity model (Figure 1.d).
 
-::: {#fig-unsup }
+::: {#fig-unsup}
 ![](figures/workflow.001.jpeg){width="90%"}
 
 Migrated CIG from a slice of a Compass model and our observation (a), Smoothed velocity models obtained from background velocity model (b), Migrated CIGs from smoothed velocity models as training targets (c), Surrogate that maps our input to the target CIGs (d)
 :::
 
+{>>The first sample is not so great. Can you plot another one? Also when plotting I would mute the top.<<}
+Figure 2 displays the FNO prediction in the subsurface-offset domain across various velocity models in an unseen test dataset. Despite some minor errors, the FNO prediction successfully captures the focusing pattern of the CIGs, and correctly produces the imaged reflectivities in the zero-offset. Computationally, the upfront training cost could potentially be reduced by transfer learning techniques. At inference, our trained FNO achieves $3200\times$ speed-up compared to numerical computation of CIGs. These findings substantiate the efficiency of the FNOs in generating CIGs for many velocity models, underscoring its applicability in real-time MVA. This accelerated MVA framework could pave the way for quantifying the uncertainty of imaged reflectivities with respect to many velocity models, and also help select velocity models that lead to desired properties in CIGs. This framework will naturally become a postprocessor for velocity models produced by generative artificial intelligence workflows [@wise].
 
-## Results
-
-In Figure 2, we present the {==efficacy==}{>>Felix would say this is vague<<} of our model across various validation samples. Our findings substantiate the efficiency of the Fourier Neural Operator (FNO) in swiftly generating Common-Image Gathers (CIGs) for novel velocity models, underscoring its applicability in real-time seismic data analysis. Once trained, our network can produce a CIG in a mere fraction of a second (~0.028s on a A100 NVIDIA GPU). In contrast, it takes approximately 90s to analytically compute a CIG on the same machine. This performance indicates a speed-up factor greater than 3200X, demonstrating a significant advancement in computational efficiency.
-
-::: {#fig-sup }
+::: {#fig-sup}
 ![](figures/valid_sample=2.png)
+
 ![](figures/valid_sample=6.png)
 
 Column 1 represents the true CIG computed analytically. Column 2 represents the predicted CIG from our FNO whereas the last column shows the amplified absolute difference between the first 2 columns
-:::
-
-## {==Conclusion==}{>>Felix says: Bit vague<<}
-
-The study significantly contributes to seismic imaging, offering a fast solution for generating CIGs. This approach could lead to future work that facilitates selecting the best posterior samples from WISE [@wise] and computing imaged reflectivity instantly at the zero offset. The method could also be extended to optimize our input velocity model such that we have a focus on desirable properties in CIGs, like energy distribution across different offsets.
-
-### References
-
-::: {#refs}
 :::
 
 ## Acknowledgement {.appendix}
 
 This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.
 
-
 ## Software availability {.appendix}
 
 This work is made reproducible at [FNO-CIG](https://github.com/slimgroup/FNO-CIG)
+
+### References
+
+::: {#refs}
+:::
