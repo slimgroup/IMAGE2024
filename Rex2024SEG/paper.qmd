@@ -1,5 +1,5 @@
 ---
-title: "Accelerated Migration Velocity Analysis with Fourier Neural Operators"
+title: "Accelerated Migration-Velocity Analysis with Fourier Neural Operators"
 author:
   - name:
       Richard Rex^1^, Ziyi Yin^1^, Felix J. Herrmann^1^ \
@@ -16,7 +16,7 @@ $$
 
 ## Introduction
 
-Common-image gathers (CIGs) are pivotal in migration velocity analysis (MVA). However, MVA is often hindered by the computational burden of traditional migration methods. To bypass these limitations, we introduce a neural surrogate learning approach that utilizes Fourier neural operators [FNOs, @fno] to accelerate MVA. Following the velocity continuation scheme in @siahkoohi2022velocity, we train a survey-specific FNO to map the CIGs associated with one migration velocity to another. This methodology leverages the capacity of FNOs to approximate complex PDE-based mappings and evaluate with negligible computational cost at inference, thereby expediting MVA.
+Common-image gathers (CIGs) are pivotal in migration-velocity analysis (MVA). However, MVA is often hindered by the computational burden of traditional migration methods. To bypass these limitations, we introduce a neural surrogate learning approach that utilizes Fourier Neural Operators [FNOs, @fno] to accelerate MVA. Following the velocity-continuation scheme of @siahkoohi2022velocity, we train a survey-specific FNO to map the CIGs associated with one migration-velocity model to another without remigration. This methodology leverages the capacity of FNOs to approximate complex PDE-based mappings rendering computational cost at inference negligible, thereby expediting MVA.
 <!-- 
 If optimization ends up working by Friday :
 
@@ -30,7 +30,7 @@ NOTE: The fft is taken along the offset dimension -->
 
 ## Methodology
 
-We conduct a case study on a 2D slice of the Compass model. We generate the observed data with 64 sources and 256 ocean bottom nodes, using a Ricker wavelet with central frequency of 0.015 Hz. We assume absorbing boundaries in our study. We add uncorrelated band-limited noise with an SNR of 12 dB for realism. We use 500 migration velocity models and generate their CIGs to form our training dataset (Figure 1.c). Next, we train an FNO to map pairs of $1)$ an initial migration velocity model, $2)$ its associated CIGs, and $3)$ a target migration velocity model, to the CIGs associated with the target velocity model (Figure 1.d).
+We conduct a case study on a 2D slice of the Compass model. We generate the observed data with 64 sources and 256 ocean bottom nodes, using a Ricker wavelet with central frequency of 0.015 Hz. We assume absorbing boundaries in our study. We add uncorrelated band-limited noise with an SNR of 12 dB for realism. We use 500 migration-velocity models and generate their CIGs to form our training dataset (Figure 1.c). Next, we train an FNO to map pairs of $1)$ an initial migration velocity model, $2)$ its associated CIGs, and $3)$ a target migration-velocity model, to the CIGs associated with the target velocity model (Figure 1.d).
 
 ::: {#fig-unsup}
 ![](figures/workflow.001.jpeg){width="90%"}
