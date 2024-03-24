@@ -60,19 +60,19 @@ Figure 1 contains a schematic diagram of the training regime. The blue arrows in
 
 ## Results
 
-We apply the proposed domain transfer approach both ways (velocity-only ⇆ velocity+density) to previously unseen shot records. The results from the learned network on these test shot records are presented in Figures 2 and 3, respectively. For reference, the original shot data are included on the left, followed by the domain transferred shot record on the right. Figure 2 shows that the domain transferred (velocity+density → velocity-only) shot record has dimmer reflection events as expected of a velocity-only shot record. The red circles indicate large changes between the shot records. Alternatively, figure 3 shows that the domain transferred (velocity-only → velocity+density) shot record has brighter and sharper reflection events compared to the test shot record, which is expected for a velocity+density shot record. We see these changes in the regions denoted by red circles.
+We apply the proposed domain transfer approach both ways (velocity-only ⇆ velocity+density) to previously unseen shot records. The results from the learned network on these test shot records are presented in Figures 2 and 3, respectively. For reference, the original shot data are included on the left, followed by the domain transferred shot record on the middle and the difference in the domains in the right. Figure 2 shows that the domain transferred (velocity+density → velocity-only) shot record has dimmer reflection events as expected of a velocity-only shot record. The red circles indicate large changes between the shot records, these differences can also be seen in the right column. Alternatively, figure 3 shows that the domain transferred (velocity-only → velocity+density) shot record has brighter and sharper reflection events compared to the test shot record, which is expected for a velocity+density shot record. We see these changes in the regions denoted by red circles, these differences can also be seen in the right column.
 
 ::: {#fig-vdtov }
 ![](figures/comparetestveldenandvel.png)
 
-Test shot record data versus domain-transferred shot record. The left column consists of the test shot record, which includes both velocity and density which is the input to the network, while the right column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to only the velocity domain.
+Test shot record data versus domain-transferred shot record. The left column consists of the test shot record, which includes both velocity and density which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to only the velocity domain. The right column shows the difference between these domains.
 
 :::
 
 ::: {#fig-vtovd }
 ![](figures/comparetestvelandvelden.png)
 
-Test shot record data versus domain-transferred shot record. The left column shows the test shot record, which includes velocity which is the input to the network, while the right column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to include both velocity and density domains.
+Test shot record data versus domain-transferred shot record. The left column shows the test shot record, which includes velocity which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to include both velocity and density domains. The right column shows the difference between these domains.
 
 :::
 
