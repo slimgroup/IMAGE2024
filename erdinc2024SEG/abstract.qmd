@@ -1,5 +1,5 @@
 ---
-title: "Building Subsurface Velocity Priors from Field Observations"
+title: "Generative Geostatistical Modeling from Incomplete Field Observations and Data"
 
 author:
   - name: Huseyin Tuna Erdinc
@@ -20,10 +20,10 @@ affiliations:
     name: Georgia Institute of Technology
     url: https://slim.gatech.edu/
 description: | 
-  Creating priors from field observations.
+  Creating velocity from field observations.
 bibliography: abstract.bib
 abstract: |
-  Creating priors from field observations, reproducible at []()
+  Creating velocity from field observations, reproducible at []()
 ---
 
 ::: hidden
@@ -34,37 +34,39 @@ $$
 
 ## Abstract
 
-Diffusion generative models are emerging powerful frameworks for learning high-dimensional distributions and tackling {==inverse problems==}{>>I am not so sure about that. Be careful.<<}. However, their efficacy in training predominantly hinges on the availability of complete, high-quality datasets, a condition that often proves unattainable, particularly in the domain related to subsurface velocity model generation. In this work, we propose to synthesize subsurface velocity priors from incomplete models (field observations) by integrating additional observation distortions during the training phase and formulating a supervised loss objective. Our approach facilitates the generation of realistic, full velocity samples utilizing a dataset composed merely of {==40% complete velocity models==}{>>This number will not impress the reviewers and will make your work unfortunately a likely candidate for rejections. <<}. Moreover, our model demonstrates resilience against overfitting, a common pitfall in many generative models, and ensures the production of original models that are congruent with actual, clean velocity models. 
+Diffusion generative models are emerging powerful frameworks for learning high-dimensional distributions and synthezing high-quality images. However, their efficacy in training predominantly hinges on the availability of complete, high-quality datasets, a condition that often proves unattainable, particularly in the domain related to subsurface velocity-model generation. In this work, we propose to synthesize subsurface velocities from incomplete models (limited field observations or wells) by integrating additional observation distortions during the training phase and formulating a supervised loss objective. 
+Our approach facilitates the generation of full velocity samples utilizing a dataset composed merely of seismic images and 5 wells per seismic image. Upon concluding the training process, our framework permits the generation of velocity samples from novel RTMs without the necessity for wells or incomplete velocity measurements.
 
 ## Method
 
-Seismic velocity-model synthesis is an {==ill-posed problem==}{>>Unclear to me. synthesis from what? From partial information then yes.<<}, and acquiring comprehensive realistic datasets is costly. Generative models, particularly diffusion models, offer a solution by training priors to synthesize plausible samples.  These models approach synthesis through a denoising process, facilitating high-quality generation within high-dimensional spaces. Our work leverages diffusion models to construct priors from only partial velocity information {++(e.g. information from well logs supplemented by imaged seismic++}, showcasing their efficiency in generating geophysically sound velocity samples.
+Seismic velocity-model synthesis from incomplete measurements is an ill-posed problem, and acquiring comprehensive realistic datasets is costly. Generative models, particularly diffusion models, offer a solution by training conditional networks to synthesize plausible samples. These models approach synthesis through a denoising process, facilitating high-quality generation within high-dimensional spaces. Our work leverages diffusion models to construct velocities from limited well log information and thereby showcase their efficiency in generating geophysically sound velocity samples.
 
-For our training dataset, we utilize 2D {==proxy velocity models==}{>>What is this. Describe.<<} (with dimensions of depth and width both at 1600m) that reflect the geological characteristics of the Southern North Sea. These models are derived from 3D imaged seismic and well-log data, featuring realistic heterogeneity. To simulate authentic field conditions, we apply a column-wise random masking ($\mathbf{A}$) to {==60%==}{>>Again this is way way way too much data. To fake things I would work with 2 wells per slice but sample the slice more than once by putting the wells at different locations. This mimics the situation where you have way more slices to work with.<<} of the velocity data within these 2D models, resulting in a dataset comprising 3,000 instances.
+For our training dataset, we utilize 2D proxy velocity slices (measuring 1600m in both depth and width) that reflect the geological characteristics of the Southern North Sea [@bg]. These models are derived from 3D imaged seismic and well-log data, featuring realistic heterogeneity. To simulate authentic field conditions, we apply a column-wise random masking ($\mathbf{A}$) to velocity slices leaving only 5 well per slice, resulting in approximately $\approx 98\%$ of the velocity information being obscured.Alongside, we generate seismic images from our velocity slices using Reverse Time Migration (RTM) and form a dataset that includes 3000 RTMs and a total of 15000 wells.
 
-In our training process, the absence of complete velocity models precludes the use of a conventional L2 denoising loss formulation. Drawing inspiration from [@ambient], our study adopts an alternative approach by introducing distortion into the already column-wise masked, and there for distorted, velocity models ($\mathbf{\hat{A}}$). This approach crafts a supervised learning objective where the denoising model is not only tasked with denoising but also with inpainting missing pixels, utilizing the distorted and masked velocity models as inputs. Figure 1 illustrates the conceptual framework of the loss objective and delineates the inputs for the denoising network, which is charged with the generation of clean velocity models. The denoising model is trained for 20000 iterations on 2 A100 GPUs for $\approx$ 4 days.
+In our training process, the absence of complete velocity models precludes the use of a conventional L2 denoising loss formulation. Inspired by [@rafaelkriging] and [@ambient], our study adopts an alternative approach by introducing distortion into the already column-wise masked, and there for distorted, velocity models ($\mathbf{\hat{A}}$). This approach crafts a supervised learning objective, where the denoising model, conditioned on seismic images ($\mathbf{c}$), aims to perform both denoising and inpainting of missing pixels using the distorted and masked velocity models as input. Figure 1 illustrates the conceptual framework of the loss objective and specifies the inputs for the denoising network, which is charged with the generation of clean velocity models. The denoising model undergoes training over 20,000 iterations on 2 A100 GPUs for approximately 4 days.
+
 
 ::: {#fig-sup }
-![](figures/IMAGE2024_figure1.png)
+![](figures/IMAGE2024_figure1_new.png)
 
-In the formulation of our training loss, field observations along with their column-wise masks ($\mathbf{A}$) are initially sampled. Following this, distortion masks ($\mathbf{\hat{A}}$) are generated, with their sampling conditioned upon the initial column-wise masks. The denoising model, informed of the distortion masks and noisy distorted field observations, reconstructs the complete, noise-free velocity model. 
+In the formulation of our training loss, field observations (RTMs and wells) along with column-wise masks ($\mathbf{A}$) are initially sampled. Following this, distortion masks ($\mathbf{\hat{A}}$) are generated, with their sampling conditioned upon the initial column-wise masks. The denoising model, informed of the distortion masks, noisy distorted well information and RTMs reconstructs the complete, noise-free velocity model. 
 :::
 
 ## Results
 
-In Figure 2, displayed on the left, we observe four distinct synthesized velocity images produced by the trained diffusion model. The results show that the model can capture long range structures in the training survey area and extrapolate missing information in input images and produce realistic looking samples. The sampling process is fast and requires 20s per sample on a GPU. Additionally, we identified the nearest neighbor samples corresponding to the synthesized velocities. We can clearly see even among the most similar samples, there are discernible differences in structure, demonstrating the model's robustness against overfitting.  {==The future work aims to enhance the generation of these velocity priors by pushing the boundaries further and utilizing even fewer field observations and seismic images, such as Reverse Time Migration (RTM) techniques.==}{>>I would go for this now if you want to be accepted.<<}
+In Figure 2, we present the performance of our generative model across two distinct examples. Using an unseen seismic image (RTM), our model synthesizes subsurface velocity without relying on well data, effectively executing a deconvolution operation. To validate the quality of our generation process, we compare the posterior means (derived from 200 samples) against the ground truth test velocity models, which remained entirely unseen during the training phase. We observe that posterior means can capture long range structures and produce meaningful velocity samples, evidenced by Structural Similarity Index (SSIM) scores of 0.88 and 0.91. Furthermore, we calculated the variance of the posterior samples that aligns closely with particular structures within the velocity models. We can conclude that our method is a promising option for generating realistic velocity models. Looking ahead, future directions include expanding our dataset across varied geological settings and advancing towards a foundational seismic-based velocity generative model.
+
 
 ::: {#fig-unsup }
-![](figures/IMAGE2024_figure2.png)
+![](figures/IMAGE2024_figure2_new.png)
 
-Comparison between generated samples and their corresponding nearest neighbor (NN) in the original clean dataset, which remains unseen by the denoising network. To identify the nearest neighbors among the samples, the Structural Similarity Index Measure (SSIM) is employed.
+The denoising model is tested on two distinct, previously unseen velocity examples. For each case, we fed the corresponding RTM into the network and generated velocity samples (200 samples for each example). Subsequently, we computed both the posterior mean and variance. To assess the accuracy of our model, we included the SSIM score comparing the ground truth to the calculated posterior means.
 :::
+ 
 
 ## Significance
 
-We employed diffusion models to generate realistic subsurface velocity samples. While previous efforts that relied on synthesis from fully complete velocity examples, our approach successfully generates high-quality, realistic samples from only 40% complete 2D slices. Empirical evidence demonstrates our network's ability to circumvent the common issue of overfitting observed in many generative models. The velocity models produced by our method hold significant value for downstream tasks in reservoir engineering and various other applications that require the generation of multiple plausible velocity models.
-
-Additional material is available at https://slimgroup.github.io/IMAGE2024/.
+We utilized diffusion models to synthesize realistic subsurface velocity samples. Unlike prior approaches dependent on entirely complete velocity datasets, our method achieves effective training with merely $\approx 2%$ of velocity information (well data) and corresponding Reverse Time Migrations (RTMs) for each velocity slice. Additionally, our model's sampling mechanism operates without the necessity for well data, conditioned solely on RTMs to generate velocity samples directly. The velocity samples produced by our technique are highly beneficial for subsequent tasks in reservoir engineering and other fields demanding the creation of various plausible velocity models. Additional material is available at https://slimgroup.github.io/IMAGE2024/.
 
 
 ## Acknowledgement {.appendix}
