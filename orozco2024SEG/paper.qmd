@@ -30,7 +30,6 @@ BEACON workflow integrated to digital twin for CO2 sequestration monitoring.
 BEACON compared with random well placement baseline.
 :::
 
-
 ## References
 
 ::: {#refs}
