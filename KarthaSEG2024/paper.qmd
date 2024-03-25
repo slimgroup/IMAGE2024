@@ -65,14 +65,14 @@ We apply the proposed domain transfer approach both ways (velocity-only ⇆ velo
 ::: {#fig-vdtov }
 ![](figures/comparetestveldenandvel.png)
 
-Test shot record data versus domain-transferred shot record. The left column consists of the test shot record, which includes both velocity and density which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to only the velocity domain. The right column shows the difference between these domains.
+Test shot record data versus domain-transferred shot record. The left column consists of the test shot record, which includes both velocity and density which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to only the velocity domain. The right column shows the difference between these domains. All plots are in the same colorbar.
 
 :::
 
 ::: {#fig-vtovd }
 ![](figures/comparetestvelandvelden.png)
 
-Test shot record data versus domain-transferred shot record. The left column shows the test shot record, which includes velocity which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to include both velocity and density domains. The right column shows the difference between these domains.
+Test shot record data versus domain-transferred shot record. The left column shows the test shot record, which includes velocity which is the input to the network, while the middle column displays the domain-transferred shot record predicted by the network, where this test shot record has been converted to include both velocity and density domains. The right column shows the difference between these domains. All plots are in the same colorbar.
 
 :::
 
