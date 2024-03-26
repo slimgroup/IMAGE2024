@@ -25,7 +25,7 @@ We conduct a case study on a 2D slice of the Compass model. We generate observed
 ::: {#fig-unsup}
 ![](figures/workflow.001.jpeg){width="90%"}
 
-Our initial velocity model and it's CIG (a), Set of Smoothed velocity models used as training inputs (b), Migrated CIGs from smoothed velocity models as training targets (c), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (d)
+Our initial velocity model (a) and it's CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)
 :::
 
 ::: {#fig-sup}
