@@ -6,8 +6,8 @@ This is a Quarto website.
 
 All submissions to the Image24 conference with additional figures, references, ...
 
-List of abstrac:
+List of abstracts:
 
-- [Digital twin with control](DigitalTwin/abstract.qmd) An uncertainty-aware digital twin for geological carbon storage
+- [Digital twin with control](GahlotLi2024SEG/abstract.qmd) A Digital Twin for Geological Carbon Storage with Controlled Injectivity
 
 - [WISER](yin2024SEG/paper.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements
