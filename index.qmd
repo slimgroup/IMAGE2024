@@ -8,6 +8,6 @@ All submissions to the Image24 conference with additional figures, references, .
 
 List of abstracts:
 
+- [Velocity Continuation for Common Image Gathers with Fourier Neural Operators](Rex2024SEG/paper.qmd) A framework to accelerate migration-velocity analysis and uncertainty quantification
 - [Digital twin with control](GahlotLi2024SEG/paper.qmd) A Digital Twin for Geological Carbon Storage with Controlled Injectivity
-
 - [WISER](yin2024SEG/paper.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements
