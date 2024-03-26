@@ -72,11 +72,64 @@
     ]
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
+    "objectID": "Rex2024SEG/paper.html",
+    "href": "Rex2024SEG/paper.html",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
     "section": "",
-    "text": "These abstracts are released under the Creative Commons License type CC BY. 2024 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+    "text": "\\[\n    \\newcommand{\\pluseq}{\\mathrel{+}=}\n\\]",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "Velocity Continuation for Common Image Gathers"
+    ]
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#introduction",
+    "href": "Rex2024SEG/paper.html#introduction",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Introduction",
+    "text": "Introduction\nCommon-image gathers (CIGs) are pivotal in migration-velocity analysis (MVA). However, MVA is often hindered by the computational burden of traditional migration methods. To bypass these limitations, we introduce a neural-surrogate learning approach that utilizes Fourier Neural Operators (FNOs, Li et al. 2020) to accelerate MVA. Following the velocity-continuation scheme of Siahkoohi, Louboutin, and Herrmann (2022), we train a survey-specific FNO to map the CIGs associated with one migration-velocity model to another without remigration. This methodology leverages the capacity of FNOs to approximate complex PDE-based mappings, rendering computational cost at inference negligible, thereby expediting MVA. By enabling rapid generation and evaluation of CIGs across various velocity models, it offers a pathway to quickly examine velocity models according to preferred properties and to quantify uncertainties in imaged reflectivities at the same time. Additionally, this methodology paves the way for inverse design optimization, updating velocity models to produce CIGs with desirable characteristics.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "Velocity Continuation for Common Image Gathers"
+    ]
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#methodology",
+    "href": "Rex2024SEG/paper.html#methodology",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Methodology",
+    "text": "Methodology\nWe conduct a case study on a 2D slice of the Compass model. We generate observed data with 256 sources and 32 ocean bottom nodes, using a Ricker wavelet with central frequency of 0.015 Hz. We assume absorbing boundaries in our study. We add uncorrelated band-limited noise with an SNR of 12 dB for realism. For a given migration-velocity model, CIGs are computed. To train the network to generate CIGs for new migration-velocity models without remigration, 500 new migration-velocity models (Figure 1 (b)) are generated and used to generate CIGs to form our training dataset (Figure 1 (c)). Given these models and CIGs, a FNO is to trained to map \\(a)\\) initial migration-velocity model, \\(b)\\) its CIG, and \\(c)\\) target migration-velocity models, to the CIGs associated with the target migration-velocity models (Figure 1 (d)).\n\n\n\n\n\n\nFigure 1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)\n\n\n\n\n\n\n\n\n\n\nFigure 2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "Velocity Continuation for Common Image Gathers"
+    ]
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#results",
+    "href": "Rex2024SEG/paper.html#results",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Results",
+    "text": "Results\nFigure 2 displays the FNO prediction in the subsurface-offset domain across various velocity models in an unseen test dataset. Despite some minor errors, the FNO prediction successfully captures the focusing pattern of the CIGs, and correctly produces the imaged reflectivities at the near zero-offsets. Computationally, the upfront training cost could potentially be reduced by transfer learning techniques. At inference, our trained FNO achieves \\(3200\\times\\) speed-up compared to numerical computation of CIGs. These findings substantiate the computational efficiency of the FNOs in generating CIGs for many velocity models, underscoring its applicability in real-time migration-velocity analysis. This framework also presents a way to select good posterior samples of velocity models so that they exhibit desirable properties in their CIGs, making it a good choice of a postprocessor for velocity models produced by generative artificial intelligence workflows (Yin et al. 2023). Additionally, it enables fast uncertainty quantification of imaged reflectivities with respect to many velocity models. In addition to this, the framework could also be pivotal in performing inverse design optimization. By updating our background velocity models such that they yield CIGs with specific, desirable properties, we can further refine our understanding of seismic data. This work is made reproducible at FNO-CIG using distributed Fourier Neural Operators implemented in ParametricOperators.jl.",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "Velocity Continuation for Common Image Gathers"
+    ]
+  },
+  {
+    "objectID": "Rex2024SEG/paper.html#acknowledgement",
+    "href": "Rex2024SEG/paper.html#acknowledgement",
+    "title": "Velocity Continuation for Common Image Gathers with Fourier Neural Operators",
+    "section": "Acknowledgement",
+    "text": "Acknowledgement\n\nThis research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.\n\nReferences\n\n\nLi, Zongyi, Nikola Kovachki, Kamyar Azizzadenesheli, Burigede Liu, Kaushik Bhattacharya, Andrew Stuart, and Anima Anandkumar. 2020. “Fourier Neural Operator for Parametric Partial Differential Equations.”\n\n\nSiahkoohi, Ali, Mathias Louboutin, and Felix J Herrmann. 2022. “Velocity Continuation with Fourier Neural Operators for Accelerated Uncertainty Quantification.” In SEG International Exposition and Annual Meeting, D011S092R004. SEG.\n\n\nYin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J. Herrmann. 2023. “WISE: Full-Waveform Variational Inference via Subsurface Extensions.”\n\n\n\n\n\nFigure 1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)\nFigure 2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns\nFigure 2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns",
+    "crumbs": [
+      "Home",
+      "Abstracts",
+      "Velocity Continuation for Common Image Gathers"
+    ]
   },
   {
     "objectID": "yin2024SEG/paper.html",
@@ -151,10 +204,17 @@
     ]
   },
   {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "These abstracts are released under the Creative Commons License type CC BY. 2024 Copyrights (c) SLIM Group, Georgia Institute of Technology.\nAll codes used to produce these results are released under MIT license."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Image2024",
     "section": "",
-    "text": "This is a Quarto website.\nAll submissions to the Image24 conference with additional figures, references, …\nList of abstracts:\n\nDigital twin with control A Digital Twin for Geological Carbon Storage with Controlled Injectivity\nWISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+    "text": "This is a Quarto website.\nAll submissions to the Image24 conference with additional figures, references, …\nList of abstracts:\n\nVelocity Continuation for Common Image Gathers with Fourier Neural Operators A framework to accelerate migration-velocity analysis and uncertainty quantification\nDigital twin with control A Digital Twin for Geological Carbon Storage with Controlled Injectivity\nWISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
   }
 ]

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Abhinav Prakash Gahlot1*, Haoyun Li,1*, Ziyi Yin1, Rafael Orozco1, and Felix J. Herrmann1 1 Georgia Institute of Technology, * first two authors contributed equally">
+<meta name="author" content="Richard Rex1, Ziyi Yin1, Felix J. Herrmann1 1 Georgia Institute of Technology">
 
-<title>Image2024 - A Digital Twin for Geological Carbon Storage with Controlled Injectivity</title>
+<title>Image2024 - Velocity Continuation for Common Image Gathers with Fourier Neural Operators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../Rex2024SEG/paper.html">Velocity Continuation for Common Image Gathers</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -197,7 +197,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../GahlotLi2024SEG/paper.html" class="sidebar-item-text sidebar-link active">
+  <a href="../GahlotLi2024SEG/paper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</span></a>
   </div>
 </li>
@@ -209,7 +209,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Rex2024SEG/paper.html" class="sidebar-item-text sidebar-link">
+  <a href="../Rex2024SEG/paper.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Velocity Continuation for Common Image Gathers</span></a>
   </div>
 </li>
@@ -228,17 +228,16 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#conclusion-and-discussions" id="toc-conclusion-and-discussions" class="nav-link" data-scroll-target="#conclusion-and-discussions">Conclusion and discussions</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../Rex2024SEG/paper.html">Velocity Continuation for Common Image Gathers</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</h1>
+<h1 class="title">Velocity Continuation for Common Image Gathers with Fourier Neural Operators</h1>
 </div>
 
 
@@ -248,8 +247,8 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Abhinav Prakash Gahlot<sup>1*</sup>, Haoyun Li,<sup>1*</sup>, Ziyi Yin<sup>1</sup>, Rafael Orozco<sup>1</sup>, and Felix J. Herrmann<sup>1</sup><br>
-<sup>1</sup> Georgia Institute of Technology, <sup>*</sup> first two authors contributed equally </p>
+             <p>Richard Rex<sup>1</sup>, Ziyi Yin<sup>1</sup>, Felix J. Herrmann<sup>1</sup><br>
+<sup>1</sup> Georgia Institute of Technology </p>
           </div>
   </div>
     
@@ -262,67 +261,71 @@ window.Quarto = {
 </header>
 
 
+<div class="hidden">
+<p><span class="math display">\[
+    \newcommand{\pluseq}{\mathrel{+}=}
+\]</span></p>
+</div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Digital Twins refer to dynamic virtual replicas of subsurface systems, integrating real-time data and employing advanced generative Artificial Intelligence (genAI) methodologies, such as neural posterior density estimation via simulation-based inference and sequential Bayesian inference. Thanks to combination of these advanced Bayesian inference techniques, our approach is capable of addressing challenges of monitoring and controlling CO<sub>2</sub> storage projects. These challenges include dealing with the subsurface’s complexity and heterogeneity (seismic and fluid-flow properties), operations optimization, and risk mitigation, e.g.&nbsp;via injection rate control. Because our Digital Twin is capable of handling diverse monitoring data, consisting of time-lapse seismic and data collected at (monitoring) wells, it entails a technology that serves as a platform to integrate seemingly disparate and siloed fields, e.g.&nbsp;geophysics and reservoir engineering. In addition, recent breakthroughs in genAI, allow Digital Twins to capture uncertainty in a principled way <span class="citation" data-cites="yu2023IMAGEmsc herrmann2023president gahlot2023NIPSWSifp">(<a href="#ref-yu2023IMAGEmsc" role="doc-biblioref">Yu et al. 2023</a>; <a href="#ref-herrmann2023president" role="doc-biblioref">Herrmann 2023</a>; <a href="#ref-gahlot2023NIPSWSifp" role="doc-biblioref">Gahlot et al. 2023</a>)</span>. By employing training and inference recursively, the Digital Twin trains its neural networks on samples of the simulated current state—i.e., the CO<sub>2</sub> saturation/pressure, paired with simulated imaged seismic and/or data collected at (monitoring) wells. These training pairs of the simulated state and simulated observations are obtained by sampling the posterior distribution, <span class="math inline">\(\mathbf{x}_{k-1}\sim p(\mathbf{x}_{k-1}\vert \mathbf{y}^\mathrm{o}_{1:k-1})\)</span>, at the previous timestep, <span class="math inline">\(k-1\)</span>, conditioned on field data, <span class="math inline">\(\mathbf{y}^\mathrm{o}_{1:k-1}\)</span>, collected over all previous timesteps, <span class="math inline">\(1:k-1\)</span>, followed by advancing the state to the current timestep, followed by simulating (seismic/well) observations associated with that state. Given these simulated state-observation pairs, the Digital Twin’s networks are trained, so they are current and ready to produce samples of the posterior when the new field data comes in—i.e.&nbsp;<span class="math inline">\(\mathbf{x}_{k}\sim p(\mathbf{x}_{k}\vert \mathbf{y}^\mathrm{o}_{1:k})\)</span>. While this new neural approach to data assimilation for CO<sub>2</sub> storage projects provides what is called an uncertainty-informed <em>Digital Shadow</em>, it lacks decision making and control, which would make it a Digital Twin <span class="citation" data-cites="thelen2022comprehensivea">(<a href="#ref-thelen2022comprehensivea" role="doc-biblioref">Thelen et al. 2022</a>)</span>, capable of optimizing storage operations while mitigating risks including the risk of fracturing the cap rock by exceeding the fracture pressure. The latter risk is illustrated in Figure 1, where the first row contains simulated samples of the differential pressure at timestep, <span class="math inline">\(k=4\)</span>, without control. These samples for the simulated state exceed the fracture pressure and are denoted by the red areas. During this talk, we will demonstrate how the Digital Twin can make informed decisions to avoid exceeding the fracture pressure.</p>
+<p>Common-image gathers (CIGs) are pivotal in migration-velocity analysis (MVA). However, MVA is often hindered by the computational burden of traditional migration methods. To bypass these limitations, we introduce a neural-surrogate learning approach that utilizes Fourier Neural Operators <span class="citation" data-cites="fno">(FNOs, <a href="#ref-fno" role="doc-biblioref">Li et al. 2020</a>)</span> to accelerate MVA. Following the velocity-continuation scheme of <span class="citation" data-cites="siahkoohi2022velocity">Siahkoohi, Louboutin, and Herrmann (<a href="#ref-siahkoohi2022velocity" role="doc-biblioref">2022</a>)</span>, we train a survey-specific FNO to map the CIGs associated with one migration-velocity model to another without remigration. This methodology leverages the capacity of FNOs to approximate complex PDE-based mappings, rendering computational cost at inference negligible, thereby expediting MVA. By enabling rapid generation and evaluation of CIGs across various velocity models, it offers a pathway to quickly examine velocity models according to preferred properties and to quantify uncertainties in imaged reflectivities at the same time. Additionally, this methodology paves the way for inverse design optimization, updating velocity models to produce CIGs with desirable characteristics.</p>
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p>To make uncertainty informed decisions on adapting the injection rate, 128 samples of the state (see second row Figure 1), <span class="math inline">\(\{\mathbf{x}^{(m)}_{3}\}_{m=1}^{128}\)</span>, and permeability, <span class="math inline">\(\{K^{(m)}\}_{m=1}^{128}\)</span>, are drawn at time-step <span class="math inline">\(k=3\)</span> from the posterior distribution, <span class="math inline">\(\mathbf{x}_{3}\sim p(\mathbf{x}_{3}\vert \mathbf{y}^\mathrm{o}_{1:3})\)</span>, for the state conditioned on the observed time-lapse data, and from the distribution for the permeability, <span class="math inline">\(K\sim p(K)\)</span>. To find the optimized injection rate, we first calculate for each sample, <span class="math inline">\(K\)</span> and <span class="math inline">\(\mathbf{x}^{(m)}_{3}\)</span>, the optimized injectivity by <span class="math inline">\(\max_{q_3} q_3\Delta t \ \ \text{subject to} \ \ \mathbf{x}_{4}['p']&lt;\mathbf{p}_{\max}\)</span> where <span class="math inline">\(\mathbf{p}_{\max}\)</span> is the depth-dependent fracture pressure, and <span class="math inline">\(\mathbf{x}_{4}=\mathcal{M}_3(\mathbf{x}_{3}, \mathbf{K}; q_3)\)</span> the state’s time-advancement denoted by the symbol <span class="math inline">\(\mathcal{M}_3\)</span>. For the fluid-flow simulations, the open-source Julia package <a href="https://github.com/slimgroup/JUDI.jl">JUDI.jl</a> and <a href="https://github.com/sintefmath/JutulDarcy.jl">JutulDarcy.jl</a> are used. Results of these optimizations are included in Figure 2(a), which contains a histogram of the empirical fracture frequency as a function of injection rates at time <span class="math inline">\(k=3\)</span>. Given this histogram, our task is to maximize the injection rate given a pre-defined confidence interval (e.g.&nbsp;95 %), so that the fracture probability remains below a certain percentage e.g.&nbsp;1%. With these simulations, and the fact that fracture/no-fracture occurrences are distributed according to the Bernoulli distribution, we will demonstrate that we are able to select an injection rate that limits fracture occurrence to the prescribed probability with a prescribed confidence interval. For instance, we can compute <span class="math inline">\(Pr([\mathbf{x}_4['p']&gt;p_{\max}]&lt;0.01)&lt;1-0.025\)</span>, which corresponds to selecting an injection rate that leads to fracture rate of <span class="math inline">\(&lt;1\%\)</span> with <span class="math inline">\(97.5\%\)</span> confidence. The confidence interval is halved, because only conservative (left) injection rates will be selected (see Figure 2(b)).</p>
+<p>We conduct a case study on a 2D slice of the Compass model. We generate observed data with 256 sources and 32 ocean bottom nodes, using a Ricker wavelet with central frequency of 0.015 Hz. We assume absorbing boundaries in our study. We add uncorrelated band-limited noise with an SNR of 12 dB for realism. For a given migration-velocity model, CIGs are computed. To train the network to generate CIGs for new migration-velocity models without remigration, 500 new migration-velocity models (Figure 1 (b)) are generated and used to generate CIGs to form our training dataset (Figure 1 (c)). Given these models and CIGs, a FNO is to trained to map <span class="math inline">\(a)\)</span> initial migration-velocity model, <span class="math inline">\(b)\)</span> its CIG, and <span class="math inline">\(c)\)</span> target migration-velocity models, to the CIGs associated with the target migration-velocity models (Figure 1 (d)).</p>
+<div id="fig-unsup" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/workflow.001.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="figures/workflow.001.jpeg" class="img-fluid figure-img" style="width:90.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)
+</figcaption>
+</figure>
+</div>
+<div id="fig-sup" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="figures/valid_sample=8.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="figures/valid_sample=8.png" class="img-fluid figure-img"></a></p>
+<p><a href="figures/valid_sample=6.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="figures/valid_sample=6.png" class="img-fluid figure-img"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<p>To calculate injection rates that mitigate the risk of exceeding the fracture pressure, we proceed as follows. First, because the optimized injection rates are close to the fracture pressure, we consider these optimization as approximations to the injection rates where the fracture pressure are exceeded. Next, Kernel Density Estimation (KDE) is applied to produce the smooth red curve in Figure 2(a). This smoothed probability function is used to calculate the Cumulative Density Function (CDF), plotted in Figure 2(b). Using the fact that non-fracture/fracture occurrence entails a Bernoulli distribution, confidence intervals can be calculated, <span class="math inline">\(\pm Z_{\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1 - \hat{p})}{128}}\)</span> where <span class="math inline">\(\hat{p}\)</span> represents the CDF (blue line) and <span class="math inline">\(Z_{\frac{\alpha}{2}}=1.96\)</span> with <span class="math inline">\(\alpha=0.05\)</span>. From the CDF and confidence intervals (denoted by the grey areas), the following conclusions can be drawn: First, if the initial injection rate of <span class="math inline">\(q_3 = 0.0500 m^3/s\)</span> is kept, the fracture probability lies between 24.47 – 40.71% (vertical dashed line) and has a maximum likelihood of 32.59%, which are all way too high. Second, if we want to limit the fracture occurrence rate to 1% (red dashed line), then we need to lower the injection rate to <span class="math inline">\(q_3=0.0387\mathrm{m^3/s}\)</span>. To ensure the low fracture occurrence rate of 1%, the reduced injection rate is chosen as the smallest injection rate within the confidence interval. As can be observed from Figure 2(b), lowering the injection rate avoids exceeding the fracture pressure at the expense of injecting less CO<sub>2</sub>. Out of 128 samples, 43 samples are fractured with the initial injection rate, while only one sample is fractured with the controlled injection rate.</p>
+<p>Figure 2 displays the FNO prediction in the subsurface-offset domain across various velocity models in an unseen test dataset. Despite some minor errors, the FNO prediction successfully captures the focusing pattern of the CIGs, and correctly produces the imaged reflectivities at the near zero-offsets. Computationally, the upfront training cost could potentially be reduced by transfer learning techniques. At inference, our trained FNO achieves <span class="math inline">\(3200\times\)</span> speed-up compared to numerical computation of CIGs. These findings substantiate the computational efficiency of the FNOs in generating CIGs for many velocity models, underscoring its applicability in real-time migration-velocity analysis. This framework also presents a way to select good posterior samples of velocity models so that they exhibit desirable properties in their CIGs, making it a good choice of a postprocessor for velocity models produced by generative artificial intelligence workflows <span class="citation" data-cites="wise">(<a href="#ref-wise" role="doc-biblioref">Yin et al. 2023</a>)</span>. Additionally, it enables fast uncertainty quantification of imaged reflectivities with respect to many velocity models. In addition to this, the framework could also be pivotal in performing inverse design optimization. By updating our background velocity models such that they yield CIGs with specific, desirable properties, we can further refine our understanding of seismic data. This work is made reproducible at <a href="https://github.com/slimgroup/FNO-CIG">FNO-CIG</a> using distributed Fourier Neural Operators implemented in <a href="https://github.com/slimgroup/ParametricOperators.jl">ParametricOperators.jl</a>.</p>
 </section>
-<section id="conclusion-and-discussions" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion-and-discussions">Conclusion and discussions</h2>
-<p>The above example illustrates how Digital Twins can be used to mitigate risks associated with CO<sub>2</sub> storage projects. Specifically, we used the Digital Twin’s capability to produce samples of its state (pressure), conditioned on observed seismic and/or well data. Using these samples, in conjunction with samples from the permeability distribution, we were able to capture statistics on the fracture occurrence frequency as a function of the injection rate. Given these statistics, we were in a position to set a fracture frequency and choose the corresponding injection rate as a function of the confidence interval. By following this procedure, exceeding the fracture pressure was avoided by lowering the injection rate. The decision to lower the injection rate, and by which amount, was informed by the Digital Twin, which uses seismic and/or well data to capture reservoir’s state including its uncertainty.</p>
-<div id="fig-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/Figure1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/Figure1.png" class="img-fluid figure-img" style="width:90.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</span> and a comparative analysis of pressure outputs from the digital twin at time-step <span class="math inline">\(k=4\)</span>
-</figcaption>
-</figure>
-</div>
-<div id="fig-fracture" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/Figure2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./figs/Figure2.png" class="img-fluid figure-img" style="width:90.0%"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Injection rate samples and KDE curve(a), CDF curve of fracture probability versus injection rate with 95% confidence interval(b)
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
+<div id="quarto-appendix" class="default"><section id="acknowledgement" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Acknowledgement</h2><div class="quarto-appendix-contents">
+
+<p>This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.</p>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-gahlot2023NIPSWSifp" class="csl-entry" role="listitem">
-Gahlot, Abhinav Prakash, Huseyin Tuna Erdinc, Rafael Orozco, Ziyi Yin, and Felix J. Herrmann. 2023. <span>“Inference of CO2 Flow Patterns <span></span> a Feasibility Study.”</span> <a href="https://doi.org/10.48550/arXiv.2311.00290">https://doi.org/10.48550/arXiv.2311.00290</a>.
+<div id="ref-fno" class="csl-entry" role="listitem">
+Li, Zongyi, Nikola Kovachki, Kamyar Azizzadenesheli, Burigede Liu, Kaushik Bhattacharya, Andrew Stuart, and Anima Anandkumar. 2020. <span>“Fourier Neural Operator for Parametric Partial Differential Equations.”</span>
 </div>
-<div id="ref-herrmann2023president" class="csl-entry" role="listitem">
-Herrmann, Felix J. 2023. <span>“President’s Page: Digital Twins in the Era of Generative AI.”</span> <em>The Leading Edge</em> 42 (11): 730–32.
+<div id="ref-siahkoohi2022velocity" class="csl-entry" role="listitem">
+Siahkoohi, Ali, Mathias Louboutin, and Felix J Herrmann. 2022. <span>“Velocity Continuation with Fourier Neural Operators for Accelerated Uncertainty Quantification.”</span> In <em>SEG International Exposition and Annual Meeting</em>, D011S092R004. SEG.
 </div>
-<div id="ref-thelen2022comprehensivea" class="csl-entry" role="listitem">
-Thelen, Adam, Xiaoge Zhang, Olga Fink, Yan Lu, Sayan Ghosh, Byeng D Youn, Michael D Todd, Sankaran Mahadevan, Chao Hu, and Zhen Hu. 2022. <span>“A Comprehensive Review of Digital Twin—Part 1: Modeling and Twinning Enabling Technologies.”</span> <em>Structural and Multidisciplinary Optimization</em> 65 (12): 354.
-</div>
-<div id="ref-yu2023IMAGEmsc" class="csl-entry" role="listitem">
-Yu, Ting-ying, Rafael Orozco, Ziyi Yin, Mathias Louboutin, and Felix J. Herrmann. 2023. <span>“Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference.”</span> <a href="https://slimgroup.github.io/IMAGE2023/SequentialBayes/abstract.html">https://slimgroup.github.io/IMAGE2023/SequentialBayes/abstract.html</a>.
+<div id="ref-wise" class="csl-entry" role="listitem">
+Yin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J. Herrmann. 2023. <span>“WISE: Full-Waveform Variational Inference via Subsurface Extensions.”</span>
 </div>
 </div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</span> and a comparative analysis of pressure outputs from the digital twin at time-step <span class="math inline">\(k=4\)</span></span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Injection rate samples and KDE curve(a), CDF curve of fracture probability versus injection rate with 95% confidence interval(b)</span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns</span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns</span>
 </div>
 </section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -901,7 +904,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
