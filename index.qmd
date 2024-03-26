@@ -4,9 +4,10 @@ title: "Image2024"
 
 This is a Quarto website.
 
-All submissions to the Image23 conference with additional figures, references, ...
+All submissions to the Image24 conference with additional figures, references, ...
 
 List of abstrac:
 
 - [Digital twin with control](DigitalTwin/abstract.qmd) An uncertainty-aware digital twin for geological carbon storage
 - [Velocity Continuation for Common Image Gathers with Fourier Neural Operators](Rex2024SEG/paper.qmd) A framework to obtain CIGs in a fast manner
+- [WISER](yin2024SEG/paper.qmd): full-Waveform variational Inference via Subsurface Extensions with Refinements

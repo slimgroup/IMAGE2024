@@ -16,10 +16,10 @@ website:
       contents:
       - section: "Abstracts"
         contents:
-        - file: OneShot/abstract.qmd
-          text: "One Shot Imaging"
         - file: DigitalTwin/abstract.qmd
           text: "Digital twin with control"
+        - file: yin2024SEG/paper.qmd
+          text: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
         - file: Rex2024SEG/paper.qmd
           text: "Velocity Continuatition for Common Image Gathers"
   page-footer:
@@ -33,6 +33,7 @@ format:
       light: flatly
       dark: darkly
     css: styles.css
+    lightbox: True
     toc: true
     link-external-newwindow: True
 
