@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Digital Twin with pressure control.">
+<meta name="author" content="Abhinav Prakash Gahlot1*, Haoyun Li,1*, Ziyi Yin1, Rafael Orozco1, and Felix J. Herrmann1 1 Georgia Institute of Technology, * first two authors contributed equally">
 
-<title>Image2024 - Digital Twin</title>
+<title>Image2024 - A Digital Twin for Geological Carbon Storage with Controlled Injectivity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -165,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Digital twin with control</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,8 +197,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../DigitalTwin/abstract.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Digital twin with control</span></a>
+  <a href="../GahlotLi2024SEG/abstract.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,140 +219,104 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectives-and-scope" id="toc-objectives-and-scope" class="nav-link active" data-scroll-target="#objectives-and-scope">Objectives and scope</a></li>
-  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#significance" id="toc-significance" class="nav-link" data-scroll-target="#significance">Significance</a></li>
-  <li><a href="#supplementary-material" id="toc-supplementary-material" class="nav-link" data-scroll-target="#supplementary-material">Supplementary material</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#synthetic-case-studies" id="toc-synthetic-case-studies" class="nav-link" data-scroll-target="#synthetic-case-studies">Synthetic case studies</a></li>
-  <li><a href="#discussion-and-conclusions" id="toc-discussion-and-conclusions" class="nav-link" data-scroll-target="#discussion-and-conclusions">Discussion and conclusions</a>
-  <ul class="collapse">
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#conclusion-and-discussions" id="toc-conclusion-and-discussions" class="nav-link" data-scroll-target="#conclusion-and-discussions">Conclusion and discussions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul></li>
-  
-  
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../DigitalTwin/abstract.html">Digital twin with control</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Digital Twin</h1>
+<h1 class="title">A Digital Twin for Geological Carbon Storage with Controlled Injectivity</h1>
 </div>
 
-<div>
-  <div class="description">
-    <p>Digital Twin with pressure control.</p>
-  </div>
-</div>
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Authors</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Abhinav Prakash Gahlot<sup>1*</sup>, Haoyun Li,<sup>1*</sup>, Ziyi Yin<sup>1</sup>, Rafael Orozco<sup>1</sup>, and Felix J. Herrmann<sup>1</sup><br>
+<sup>1</sup> Georgia Institute of Technology, <sup>*</sup> first two authors contributed equally </p>
+          </div>
+  </div>
+    
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    <p>Digital twin with pressure control, reproducible at <a href=""></a></p>
-  </div>
-</div>
 
 
 </header>
 
 
-<div class="hidden">
-<p><span class="math display">\[
-    \newcommand{\pluseq}{\mathrel{+}=}
-\]</span></p>
-</div>
-<section id="objectives-and-scope" class="level2">
-<h2 class="anchored" data-anchor-id="objectives-and-scope">Objectives and scope</h2>
-<p>Write objective and scope</p>
-</section>
-<section id="method" class="level2">
-<h2 class="anchored" data-anchor-id="method">Method</h2>
-<p>Write methods here</p>
-</section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">Results</h2>
-<p>Write results here</p>
-<div id="fig-sup" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/figname1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="figures/figname1.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Caption 1
-</figcaption>
-</figure>
-</div>
-<div id="fig-unsup" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/figname2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="figures/figname2.png" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Caption 2
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="significance" class="level2">
-<h2 class="anchored" data-anchor-id="significance">Significance</h2>
-<p>Write significance. Additional material is available at https://slimgroup.github.io/IMAGE2024/.</p>
-</section>
-<section id="supplementary-material" class="level1">
-<h1>Supplementary material</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Digital Twins refer to dynamic virtual replicas of subsurface systems, integrating real-time data and employing advanced generative Artificial Intelligence (genAI) methodologies, such as neural posterior density estimation via simulation-based inference and sequential Bayesian inference. Thanks to combination of these advanced Bayesian inference techniques, our approach is capable of addressing challenges of monitoring and controlling CO<sub>2</sub> storage projects. These challenges include dealing with the subsurface’s complexity and heterogeneity (seismic and fluid-flow properties), operations optimization, and risk mitigation, e.g.&nbsp;via injection rate control. Because our Digital Twin is capable of handling diverse monitoring data, consisting of time-lapse seismic and data collected at (monitoring) wells, it entails a technology that serves as a platform to integrate seemingly disparate and siloed fields, e.g.&nbsp;geophysics and reservoir engineering. In addition, recent breakthroughs in genAI, allow Digital Twins to capture uncertainty in a principled way <span class="citation" data-cites="yu2023IMAGEmsc herrmann2023president gahlot2023NIPSWSifp">(<a href="#ref-yu2023IMAGEmsc" role="doc-biblioref">Yu et al. 2023</a>; <a href="#ref-herrmann2023president" role="doc-biblioref">Herrmann 2023</a>; <a href="#ref-gahlot2023NIPSWSifp" role="doc-biblioref">Gahlot et al. 2023</a>)</span>. By employing training and inference recursively, the Digital Twin trains its neural networks on samples of the simulated current state—i.e., the CO<sub>2</sub> saturation/pressure, paired with simulated imaged seismic and/or data collected at (monitoring) wells. These training pairs of the simulated state and simulated observations are obtained by sampling the posterior distribution, <span class="math inline">\(\mathbf{x}_{k-1}\sim p(\mathbf{x}_{k-1}\vert \mathbf{y}^\mathrm{o}_{1:k-1})\)</span>, at the previous timestep, <span class="math inline">\(k-1\)</span>, conditioned on field data, <span class="math inline">\(\mathbf{y}^\mathrm{o}_{1:k-1}\)</span>, collected over all previous timesteps, <span class="math inline">\(1:k-1\)</span>, followed by advancing the state to the current timestep, followed by simulating (seismic/well) observations associated with that state. Given these simulated state-observation pairs, the Digital Twin’s networks are trained, so they are current and ready to produce samples of the posterior when the new field data comes in—i.e.&nbsp;<span class="math inline">\(\mathbf{x}_{k}\sim p(\mathbf{x}_{k}\vert \mathbf{y}^\mathrm{o}_{1:k})\)</span>. While this new neural approach to data assimilation for CO<sub>2</sub> storage projects provides what is called an uncertainty-informed <em>Digital Shadow</em>, it lacks decision making and control, which would make it a Digital Twin <span class="citation" data-cites="thelen2022comprehensivea">(<a href="#ref-thelen2022comprehensivea" role="doc-biblioref">Thelen et al. 2022</a>)</span>, capable of optimizing storage operations while mitigating risks including the risk of fracturing the cap rock by exceeding the fracture pressure. The latter risk is illustrated in Figure 1, where the first row contains simulated samples of the differential pressure at timestep, <span class="math inline">\(k=4\)</span>, without control. These samples for the simulated state exceed the fracture pressure and are denoted by the red areas. During this talk, we will demonstrate how the Digital Twin can make informed decisions to avoid exceeding the fracture pressure.</p>
 </section>
 <section id="methodology" class="level2">
 <h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>To make uncertainty informed decisions on adapting the injection rate, 128 samples of the state (see second row Figure 1), <span class="math inline">\(\{\mathbf{x}^{(m)}_{3}\}_{m=1}^{128}\)</span>, and permeability, <span class="math inline">\(\{K^{(m)}\}_{m=1}^{128}\)</span>, are drawn at time-step <span class="math inline">\(k=3\)</span> from the posterior distribution, <span class="math inline">\(\mathbf{x}_{3}\sim p(\mathbf{x}_{3}\vert \mathbf{y}^\mathrm{o}_{1:3})\)</span>, for the state conditioned on the observed time-lapse data, and from the distribution for the permeability, <span class="math inline">\(K\sim p(K)\)</span>. To find the optimized injection rate, we first calculate for each sample, <span class="math inline">\(K\)</span> and <span class="math inline">\(\mathbf{x}^{(m)}_{3}\)</span>, the optimized injectivity by <span class="math inline">\(\max_{q_3} q_3\Delta t \ \ \text{subject to} \ \ \mathbf{x}_{4}['p']&lt;\mathbf{p}_{\max}\)</span> where <span class="math inline">\(\mathbf{p}_{\max}\)</span> is the depth-dependent fracture pressure, and <span class="math inline">\(\mathbf{x}_{4}=\mathcal{M}_3(\mathbf{x}_{3}, \mathbf{K}; q_3)\)</span> the state’s time-advancement denoted by the symbol <span class="math inline">\(\mathcal{M}_3\)</span>. For the fluid-flow simulations, the open-source Julia package <a href="https://github.com/slimgroup/JUDI.jl">JUDI.jl</a> and <a href="https://github.com/sintefmath/JutulDarcy.jl">JutulDarcy.jl</a> are used. Results of these optimizations are included in Figure 2(a), which contains a histogram of the empirical fracture frequency as a function of injection rates at time <span class="math inline">\(k=3\)</span>. Given this histogram, our task is to maximize the injection rate given a pre-defined confidence interval (e.g.&nbsp;95 %), so that the fracture probability remains below a certain percentage e.g.&nbsp;1%. With these simulations, and the fact that fracture/no-fracture occurrences are distributed according to the Bernoulli distribution, we will demonstrate that we are able to select an injection rate that limits fracture occurrence to the prescribed probability with a prescribed confidence interval. For instance, we can compute <span class="math inline">\(Pr([\mathbf{x}_4['p']&gt;p_{\max}]&lt;0.01)&lt;1-0.025\)</span>, which corresponds to selecting an injection rate that leads to fracture rate of <span class="math inline">\(&lt;1\%\)</span> with <span class="math inline">\(97.5\%\)</span> confidence. The confidence interval is halved, because only conservative (left) injection rates will be selected (see Figure 2(b)).</p>
 </section>
-<section id="synthetic-case-studies" class="level2">
-<h2 class="anchored" data-anchor-id="synthetic-case-studies">Synthetic case studies</h2>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>To calculate injection rates that mitigate the risk of exceeding the fracture pressure, we proceed as follows. First, because the optimized injection rates are close to the fracture pressure, we consider these optimization as approximations to the injection rates where the fracture pressure are exceeded. Next, Kernel Density Estimation (KDE) is applied to produce the smooth red curve in Figure 2(a). This smoothed probability function is used to calculate the Cumulative Density Function (CDF), plotted in Figure 2(b). Using the fact that non-fracture/fracture occurrence entails a Bernoulli distribution, confidence intervals can be calculated, <span class="math inline">\(\pm Z_{\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1 - \hat{p})}{128}}\)</span> where <span class="math inline">\(\hat{p}\)</span> represents the CDF (blue line) and <span class="math inline">\(Z_{\frac{\alpha}{2}}=1.96\)</span> with <span class="math inline">\(\alpha=0.05\)</span>. From the CDF and confidence intervals (denoted by the grey areas), the following conclusions can be drawn: First, if the initial injection rate of <span class="math inline">\(q_3 = 0.0500 m^3/s\)</span> is kept, the fracture probability lies between 24.47 – 40.71% (vertical dashed line) and has a maximum likelihood of 32.59%, which are all way too high. Second, if we want to limit the fracture occurrence rate to 1% (red dashed line), then we need to lower the injection rate to <span class="math inline">\(q_3=0.0387\mathrm{m^3/s}\)</span>. To ensure the low fracture occurrence rate of 1%, the reduced injection rate is chosen as the smallest injection rate within the confidence interval. As can be observed from Figure 2(b), lowering the injection rate avoids exceeding the fracture pressure at the expense of injecting less CO<sub>2</sub>. Out of 128 samples, 43 samples are fractured with the initial injection rate, while only one sample is fractured with the controlled injection rate.</p>
 </section>
-<section id="discussion-and-conclusions" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-and-conclusions">Discussion and conclusions</h2>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
-<div id="refs" role="list">
-
+<section id="conclusion-and-discussions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-discussions">Conclusion and discussions</h2>
+<p>The above example illustrates how Digital Twins can be used to mitigate risks associated with CO<sub>2</sub> storage projects. Specifically, we used the Digital Twin’s capability to produce samples of its state (pressure), conditioned on observed seismic and/or well data. Using these samples, in conjunction with samples from the permeability distribution, we were able to capture statistics on the fracture occurrence frequency as a function of the injection rate. Given these statistics, we were in a position to set a fracture frequency and choose the corresponding injection rate as a function of the confidence interval. By following this procedure, exceeding the fracture pressure was avoided by lowering the injection rate. The decision to lower the injection rate, and by which amount, was informed by the Digital Twin, which uses seismic and/or well data to capture reservoir’s state including its uncertainty.</p>
+<div id="fig-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/Figure1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/Figure1.png" class="img-fluid figure-img" style="width:90.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</span> and a comparative analysis of pressure outputs from the digital twin at time-step <span class="math inline">\(k=4\)</span>
+</figcaption>
+</figure>
+</div>
+<div id="fig-fracture" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/Figure2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./figs/Figure2.png" class="img-fluid figure-img" style="width:90.0%"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Injection rate samples and KDE curve(a), CDF curve of fracture probability versus injection rate with 95% confidence interval(b)
+</figcaption>
+</figure>
 </div>
 </section>
-</section>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section id="acknowledgement" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Acknowledgement</h2><div class="quarto-appendix-contents">
-
-<p>This research was carried out with the support of Georgia Research Alliance and partners of the ML4Seismic Center.</p>
-</div></section><section id="software-availability" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Software availability</h2><div class="quarto-appendix-contents">
-
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gahlot2023NIPSWSifp" class="csl-entry" role="listitem">
+Gahlot, Abhinav Prakash, Huseyin Tuna Erdinc, Rafael Orozco, Ziyi Yin, and Felix J. Herrmann. 2023. <span>“Inference of CO2 Flow Patterns <span></span> a Feasibility Study.”</span> <a href="https://doi.org/10.48550/arXiv.2311.00290">https://doi.org/10.48550/arXiv.2311.00290</a>.
+</div>
+<div id="ref-herrmann2023president" class="csl-entry" role="listitem">
+Herrmann, Felix J. 2023. <span>“President’s Page: Digital Twins in the Era of Generative AI.”</span> <em>The Leading Edge</em> 42 (11): 730–32.
+</div>
+<div id="ref-thelen2022comprehensivea" class="csl-entry" role="listitem">
+Thelen, Adam, Xiaoge Zhang, Olga Fink, Yan Lu, Sayan Ghosh, Byeng D Youn, Michael D Todd, Sankaran Mahadevan, Chao Hu, and Zhen Hu. 2022. <span>“A Comprehensive Review of Digital Twin—Part 1: Modeling and Twinning Enabling Technologies.”</span> <em>Structural and Multidisciplinary Optimization</em> 65 (12): 354.
+</div>
+<div id="ref-yu2023IMAGEmsc" class="csl-entry" role="listitem">
+Yu, Ting-ying, Rafael Orozco, Ziyi Yin, Mathias Louboutin, and Felix J. Herrmann. 2023. <span>“Monitoring Subsurface CO2 Plumes with Sequential Bayesian Inference.”</span> <a href="https://slimgroup.github.io/IMAGE2023/SequentialBayes/abstract.html">https://slimgroup.github.io/IMAGE2023/SequentialBayes/abstract.html</a>.
+</div>
+</div>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Caption 1</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Caption 2</span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</span> and a comparative analysis of pressure outputs from the digital twin at time-step <span class="math inline">\(k=4\)</span></span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Injection rate samples and KDE curve(a), CDF curve of fracture probability versus injection rate with 95% confidence interval(b)</span>
 </div>
-</div></section></div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -930,7 +895,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
