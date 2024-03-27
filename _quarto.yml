@@ -16,10 +16,14 @@ website:
       contents:
       - section: "Abstracts"
         contents:
-        - file: OneShot/abstract.qmd
-          text: "One Shot Imaging"
-        - file: DigitalTwin/abstract.qmd
-          text: "Digital twin with control"
+        - file: GahlotLi2024SEG/paper.qmd
+          text: "A Digital Twin for Geological Carbon Storage with Controlled Injectivity"
+        - file: yin2024SEG/paper.qmd
+          text: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
+        - file: Rex2024SEG/paper.qmd
+          text: "Velocity Continuation for Common Image Gathers"
+        - file: erdinc2024SEG/abstract.qmd
+          text: "Building subsurface velocity priors from field observations"
   page-footer:
     center:
       - file: license.qmd
@@ -31,6 +35,7 @@ format:
       light: flatly
       dark: darkly
     css: styles.css
+    lightbox: True
     toc: true
     link-external-newwindow: True
 
