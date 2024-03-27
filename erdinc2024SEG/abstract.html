@@ -324,7 +324,7 @@ window.Quarto = {
 <div id="fig-sup" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/IMAGE2024_figure1_new.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="figures/IMAGE2024_figure1_new.png" class="img-fluid figure-img"></a>
+<a href="figures/IMAGE2024_figure1_new.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="figures/IMAGE2024_figure1_new.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Training-loss formulation: field observations (RTMs and wells) along with column-wise masks (<span class="math inline">\(\mathbf{A}\)</span>) are sampled initially. Conditioned on these masks, further sub-sampling masks (<span class="math inline">\(\mathbf{\widetilde{A}}\)</span>) are generated. The neural denoising model <span class="math inline">\(h_\theta\)</span>, informed by the sub-sampling masks, noisy sub-sampled well information and RTMs, is trained to reconstruct the complete, noise-free velocity model.
@@ -338,7 +338,7 @@ Figure&nbsp;1: Training-loss formulation: field observations (RTMs and wells) al
 <div id="fig-unsup" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/IMAGE2024_figure2_new.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="figures/IMAGE2024_figure2_new.png" class="img-fluid figure-img"></a>
+<a href="figures/IMAGE2024_figure2_new.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="figures/IMAGE2024_figure2_new.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: The denoising generative model is tested on two previously unseen seismic images. For each case, we fed the corresponding RTM into the network and generated velocity samples (200 samples for each example). Subsequently, we computed both the posterior mean and variance. To assess the accuracy of our model, we included the SSIM between the ground-truth to the posterior means
@@ -963,7 +963,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
