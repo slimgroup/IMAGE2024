@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ziyi Yin1,*, Rafael Orozco1,*, Mathias Louboutin2, Felix J. Herrmann1 1 Georgia Institute of Technology, 2 Devito Codes Ltd, * equal contribution">
+<meta name="author" content="Yunlin Zeng1, Rafael Orozco1, Ziyi Yin1, Felix Herrmann 1 1 Georgia Institute of Technology">
 
-<title>Image2024 - WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</title>
+<title>Image2024 - Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,6 +93,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -137,7 +166,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../yin2024SEG/paper.html">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../Yunlin_Zeng2024SEG/paper.html">Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -174,7 +203,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../yin2024SEG/paper.html" class="sidebar-item-text sidebar-link active">
+  <a href="../yin2024SEG/paper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</span></a>
   </div>
 </li>
@@ -192,7 +221,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Yunlin_Zeng2024SEG/paper.html" class="sidebar-item-text sidebar-link">
+  <a href="../Yunlin_Zeng2024SEG/paper.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</span></a>
   </div>
 </li>
@@ -208,20 +237,19 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  <li><a href="#amortized-variational-inference" id="toc-amortized-variational-inference" class="nav-link" data-scroll-target="#amortized-variational-inference">Amortized variational inference</a></li>
-  <li><a href="#physics-based-refinement" id="toc-physics-based-refinement" class="nav-link" data-scroll-target="#physics-based-refinement">Physics-based refinement</a></li>
-  <li><a href="#downstream-imaging" id="toc-downstream-imaging" class="nav-link" data-scroll-target="#downstream-imaging">Downstream imaging</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../yin2024SEG/paper.html">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../GahlotLi2024SEG/paper.html">Abstracts</a></li><li class="breadcrumb-item"><a href="../Yunlin_Zeng2024SEG/paper.html">Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements</h1>
+<h1 class="title">Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</h1>
 </div>
 
 
@@ -231,8 +259,8 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ziyi Yin<sup>1,*</sup>, Rafael Orozco<sup>1,*</sup>, Mathias Louboutin<sup>2</sup>, Felix J. Herrmann<sup>1</sup><br>
-<sup>1</sup> Georgia Institute of Technology, <sup>2</sup> Devito Codes Ltd, <sup>*</sup> equal contribution </p>
+             <p>Yunlin Zeng<sup>1</sup>, Rafael Orozco<sup>1</sup>, Ziyi Yin<sup>1</sup>, Felix Herrmann <sup>1</sup><br>
+<sup>1</sup> Georgia Institute of Technology </p>
           </div>
   </div>
     
@@ -245,196 +273,61 @@ div.csl-indent {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>We introduce a cost-effective Bayesian inference method for full-waveform inversion (FWI) to quantify uncertainty in migration-velocity models and its impact on imaging. Our method targets inverse uncertainty due to null-space of the wave modeling operators and observational noise, and forward uncertainty where the uncertainty in velocity models is propagated to uncertainty in amplitude and positioning of imaged reflectivities. This is achieved by integrating generative artificial intelligence (genAI) with physics-informed common-image gathers (CIGs), which greatly reduces reliance on accurate initial FWI-velocity models. In addition, we illustrate the capability of fine-tuning the generative AI networks with frugal physics-based refinements to improve the inference accuracy.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Full-Waveform Inversion (FWI) corresponds to a computationally expensive iterative optimization scheme that determines migration-velocity models by minimizing the discrepancy between observed seismic shot data and data generated by a forward model parameterized by the velocity. Recent advancements, such as full-Waveform variational Inference via Subsurface Extensions (WISE, <span class="citation" data-cites="yin2023wise">Yin et al. (<a href="#ref-yin2023wise" role="doc-biblioref">2023</a>)</span>) in simulation-based inference <span class="citation" data-cites="Cranmer2020">(<a href="#ref-Cranmer2020" role="doc-biblioref">Cranmer, Brehmer, and Louppe 2020</a>)</span>, produce amortized neural posterior estimates that enable fast online inference of the velocity. These neural approximations to the posterior distribution, <span class="math inline">\(p_{\boldsymbol{\theta}}(\mathbf{x}\vert\mathbf{y})\approx p(\mathbf{x}\vert\mathbf{y})\)</span> with <span class="math inline">\(\mathbf{x}\)</span>, the velocity model, <span class="math inline">\(\mathbf{y}\)</span>, the shot data, and <span class="math inline">\(\boldsymbol{\theta}\)</span>, the network weights, are obtained with variational inference, which requires extensive off-line training. Aside from providing statistically robust estimates via the conditional mean, <span class="math inline">\(\mathbb{E}_{\mathbf{x}\sim p_{\boldsymbol{\theta}}(\mathbf{x}\vert\mathbf{y})}(\mathbf{x})\)</span>, these neural posterior also provide a useful metric of the uncertainty in terms of the variance <span class="math inline">\(\mathbb{V}_{\mathbf{x}\sim p_{\boldsymbol{\theta}}(\mathbf{x}\vert\mathbf{y})}(\mathbf{x})\)</span>. To make this amortized inference approach computationally feasible, we follow <span class="citation" data-cites="yin2023wise">Yin et al. (<a href="#ref-yin2023wise" role="doc-biblioref">2023</a>)</span> and train on pairs <span class="math inline">\(\left\{(\mathbf{x}^{(m)}, \mathbf{\bar{y}}^{(m)})\right\}_{m=1}^M\)</span>, where the <span class="math inline">\(\mathbf{\bar{y}}^{(m)}\)</span> stand for subsurface-offset Common Image Gathers, computed from each shot dataset, <span class="math inline">\(\mathbf{y}^{(m)}\)</span>. While CIG’s as <em>physics-based summary statistics</em> are better suited to inform the posterior than plain migration—i.e, they preserve information even when the migration-velocity model is poor, their performance still depends on the choice of the initial migration-velocity model, <span class="math inline">\(\mathbf{x}_0\)</span>. During this talk, we will study the impact of varying initial background-velocity models on the quality of the amortized neural posterior sampler. We will also investigate how augmenting the training set with different initial background-velocity models can lead to improved performance.</p>
 </section>
-<section id="amortized-variational-inference" class="level2">
-<h2 class="anchored" data-anchor-id="amortized-variational-inference">Amortized variational inference</h2>
-<p>Our method concerns estimation of migration-velocity models from noisy seismic data through the inversion of the wave modeling operator. Instead of seeking only a single velocity model, our method aims to draw samples from the posterior distribution of migration-velocity models conditioned on the observed shot data. In this context, we train conditional normalizing flows (CNFs) to approximate this posterior distribution. To simplify the mapping between seismic image and shot data, we use common-image gathers (CIGs) as an information-preserving physics-informed summary statistic to embed the shot data, and then train the CNFs on pairs of velocity models and CIGs. After training, the inverse of CNF turns random realizations of the standard Gaussian distribution into posterior samples (velocity models) conditioned on any seismic observation that is in the same statistical distribution as the training data, shown in the upper part of the flowchart. We term this amortized inference framework WISE, short for full-<strong>W</strong>aveform variational <strong>I</strong>nference via <strong>S</strong>ubsurface <strong>E</strong>xtensions <span class="citation" data-cites="yin2023wise">(<a href="#ref-yin2023wise" role="doc-biblioref">Yin et al. 2023</a>)</span>. We further propose a physics-based <strong>R</strong>efinement approach to make it WISER.</p>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>By interpreting the initial migration-velocity model as stochastic latent variables—i.e., <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span> with <span class="math inline">\(\mathbf{x}\sim p(\mathbf{x})\)</span>, we propose to augment the training pairs, <span class="math inline">\(\left\{(\mathbf{x}^{(m)}, \mathbf{\bar{y}}^{(m)})\right\}_{m=1}^M\)</span>, with <span class="math inline">\(\mathbf{\bar{y}}^{(m)}\)</span>’s computed for one single initial migration-velocity model, <span class="math inline">\(\mathbf{x}_0\)</span>, with <span class="math inline">\(\mathbf{\bar{y}}^{(m)}\)</span>, obtained with multiple different (randomly perturbed) initial migration-velocity models, <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span>. The aim of this training dataset augmentation is to improve the robustness of WISE—i.e., make its neural posterior estimation less dependent on the choice for the initial migration-velocity model, <span class="math inline">\(\mathbf{x}_0\)</span>.</p>
 </section>
-<section id="physics-based-refinement" class="level2">
-<h2 class="anchored" data-anchor-id="physics-based-refinement">Physics-based refinement</h2>
-<p>While the trained amortized CNF can generate posterior velocity samples instantaneously at inference, the accuracy of CNFs might be deteriorated due to out-of-distribution issues — i.e., the observed data is generated by an out-of-distribution velocity model, or through a slightly different forward modeling operator (e.g.&nbsp;acoustic-elastic, differing source function, attenuation effect, unremoved shear wave energy, etc). To meet this challenge and bridge the so-called <em>amortization gap</em>, we apply a physics-based refinement approach to fine-tune the trained network. We compose a shallower invertible network with the trained CNFs, where the shallower network is initialized with random weights and acts on the latent space. Following a transfer learning scheme, we freeze the weights of the trained CNF and only update the weights of the shallower network in order for the posterior samples to fit the observed shot data. This process is shown in the lower part of the flowchart in red color.</p>
-</section>
-<section id="downstream-imaging" class="level2">
-<h2 class="anchored" data-anchor-id="downstream-imaging">Downstream imaging</h2>
-<p>To understand how the uncertainty in the migration-velocity models propagates to imaged reflectors, forward uncertainty is assessed by carrying out high-frequency imaging for different posterior velocity samples, shown on the right-hand side of the flowchart. The uncertainty in the imaged reflectors is revealed in variance in both the amplitude and the positioning of the reflectors.</p>
-<div id="fig-workflow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>To improve the neural posterior estimation’s robustness, multiple initial migration-velocity models, <span class="math inline">\(\mathbf{x}_0\)</span>, are obtained by randomly perturbing the ground-truth velocity model, <span class="math inline">\(\mathbf{x}\)</span>, followed by extensive smoothing. Since this deformation is stochastic, we can sample an “infinite” number of background models, <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span>, to be used during training, although in practice we regenerate the background model a few times (<span class="math inline">\(3-5\)</span>) (Figure 1(a)). Then, new <span class="math inline">\(\mathbf{\bar{y}}^{(i)}\)</span> are generated based on each <span class="math inline">\(\mathbf{x}_0^{(i)}\)</span> and <span class="math inline">\(\mathbf{y}\)</span> (Figure 1(b)), and the resulting <span class="math inline">\(\{\mathbf{x}, \mathbf{\bar{y}}^{(i)}\}\)</span> pairs form a training dataset for the Conditional Normalizing Flow (CNF) (Figure 1(c)).</p>
+<p>To evaluate our method, we divide the Compass model dataset <span class="citation" data-cites="Jones2012">(<a href="#ref-Jones2012" role="doc-biblioref">E. Jones et al. 2012</a>)</span> by allocating <span class="math inline">\(800\)</span> pairs for training and <span class="math inline">\(150\)</span> for testing. We train the baseline CNF on <span class="math inline">\(M=800\)</span> velocity-extended image pairs, and train enhanced CNFs on augmented training pairs (<span class="math inline">\(M=1600, 2400, ...\)</span> etc.). The trained CNFs are evaluated by structural similarity index measure (SSIM) and root mean square error (RMSE) of the posterior samples’ mean against the ground truth. SSIM improves from <span class="math inline">\(0.725\)</span> to <span class="math inline">\(0.753\)</span> while RMSE improves from <span class="math inline">\(0.110\)</span> to <span class="math inline">\(0.107\)</span> on <span class="math inline">\(150\)</span> unseen test samples. Figure 2 shows the conditional mean and point-wise standard deviation of the baseline and the enhanced CNF posterior samples, where the enhanced CNF sampler aligns more closely with the ground truth. We observe the trend that the uncertainty is reduced as we increase the number of background-velocity model regenerations during training. This implies that the uncertainty information in the baseline has yet not captured the uncertainty fully due to the choice of a fixed background-velocity model while our method has learned to incorporate this uncertainty information into the final inference result.</p>
+<div id="fig-framwork" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISER-workflow.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/WISER-workflow.jpeg" class="img-fluid figure-img" style="width:99.0%"></a>
+<div aria-describedby="fig-framwork-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/framework.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/framework.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: WISER workflow.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-framwork-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The complete stochastic resampling framework: (a) Randomly perturbed and smoothed velocity models, <span class="math inline">\(\mathbf{x}\)</span>, to get new background models, <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span>. (b) Generate <span class="math inline">\(\mathbf{\bar{y}}\)</span> based on <span class="math inline">\(\mathbf{x}_0\)</span> and seismic shot data <span class="math inline">\(\mathbf{y}\)</span>. (c) Train the CNF on <span class="math inline">\(\{\mathbf{x}, \mathbf{\bar{y}}\}\)</span> pairs.
 </figcaption>
 </figure>
 </div>
-<div id="fig-wise-vs-wiser" class="quarto-layout-panel">
+<div id="fig-result" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-wise-vs-wiser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-background" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-background-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/background-colorbar.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-2"><img src="./figs/background-colorbar.png" id="fig-background" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
+<div aria-describedby="fig-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./figs/result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./figs/result.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-background-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-true" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-true-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/true-v-colorbar.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-3"><img src="./figs/true-v-colorbar.png" id="fig-true" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-true-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wise-v-3d" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wise-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISE-v-3D.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-4"><img src="./figs/WISE-v-3D.png" id="fig-wise-v-3d" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wiser-v-3d" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wiser-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISER-v-3D.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-5"><img src="./figs/WISER-v-3D.png" id="fig-wiser-v-3d" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-v-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wise-uq" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wise-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISE-UQ-v.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-6"><img src="./figs/WISE-UQ-v.png" id="fig-wise-uq" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(e)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wiser-uq" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wiser-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISER-UQ-v.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-7"><img src="./figs/WISER-UQ-v.png" id="fig-wiser-uq" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-uq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(f)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wise-cm-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wise-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISE-rtm-3D.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-8"><img src="./figs/WISE-rtm-3D.png" id="fig-wise-cm-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(g)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wiser-cm-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wiser-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISER-rtm-3D.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-9"><img src="./figs/WISER-rtm-3D.png" id="fig-wiser-cm-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-cm-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(h)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wise-uq-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wise-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISE-UQ-rtm.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-10"><img src="./figs/WISE-UQ-rtm.png" id="fig-wise-uq-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wise-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(i)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-wise-vs-wiser" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-wiser-uq-rtm" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-wiser-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/WISER-UQ-rtm.png" class="lightbox" data-gallery="fig-wise-vs-wiser" data-glightbox="description: .lightbox-desc-11"><img src="./figs/WISER-UQ-rtm.png" id="fig-wiser-uq-rtm" class="img-fluid figure-img" data-ref-parent="fig-wise-vs-wiser"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wiser-uq-rtm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(j)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wise-vs-wiser-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: <em>(a)</em> 1D initial FWI-velocity model used for CIG computation; <em>(b)</em> unseen ground truth velocity model; <em>(c)</em> estimated migration-velocity models from WISE; <em>(e)</em> point-wise standard deviation of the migration-velocity models from WISE; <em>(g)</em> imaged reflectivities using migration-velocity models from WISE; <em>(i)</em> point-wise standard deviation of the imaged reflectivities from WISE; <em>(d)(f)(h)(j)</em> are the counterparts of <em>(c)(e)(g)(i)</em> but from WISER.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Comparison of conditional mean and point-wise standard deviation between the enhanced CNF and the baseline CNF.
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-yin2023wise" class="csl-entry" role="listitem">
-Yin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J Herrmann. 2023. <span>“WISE: Full-Waveform Variational Inference via Subsurface Extensions.”</span> <em>arXiv Preprint arXiv:2401.06230</em>.
-</div>
-</div>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: WISER workflow.</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2&nbsp;(a): </span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;2&nbsp;(b): </span>
-<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;2&nbsp;(c): </span>
-<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;2&nbsp;(d): </span>
-<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;2&nbsp;(e): </span>
-<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;2&nbsp;(f): </span>
-<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;2&nbsp;(g): </span>
-<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;2&nbsp;(h): </span>
-<span class="glightbox-desc lightbox-desc-10">Figure&nbsp;2&nbsp;(i): </span>
-<span class="glightbox-desc lightbox-desc-11">Figure&nbsp;2&nbsp;(j): </span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: The complete stochastic resampling framework: (a) Randomly perturbed and smoothed velocity models, <span class="math inline">\(\mathbf{x}\)</span>, to get new background models, <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span>. (b) Generate <span class="math inline">\(\mathbf{\bar{y}}\)</span> based on <span class="math inline">\(\mathbf{x}_0\)</span> and seismic shot data <span class="math inline">\(\mathbf{y}\)</span>. (c) Train the CNF on <span class="math inline">\(\{\mathbf{x}, \mathbf{\bar{y}}\}\)</span> pairs.</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Comparison of conditional mean and point-wise standard deviation between the enhanced CNF and the baseline CNF.</span>
 </div>
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Cranmer2020" class="csl-entry" role="listitem">
+Cranmer, Kyle, Johann Brehmer, and Gilles Louppe. 2020. <span>“The Frontier of Simulation-Based Inference.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (48): 30055–62. <a href="https://doi.org/10.1073/pnas.1912789117">https://doi.org/10.1073/pnas.1912789117</a>.
+</div>
+<div id="ref-Jones2012" class="csl-entry" role="listitem">
+E. Jones, C., J. A. Edgar, J. I. Selvage, and H. Crook. 2012. <span>“Building Complex Synthetic Models to Evaluate Acquisition Geometries and Velocity Inversion Technologies.”</span> https://doi.org/<a href="https://doi.org/10.3997/2214-4609.20148575">https://doi.org/10.3997/2214-4609.20148575</a>.
+</div>
+<div id="ref-yin2023wise" class="csl-entry" role="listitem">
+Yin, Ziyi, Rafael Orozco, Mathias Louboutin, and Felix J. Herrmann. 2023. <span>“WISE: Full-Waveform Variational Inference via Subsurface Extensions.”</span> <a href="https://arxiv.org/abs/2401.06230">https://arxiv.org/abs/2401.06230</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1013,7 +906,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

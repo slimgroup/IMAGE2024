@@ -219,6 +219,12 @@ window.Quarto = {
  <span class="menu-text">Building subsurface velocity priors from field observations</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Yunlin_Zeng2024SEG/paper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -282,7 +288,7 @@ window.Quarto = {
 <div id="fig-unsup" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="figures/workflow.001.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="figures/workflow.001.jpeg" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="figures/workflow.001.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="figures/workflow.001.jpeg" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unsup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothed velocity models used as training inputs (c), Migrated CIGs from smoothed velocity models as training targets (d), Surrogate that learns the mapping between initial velocity models, their CIGs, and target models, to produce the corresponding CIGs for the target velocity models (e)
@@ -292,8 +298,8 @@ Figure&nbsp;1: Our initial velocity model (a) and it’s CIG (b), Set of Smoothe
 <div id="fig-sup" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="figures/valid_sample=8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="figures/valid_sample=8.png" class="img-fluid figure-img"></a></p>
-<p><a href="figures/valid_sample=6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="figures/valid_sample=6.png" class="img-fluid figure-img"></a></p>
+<p><a href="figures/valid_sample=8.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="figures/valid_sample=8.png" class="img-fluid figure-img"></a></p>
+<p><a href="figures/valid_sample=6.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="figures/valid_sample=6.png" class="img-fluid figure-img"></a></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Column 1 represents the target CIG of the smoothed velocity models. Column 2 represents the predicted CIG from our FNO. The last column shows the amplified absolute difference between the first 2 columns
@@ -910,7 +916,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
