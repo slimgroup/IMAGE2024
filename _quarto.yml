@@ -22,6 +22,8 @@ website:
           text: "WISER: full-Waveform variational Inference via Subsurface Extensions with Refinements"
         - file: Rex2024SEG/paper.qmd
           text: "Velocity Continuation for Common Image Gathers"
+        - file: erdinc2024SEG/abstract.qmd
+          text: "Building subsurface velocity priors from field observations"
   page-footer:
     center:
       - file: license.qmd
