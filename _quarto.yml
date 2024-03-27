@@ -24,6 +24,8 @@ website:
           text: "Velocity Continuation for Common Image Gathers"
         - file: erdinc2024SEG/abstract.qmd
           text: "Building subsurface velocity priors from field observations"
+        - file: Yunlin_Zeng2024SEG/paper.qmd
+          text: "Enhancing Full-Waveform Variational Inference through Stochastic Resampling and Data Augmentation"
   page-footer:
     center:
       - file: license.qmd
