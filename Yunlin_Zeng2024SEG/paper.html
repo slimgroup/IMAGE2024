@@ -288,7 +288,7 @@ window.Quarto = {
 <div id="fig-framwork" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-framwork-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/framework.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/framework.png" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="./figs/framework.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./figs/framework.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-framwork-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The complete stochastic resampling framework: (a) Randomly perturbed and smoothed velocity models, <span class="math inline">\(\mathbf{x}\)</span>, to get new background models, <span class="math inline">\(\mathbf{x}_0\sim p(\mathbf{x}_0\vert \mathbf{x})\)</span>. (b) Generate <span class="math inline">\(\mathbf{\bar{y}}\)</span> based on <span class="math inline">\(\mathbf{x}_0\)</span> and seismic shot data <span class="math inline">\(\mathbf{y}\)</span>. (c) Train the CNF on <span class="math inline">\(\{\mathbf{x}, \mathbf{\bar{y}}\}\)</span> pairs.
@@ -298,7 +298,7 @@ Figure&nbsp;1: The complete stochastic resampling framework: (a) Randomly pertur
 <div id="fig-result" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./figs/result.png" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="./figs/result.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./figs/result.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Comparison of conditional mean and point-wise standard deviation between the enhanced CNF and the baseline CNF.
@@ -906,7 +906,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
