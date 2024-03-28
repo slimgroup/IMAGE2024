@@ -277,7 +277,7 @@ window.Quarto = {
 
 <section id="abstract" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="abstract">Abstract</h2>
-<p><em>We present an uncertainty-aware Digital Twin (DT) for geologic carbon storage (GCS), capable of handling multimodal time-lapse data and controlling CO<sub>2</sub> injectivity to mitigate reservoir fracturing risks. In GCS, DT represents virtual replicas of subsurface systems that incorporates real-time data and advanced generative Artificial Intelligence (genAI) techniques, including neural posterior density estimation via simulation-based inference and sequential Bayesian inference. These methods enable the effective monitoring and control of CO<sub>2</sub> storage projects, addressing challenges such as subsurface complexity, operational optimization, and risk mitigation. By integrating diverse monitoring data, e.g., geophysical well observations and imaged seismic, DT can bridge the gaps between seemingly distinct fields like geophysics and reservoir engineering. In addition, the recent advancements in genAI also facilitate DT with principled uncertainty quantification. Through recursive training and inference, DT utilizes simulated current state samples, e.g., CO<sub>2</sub> saturation, paired with corresponding geophysical field observations to train its neural networks and enable posterior sampling upon receiving new field data. However, it lacks decision-making and control capabilities, which is necessary for full DT functionality. This study aims to demonstrate how DT can inform decision-making processes to prevent risks such as cap rock fracturing during CO<sub>2</sub> storage operations.</em></p>
+<p><em>We present an uncertainty-aware Digital Twin (DT) for geologic carbon storage (GCS), capable of handling multimodal time-lapse data and controlling CO<sub>2</sub> injectivity to mitigate reservoir fracturing risks. In GCS, DT represents virtual replicas of subsurface systems that incorporate real-time data and advanced generative Artificial Intelligence (genAI) techniques, including neural posterior density estimation via simulation-based inference and sequential Bayesian inference. These methods enable the effective monitoring and control of CO<sub>2</sub> storage projects, addressing challenges such as subsurface complexity, operational optimization, and risk mitigation. By integrating diverse monitoring data, e.g., geophysical well observations and imaged seismic, DT can bridge the gaps between seemingly distinct fields like geophysics and reservoir engineering. In addition, the recent advancements in genAI also facilitate DT with principled uncertainty quantification. Through recursive training and inference, DT utilizes simulated current state samples, e.g., CO<sub>2</sub> saturation, paired with corresponding geophysical field observations to train its neural networks and enable posterior sampling upon receiving new field data. However, it lacks decision-making and control capabilities, which is necessary for full DT functionality. This study aims to demonstrate how DT can inform decision-making processes to prevent risks such as cap rock fracturing during CO<sub>2</sub> storage operations.</em></p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
@@ -297,7 +297,7 @@ window.Quarto = {
 <div id="fig-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/Figure1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="./figs/Figure1.png" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="./figs/Figure1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="./figs/Figure1.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</span> (second row) and a comparative analysis of pressure outputs (first and third) from the digital twin at time-step <span class="math inline">\(k=4\)</span>
@@ -307,7 +307,7 @@ Figure&nbsp;1: Pressure state at time-step <span class="math inline">\(k=3\)</sp
 <div id="fig-fracture" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./figs/Figure2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="./figs/Figure2.png" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="./figs/Figure2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="./figs/Figure2.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fracture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Injection rate samples and KDE curve(a), CDF curve of fracture probability versus injection rate with 95% confidence interval(b)
@@ -927,7 +927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
